@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Protocols: An Operating Manual for the Human Body</title>
+<style>
+/* ===== COLOR SYSTEM ===== */
+:root{
+  --bg:#f4f5f8;--card:#fff;--text:#1c2430;--muted:#4a5568;--border:#d9dee7;
+  --blue:#1d4ed8;--core:#e3eefc;--points:#e2f5e6;--example:#fff3cd;--why:#eee6fb;
+  --gloss:#dff4f2;--warn:#fde4e4;--memory:#ffe8d1;--recall:#fde3ef;--action:#e5e8fd;
+  --recapbg:#14213d;--recaptx:#fff;--shadow:0 2px 8px rgba(20,30,50,.08);
+}
+[data-theme="dark"]{
+  --bg:#0f141b;--card:#18202b;--text:#e8edf4;--muted:#b4bfce;--border:#2c3748;
+  --blue:#8ab4ff;--core:#1b2f4d;--points:#173326;--example:#40361a;--why:#2f2547;
+  --gloss:#12363a;--warn:#451f21;--memory:#46301a;--recall:#471f35;--action:#242a52;
+  --recapbg:#05080f;--recaptx:#fff;--shadow:0 2px 8px rgba(0,0,0,.4);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:1rem}
+body{margin:0;background:var(--bg);color:var(--text);font:1rem/1.65 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+a{color:var(--blue)}
+/* ===== PROGRESS BAR ===== */
+#progress{position:fixed;top:0;left:0;height:5px;width:0;background:var(--blue);z-index:100}
+/* ===== HEADER ===== */
+header.top{padding:clamp(1.5rem,5vw,3rem) 1rem;background:linear-gradient(135deg,#1e3a8a,#3b82f6);color:#fff;text-align:center}
+header.top h1{margin:0 auto .5rem;font-size:clamp(1.6rem,5vw,2.6rem);line-height:1.2;max-width:900px}
+header.top p{margin:0 auto;max-width:760px;font-size:clamp(1rem,2.5vw,1.2rem)}
+.toolbar{display:flex;gap:.5rem;justify-content:center;margin-top:1rem;flex-wrap:wrap}
+button{font:inherit;cursor:pointer;min-height:2.75rem;padding:.4rem 1rem;border-radius:.6rem;border:1px solid var(--border);background:var(--card);color:var(--text);transition:transform .15s,box-shadow .15s}
+button:hover{transform:translateY(-1px);box-shadow:var(--shadow)}
+button:focus-visible,summary:focus-visible,a:focus-visible{outline:3px solid #f59e0b;outline-offset:2px}
+/* ===== LAYOUT ===== */
+.layout{display:grid;grid-template-columns:1fr;gap:1rem;max-width:1250px;margin:0 auto;padding:1rem}
+nav#toc{background:var(--card);border:1px solid var(--border);border-radius:.8rem;box-shadow:var(--shadow);padding:.5rem}
+#tocBtn{width:100%;text-align:left;font-weight:700}
+#tocList{display:none;list-style:none;margin:.5rem 0 0;padding:0}
+#tocList.open{display:block}
+#tocList a{display:block;padding:.65rem .75rem;border-radius:.5rem;text-decoration:none;color:var(--text)}
+#tocList a:hover,#tocList a.active{background:var(--core);color:var(--text)}
+main{min-width:0;max-width:900px}
+/* ===== CARDS ===== */
+section.card{--ac:#2563eb;background:var(--card);border:1px solid var(--border);border-left:8px solid var(--ac);border-radius:.8rem;box-shadow:var(--shadow);padding:clamp(1rem,3vw,1.75rem);margin:0 0 1.25rem;transition:box-shadow .2s}
+main section.card:nth-of-type(8n+1){--ac:#2563eb}
+main section.card:nth-of-type(8n+2){--ac:#db2777}
+main section.card:nth-of-type(8n+3){--ac:#059669}
+main section.card:nth-of-type(8n+4){--ac:#d97706}
+main section.card:nth-of-type(8n+5){--ac:#7c3aed}
+main section.card:nth-of-type(8n+6){--ac:#dc2626}
+main section.card:nth-of-type(8n+7){--ac:#0891b2}
+main section.card:nth-of-type(8n+8){--ac:#4f46e5}
+section.card:hover{box-shadow:0 6px 18px rgba(20,30,50,.14)}
+section.card>h2{margin:0 0 .75rem;color:var(--blue);font-size:clamp(1.3rem,3.5vw,1.7rem);line-height:1.25}
+.sec-label{display:inline-block;background:var(--ac);color:#fff;font-size:.8rem;font-weight:700;padding:.1rem .6rem;border-radius:2rem;margin-bottom:.4rem}
+[data-theme="dark"] .sec-label{color:#0f141b}
+/* ===== LABELLED BLOCKS ===== */
+.block{border-radius:.6rem;padding:.75rem 1rem;margin:.75rem 0;color:var(--text)}
+.block>h4{margin:0 0 .4rem;font-size:.85rem;text-transform:uppercase;letter-spacing:.06em}
+.block>h3{margin:0 0 .4rem;font-size:1.1rem}
+.block p{margin:0}.block ul,.block ol{margin:.2rem 0;padding-left:1.3rem}.block li{margin:.25rem 0}
+.core{background:var(--core)}.points{background:var(--points)}.example{background:var(--example)}
+.why{background:var(--why)}.gloss{background:var(--gloss)}.warn{background:var(--warn)}
+.memory{background:var(--memory)}.action{background:var(--action)}
+/* ===== GLOSSARY ===== */
+dl.glossary{display:grid;grid-template-columns:1fr;gap:.25rem 1rem;margin:0}
+dl.glossary dt{font-weight:700;margin-top:.5rem}
+dl.glossary dd{margin:0}
+/* ===== STEPS ===== */
+ol.steps{list-style:none;margin:0;padding:0;counter-reset:s}
+ol.steps li{position:relative;counter-increment:s;padding:0 0 1.25rem 3.25rem;margin:0}
+ol.steps li::before{content:counter(s);position:absolute;left:0;top:0;width:2.3rem;height:2.3rem;border-radius:50%;background:#1d4ed8;color:#fff;font-weight:700;display:grid;place-items:center}
+ol.steps li::after{content:"";position:absolute;left:1.1rem;top:2.3rem;bottom:.1rem;width:2px;background:var(--border)}
+ol.steps li:last-child{padding-bottom:0}ol.steps li:last-child::after{display:none}
+/* ===== RECALL ===== */
+details.q{background:var(--recall);border-radius:.6rem;margin:.5rem 0;color:var(--text)}
+details.q summary{cursor:pointer;padding:.85rem 1rem;font-weight:600;min-height:2.75rem}
+details.q .ans{padding:0 1rem 1rem}
+details.q:hover{box-shadow:var(--shadow)}
+/* ===== RECAP ===== */
+.recap{background:var(--recapbg);color:var(--recaptx);border-radius:.8rem;padding:clamp(1.25rem,4vw,2rem);margin:0 0 1.25rem;border-left:8px solid #fbbf24}
+.recap h2{margin-top:0;color:#fbbf24}
+.recap p{margin:0;font-size:1.05rem}
+.note{font-size:.95rem;color:var(--muted);padding:1rem;border:1px dashed var(--border);border-radius:.6rem}
+footer{max-width:1250px;margin:0 auto;padding:1rem 1rem 4rem}
+/* ===== BACK TO TOP ===== */
+#topBtn{position:fixed;right:1rem;bottom:1rem;width:3rem;height:3rem;padding:0;border-radius:50%;background:#1d4ed8;color:#fff;border:0;display:none;font-size:1.3rem;z-index:90}
+#topBtn.show{display:block}
+[data-theme="dark"] #topBtn{background:#8ab4ff;color:#0f141b}
+/* ===== TABLET / LAPTOP ===== */
+@media (min-width:768px){
+  .layout{grid-template-columns:260px minmax(0,1fr);align-items:start;gap:1.5rem}
+  nav#toc{position:sticky;top:1rem;max-height:calc(100vh - 2rem);overflow:auto}
+  #tocBtn{display:none}
+  #tocList{display:block;margin:0}
+  #tocList a{padding:.4rem .65rem;font-size:.92rem}
+  dl.glossary{grid-template-columns:minmax(10rem,32%) 1fr}
+  dl.glossary dt{margin-top:0;padding:.4rem 0;border-top:1px solid var(--border)}
+  dl.glossary dd{padding:.4rem 0;border-top:1px solid var(--border)}
+}
+/* ===== PRINT ===== */
+@media print{
+  .toolbar,nav#toc,#topBtn,#progress,button{display:none!important}
+  .layout{display:block}
+  body{background:#fff;color:#000}
+  section.card,.recap{box-shadow:none;break-inside:avoid}
+  details.q .ans{display:block}
+  .recap{background:#eee;color:#000}.recap h2{color:#000}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+
+<!-- ===== HEADER ===== -->
+<header class="top" id="top">
+  <h1>Protocols: An Operating Manual for the Human Body</h1>
+  <p>Neuroscientist Andrew Huberman walks through the daily habits (light, hydration, exercise, stress control, sleep, learning, supplements) that he says do the most for mental health, physical health and performance.</p>
+  <div class="toolbar">
+    <button id="themeBtn" type="button" aria-pressed="false">🌙 Dark mode</button>
+    <button id="toggleAll" type="button">Expand all questions</button>
+  </div>
+</header>
+
+<div class="layout">
+<!-- ===== TABLE OF CONTENTS ===== -->
+<nav id="toc" aria-label="Table of contents">
+  <button id="tocBtn" type="button" aria-expanded="false" aria-controls="tocList">☰ Contents</button>
+  <ol id="tocList" style="list-style:none">
+    <li><a href="#big-picture">Big Picture</a></li>
+    <li><a href="#sec-a">A: Daily Cortisol Curve</a></li>
+    <li><a href="#sec-b">B: Hydrate and Sunlight</a></li>
+    <li><a href="#sec-c">C: Sunlight on Skin</a></li>
+    <li><a href="#sec-d">D: Evening Light, Night Shift</a></li>
+    <li><a href="#sec-e">E: Exercise</a></li>
+    <li><a href="#sec-f">F: The Tenacity Muscle</a></li>
+    <li><a href="#sec-g">G: Reduce Stress Fast</a></li>
+    <li><a href="#sec-h">H: Waking in the Night</a></li>
+    <li><a href="#sec-i">I: Peptides and GLP-1</a></li>
+    <li><a href="#sec-j">J: Faith, Prayer, Meaning</a></li>
+    <li><a href="#sec-k">K: Nutrition</a></li>
+    <li><a href="#sec-l">L: Learning and Focus</a></li>
+    <li><a href="#sec-m">M: Personal Development</a></li>
+    <li><a href="#sec-n">N: Sleep Side-Notes</a></li>
+    <li><a href="#sec-o">O: Supplements</a></li>
+    <li><a href="#sec-p">P: CO2 and Air Quality</a></li>
+    <li><a href="#glossary">Key Terms Glossary</a></li>
+    <li><a href="#process">Daily Sequence</a></li>
+    <li><a href="#mistakes">Common Mistakes</a></li>
+    <li><a href="#memory">Memory Aids</a></li>
+    <li><a href="#recall">Active Recall Questions</a></li>
+    <li><a href="#actions">Action Items</a></li>
+    <li><a href="#recap">30-Second Recap</a></li>
+  </ol>
+</nav>
+
+<main>
+<!-- ===== 2. BIG PICTURE ===== -->
+<section class="card" id="big-picture">
+  <span class="sec-label">2</span>
+  <h2>Big Picture</h2>
+  <p>This is a long interview about Huberman's new book, <em>Protocols</em>. The book has about 50 protocols across seven areas: sleep, exercise, stress control, nutrition, light, focus and motivation, and learning and personal growth. He picks 10 core ones that cost little or nothing and work like gears: how you do one affects the next. It is for anyone who wants more energy, calmer stress, better sleep and a sharper mind. Note that the transcript never lists all 10 protocols as a clean numbered list, so the order below follows how they come up in the conversation.</p>
+</section>
+
+<!-- ===== 3. MAIN SECTIONS ===== -->
+<!-- Section A -->
+<section class="card" id="sec-a">
+  <span class="sec-label">Section A</span>
+  <h2>The Daily Cortisol Curve</h2>
+  <div class="block core"><h4>Core idea</h4><p>Cortisol is not just a "stress hormone." Its job is to mobilize energy, and you want it high early in the day and low at night. A big morning peak sets up good mood, focus and sleep later.</p></div>
+  <div class="block points"><h4>Key points</h4><ul>
+    <li>You wake up because of a rise in cortisol (the "cortisol awakening response"). It can be trained to match your routine.</li>
+    <li>Aim for the peak in the first 60 minutes after waking.</li>
+    <li>A high morning peak means low cortisol in the afternoon and night, which you need for sleep.</li>
+    <li>A flat curve is linked to shorter lifespan, poorer recovery from illness and longer, bigger stress spikes.</li>
+    <li>Cushing syndrome (huge cortisol overproduction) is real but very rare. Most people's morning cortisol is too low and their night cortisol too high.</li>
+    <li>Melatonin is the sleepiness hormone. Adenosine builds up the longer you are awake and makes you sleepy.</li>
+    <li>The curve was measured by regular blood draws over 24 hours.</li></ul></div>
+  <div class="block example"><h4>Example / analogy</h4><p>Waking up one minute before your alarm happens because your cortisol rhythm is trained to your schedule.</p></div>
+  <div class="block why"><h4>Why it matters</h4><p>Many people fear cortisol. Seeing it as a "preparation hormone" (for adversity and also for great things) changes how you plan your day.</p></div>
+</section>
+
+<!-- Section B -->
+<section class="card" id="sec-b">
+  <span class="sec-label">Section B</span>
+  <h2>Morning Protocols (Hydrate and Sunlight)</h2>
+  <div class="block core"><h4>Core idea</h4><p>Drink water and get bright light in your eyes soon after waking. Together they boost the morning cortisol peak and set your body clock.</p></div>
+  <div class="block points"><h4>Key points</h4><ul>
+    <li>Hydrate: 16 to 32 ounces of clean water on waking (he mentions about 16 to 18 ounces, "a big mug"). Aim for about 80 ounces across the day, mostly earlier in the day. Electrolytes are optional.</li>
+    <li>View sunlight (or 10,000 lux artificial light) in the first 30 to 60 minutes. Low morning sun has the right colors (yellow, orange, red) to tell your master clock that the day has begun.</li>
+    <li>After about an hour of waking, the clock can send a signal down the spine that makes the adrenal glands release extra cortisol.</li>
+    <li>On cloudy days, daylight still works. Go on a balcony or roll down a car window. Do not rely on a window or windshield.</li>
+    <li>If you miss a day, get out for twice as long the next day. Effects are additive.</li>
+    <li>Low sun has a much lower UV index, so less risk of sunburn or eye damage.</li>
+    <li>Screens are not bright enough to boost morning cortisol, but at night they can raise it.</li>
+    <li>A big UK Biobank study found you want bright days and dark nights, and the effects add up. Bright nights raise the risk of dying early.</li>
+    <li>A light-meter phone app can show how much lux you are getting.</li></ul></div>
+  <div class="block example"><h4>Example / analogy</h4><p>Getting bright light early is like setting your clock correctly so the rest of the day runs on time.</p></div>
+  <div class="block why"><h4>Why it matters</h4><p>This is cheap, and it improves mood, learning, metabolism, immune readiness and sleep.</p></div>
+</section>
+
+<!-- Section C -->
+<section class="card" id="sec-c">
+  <span class="sec-label">Section C</span>
+  <h2>Sunlight on the Skin and Long-Wavelength Light</h2>
+  <div class="block core"><h4>Core idea</h4><p>Sunlight does more than set your clock. Its red and infrared light travels into the body and helps your cells' energy factories (mitochondria).</p></div>
+  <div class="block points"><h4>Key points</h4><ul>
+    <li>Glen Jeffery's lab (University College London): red light on people's backs cut the peak of a glucose test by more than 25%.</li>
+    <li>Long-wavelength light can go through a t-shirt and reaches about 8 cm into the body. Infrared can pass all the way through.</li>
+    <li>It also frees melatonin stored inside cells, where it works as an antioxidant.</li>
+    <li>Eye photoreceptors are the most mitochondria-rich, active cells in the body. In people over 40, a short red-light exposure (1 to 3 minutes, a couple of times a week) in the first 3 hours of the day improved age-related vision loss.</li>
+    <li>You do not need a red light lamp. Sunlight is enough.</li>
+    <li>Get sun on your skin 2 to 3 times a week when UV is low (early or late in the day). Wear a t-shirt if you like. Skip a brimmed hat sometimes so the sun reaches your face.</li>
+    <li>UVB on skin raises testosterone and estrogen in women and men and supports libido.</li>
+    <li>Do not burn. You want full-spectrum, balanced light.</li>
+    <li>Indoor LED light may harm mitochondria (evidence from Jeffery's lab and others).</li>
+    <li>Greenery reflects red and infrared light, so being in nature adds more.</li>
+    <li>A Swedish study found people with more sunlight lived longer, even smokers with lots of sun versus non-smokers with little (he says it is not his favorite study, and still says don't smoke).</li></ul></div>
+  <div class="block example"><h4>Example / analogy</h4><p>The coolest place on a hot day is under a tree. Leaves reflect the heat (infrared).</p></div>
+  <div class="block why"><h4>Why it matters</h4><p>Sunlight is free and affects metabolism, vision, hormones and immunity.</p></div>
+</section>
+
+<!-- Section D -->
+<section class="card" id="sec-d">
+  <span class="sec-label">Section D</span>
+  <h2>Evening Light and Night Shift Risk</h2>
+  <div class="block core"><h4>Core idea</h4><p>Late-day light and dark nights protect you. Bright artificial light at night is harmful, especially for kids.</p></div>
+  <div class="block points"><h4>Key points</h4><ul>
+    <li>Get daylight in your eyes in the last third of your day (no sunglasses). He calls this a "Netflix inoculation": it buffers your eyes against artificial light at night.</li>
+    <li>This buffering does not seem to work for adolescents.</li>
+    <li>Screen light at night causes cortisol bumps, blood sugar effects, and a harder morning cortisol rise next day.</li>
+    <li>Night shift workers live shorter lives, have higher cancer rates and are metabolically unhealthy.</li>
+    <li>Anyone on devices after 6 p.m. (not eating, socializing or in bed) is like a night shift worker.</li>
+    <li>He says we have a generation of kids who are metabolically sick, but he does not want to fearmonger.</li>
+    <li>At night: dim lights, use a red screen (triple-click shortcut), and avoid screens for the last 30 minutes before sleep. Keep the bedroom very dark with a good eye mask. Earplugs are optional.</li>
+    <li>The book has sections for night shift workers and jet lag.</li></ul></div>
+  <div class="block example"><h4>Example / analogy</h4><p>Teens cling to their iPads like his bulldog clings to a chew toy. Taking it away makes them hate you.</p></div>
+  <div class="block why"><h4>Why it matters</h4><p>Late-night screens set up a low morning cortisol, which then ruins the next night's sleep.</p></div>
+</section>
+
+<!-- Section E -->
+<section class="card" id="sec-e">
+  <span class="sec-label">Section E</span>
+  <h2>Exercise</h2>
+  <div class="block core"><h4>Core idea</h4><p>Exercise early in the day (first 3 to 4 hours) gives a healthy cortisol inflection. Cortisol rising during exercise is good, not bad.</p></div>
+  <div class="block points"><h4>Key points</h4><ul>
+    <li>Afternoon exercise is fine too. There is just a bonus for the first 3 hours.</li>
+    <li>His plan: alternate lifting and cardio days. Three lifting days and three cardio days.</li>
+    <li>Lifting: warm up, 2 to 3 work sets per exercise, focus on compound moves (pull-ups, rows, dips, squats, hinges like deadlifts). Rest after leg day.</li>
+    <li>Cardio: one long slow session (about an hour), one moderate (about 30 minutes), one short high-intensity session (for example, air bike: easy minute, then 30 seconds all out, 10 easy, repeat).</li>
+    <li>Lifting 45 minutes near failure can triple or quadruple cortisol. A 30-minute run also raises it.</li>
+    <li>Deliberate cold exposure raises cortisol only trivially. It strongly raises adrenaline, norepinephrine and dopamine. (He says this is true for women and men and will "go toe-to-toe" with anyone on it.)</li>
+    <li>If you exercise late, calm down with long exhale breathing or a hot shower. A hot shower pulls your core temperature down afterward and helps sleep.</li>
+    <li>Exercising at the same time daily trains your body clock. Your brain starts anticipating it.</li>
+    <li>Walking: aim for 7,000 to 8,000 steps a day. Walking 5 to 10 minutes after a meal flattens blood sugar peaks.</li>
+    <li>The soleus muscle (calf) is about 1% of muscle but uses a lot of glucose. "Soleus push-ups" (seated calf raises) lowered blood sugar peaks in a study, though he calls it not practical.</li>
+    <li>Moving more all day (non-exercise movement) burns many calories. He cites a Science paper saying metabolism decline with age is really about less movement and muscle loss.</li></ul></div>
+  <div class="block example"><h4>Example / analogy</h4><p>Older people who stay lean and sharp (he names choreographer Twyla Tharp and colleague Mike Snyder) move all the time.</p></div>
+  <div class="block why"><h4>Why it matters</h4><p>Exercise primes you for alertness and learning, supports metabolism and trains your response to stress.</p></div>
+</section>
+
+<!-- Section F -->
+<section class="card" id="sec-f">
+  <span class="sec-label">Section F</span>
+  <h2>The Tenacity Muscle (Anterior Midcingulate Cortex)</h2>
+  <div class="block core"><h4>Core idea</h4><p>One brain area fires when you push through resistance, and it grows when you do hard things you don't want to do.</p></div>
+  <div class="block points"><h4>Key points</h4><ul>
+    <li>It is called the anterior midcingulate cortex. It fires when you feel pressure and decide to lean in. Stimulating it (by neurosurgeon Josef Parvizi at Stanford) makes people feel a challenge is coming and want to push.</li>
+    <li>It is connected to reward systems and is very plastic.</li>
+    <li>Successful dieters and people who start a new exercise program show a bigger, more active region.</li>
+    <li>Doing hard things you don't want to do builds it, so you get better at future challenges.</li>
+    <li>Deliberate cold exposure trains calm when flooded with adrenaline, so stress carries over better to other situations.</li>
+    <li>In a stressful moment, your prefrontal cortex (planning, logic) drops for the first 20 to 30 seconds. His phrase: you are "brain damaged" in that window. Often the best move is to say nothing.</li>
+    <li>Tiredness, stress and alcohol also weaken the prefrontal cortex, which is why stress feels worse at night and why you shouldn't send texts or say things when tired.</li>
+    <li>Top-down inhibition (feeling an impulse and not acting on it) is a key skill. He trained his dog to "wait" for this reason.</li>
+    <li>Jack Dorsey point: trading effort for convenience often gives up something useful. Be aware of the trade.</li>
+    <li>Meaning comes from striving, struggle, then release from struggle (Arthur Brooks).</li></ul></div>
+  <div class="block example"><h4>Example / analogy</h4><p>Curling weights builds a muscle. Overcoming hard things builds this brain area.</p></div>
+  <div class="block why"><h4>Why it matters</h4><p>Voluntary hard things are a neurological investment in your future.</p></div>
+</section>
+
+<!-- Section G -->
+<section class="card" id="sec-g">
+  <span class="sec-label">Section G</span>
+  <h2>Reduce Stress Fast (Physiological Sigh)</h2>
+  <div class="block core"><h4>Core idea</h4><p>A double inhale through the nose followed by a long exhale calms you down quickly, in real time.</p></div>
+  <div class="block points"><h4>Key points</h4><ul>
+    <li>Stress tools need two parts: calming in the moment, and raising your stress threshold over time.</li>
+    <li>Study from his lab (led by Melis Yilmaz Balban, with David Spiegel): about 100 people did 5 minutes a day of meditation, box breathing, cyclic hyperventilation (Wim Hof/Tummo style) or physiological sighs. All helped, but sighs helped most.</li>
+    <li>Why it works: the double inhale reopens collapsed lung sacs, and the long exhale offloads the most carbon dioxide.</li>
+    <li>Long exhales also slow the heart (respiratory sinus arrhythmia, via the vagus nerve), which raises heart rate variability (HRV).</li>
+    <li>You only need to do it once to feel it work.</li>
+    <li>Cyclic hyperventilation spikes adrenaline and makes you alert, with little cortisol rise.</li>
+    <li>Being calm but alert helps you notice subtle things around you. He says this is about safety, not tolerating abuse.</li>
+    <li>Arousal is like a seesaw between parasympathetic (calming) and sympathetic (stress) systems. You want to control the "hinge."</li>
+    <li>Surgeon Eddie Chang (a childhood friend) stays calm because a tiny slip could cost a life.</li></ul></div>
+  <div class="block example"><h4>Example / analogy</h4><p>Double inhale "like balloons at a kids' party" that stick together and then pop open.</p></div>
+  <div class="block why"><h4>Why it matters</h4><p>It is a free, instant reset before a stage, a diagnosis, or any time you feel too alert.</p></div>
+</section>
+
+<!-- Section H -->
+<section class="card" id="sec-h">
+  <span class="sec-label">Section H</span>
+  <h2>Waking in the Night (Eye Movement Trick)</h2>
+  <div class="block core"><h4>Core idea</h4><p>To fall back asleep, shut down your sense of body position. Eye movements can help do this.</p></div>
+  <div class="block points"><h4>Key points</h4><ul>
+    <li>First try 10 long deliberate exhales.</li>
+    <li>Trick: eyes closed, move them slowly to one side, then the other, up, down, counterclockwise, clockwise, then point them toward your nostrils (don't cross them) with a long exhale. Repeat 2 to 3 times.</li>
+    <li>It links to a circuit between eye movement and the cerebellum (balance, position sense, timing).</li>
+    <li>It may not work if you are very stressed.</li>
+    <li>There is a sleep mask from MIT scientists that stimulates eye muscles and monitors REM directly. He says in 12 to 14 months you may be able to choose amounts of deep sleep and REM.</li></ul></div>
+  <div class="block example"><h4>Example / analogy</h4><p>Rocking a baby at the right pace. Parents find the exact cadence by trial and error.</p></div>
+  <div class="block why"><h4>Why it matters</h4><p>It is free and gives you a way back to sleep without worry or rumination.</p></div>
+</section>
+
+<!-- Section I -->
+<section class="card" id="sec-i">
+  <span class="sec-label">Section I</span>
+  <h2>Peptides and GLP-1 Drugs (Side Topic)</h2>
+  <div class="block core"><h4>Core idea</h4><p>Huberman is "peptide curious" but says behaviors come first. These topics are not in the book.</p></div>
+  <div class="block points"><h4>Key points</h4><ul>
+    <li>The book does not cover hormones, peptides or psychedelics. It covers what he knows for sure.</li>
+    <li>Behavioral tools are the foundation. Drugs can add on top.</li>
+    <li>Pinealon: he took a tiny amount every third night for a month and got lots of REM. He doesn't use it regularly.</li>
+    <li>Growth hormone secretagogues (such as sermorelin): they nuke his REM and give lots of deep sleep, and he dislikes them.</li>
+    <li>BPC-157: people feel faster injury recovery and animal data support this, but there is a concern about vascularizing tumors. He wouldn't take it without an injury. Few clinical trials exist.</li>
+    <li>GLP-1 drugs (like retatrutide, tirzepatide, Ozempic): people lost about one-third of body weight on retatrutide in trials. They can save lives with serious obesity. Concerns: vision loss (only in people with certain eye structure), apathy, reduced craving.</li>
+    <li>Microdosing GLP-1s is anecdotal, no trials. His friend with chronic fatigue uses a very low dose every 10 days and says her energy returned.</li>
+    <li>He says people should get eye pressure and optic nerve head checked. He disagrees with how David Sinclair described blindness risk.</li>
+    <li>Question to ask: "What effect am I trying to achieve?"</li></ul></div>
+  <div class="block example"><h4>Example / analogy</h4><p>GLP-1 was found by studying Gila monsters, which eat only a few times a year because they feel full all the time.</p></div>
+  <div class="block why"><h4>Why it matters</h4><p>Shows how to think about new tools: foundation first, then build on it carefully.</p></div>
+</section>
+
+<!-- Section J -->
+<section class="card" id="sec-j">
+  <span class="sec-label">Section J</span>
+  <h2>Faith, Prayer and Meaning (Side Topic)</h2>
+  <div class="block core"><h4>Core idea</h4><p>Huberman believes in God and prays nightly. He says it made life better and relieved the pressure to control everything.</p></div>
+  <div class="block points"><h4>Key points</h4><ul>
+    <li>He prays every night and has not missed a night in nearly 3 years. He says he has seen what he calls miracles (answers arriving days after he prayed).</li>
+    <li>He says our brains build reality from limited senses. We can't see infrared but a pit viper can. Faith is like "infrared goggles" for why we're here.</li>
+    <li>His physicist father says quantum mechanics can't be understood by logic alone and needs math. Huberman says there is no math for God.</li>
+    <li>He uses a thirst analogy: a thirst circuit proves water exists (from Arthur Brooks).</li>
+    <li>He calls some atheism "spiritual anorexia" and notes this is his view. He also says "more power" to atheists who manage without it.</li>
+    <li>He prays before every podcast to move his ego out of the room.</li>
+    <li>He gets this from awe: going from small to big aperture.</li>
+    <li>Stephen says Huberman's talk on prayer gave him permission to try it.</li></ul></div>
+  <div class="block example"><h4>Example / analogy</h4><p>Walking into Stanford's Memorial Church shifts people into awe.</p></div>
+  <div class="block why"><h4>Why it matters</h4><p>He ties it to lower anxiety, humility and meaning in a time of loneliness and individualism.</p></div>
+</section>
+
+<!-- Section K -->
+<section class="card" id="sec-k">
+  <span class="sec-label">Section K</span>
+  <h2>Nutrition</h2>
+  <div class="block core"><h4>Core idea</h4><p>Eat the right amount, get enough high-quality protein, eat plants and fermented foods, and don't overdo starch with fat.</p></div>
+  <div class="block points"><h4>Key points</h4><ul>
+    <li>Not too many or too few calories. He gives a way to calculate it in the book.</li>
+    <li>High complete protein to calorie ratio: eggs, lean meat, fish. To get 30 g complete protein from beans and rice takes four to five times the calories of chicken breast.</li>
+    <li>Eat vegetables and fruit for fiber and micronutrients. Some people who cut starches or vegetables see autoimmune issues improve, and he acknowledges that. Too much fiber can be pro-inflammatory for some (Justin Sonnenburg's work).</li>
+    <li>Low-sugar fermented foods (sauerkraut, kimchi, beet kvass) lower inflammation.</li>
+    <li>Use olive oil and small amounts of butter. He calls the seed oil debate "dumb" because most nutrition studies are poor.</li>
+    <li>Starches fuel muscle and brain. People overeat them when combined with lots of fat or sugar (for example, sourdough with equal butter).</li>
+    <li>Starches lower cortisol, which can help sleep. People who add starches at the last meal may feel calmer and more energetic. Don't eat too close to bedtime and don't go to bed hungry.</li></ul></div>
+  <div class="block example"><h4>Example / analogy</h4><p>A bowl of rice or pasta at dinner can "buffer" cortisol.</p></div>
+  <div class="block why"><h4>Why it matters</h4><p>Cortisol's job is to mobilize energy. If you eat enough fuel, your body doesn't need to tap its survival systems.</p></div>
+</section>
+
+<!-- Section L -->
+<section class="card" id="sec-l">
+  <span class="sec-label">Section L</span>
+  <h2>Learning and Focus</h2>
+  <div class="block core"><h4>Core idea</h4><p>Do a 90-minute to 2-hour focused effort block each day, with your phone out of the room. Learning needs alertness, focus, errors, and then rest.</p></div>
+  <div class="block points"><h4>Key points</h4><ul>
+    <li>Exercise doesn't make you smarter directly. It makes you more alert so you can learn. Intense lifting or HIIT primes learning for about 4 hours. Long slow cardio is not as good for the brain (but not bad).</li>
+    <li>Performance follows an inverted U. Too sleepy or too alert is bad.</li>
+    <li>Adrenaline and cortisol are needed to learn. The study he cites showed that raising cortisol around learning helps recall.</li>
+    <li>A study found a phone anywhere in the room reduced cognitive flexibility, even if off.</li>
+    <li>Learning needs friction. Errors drive plasticity. He says "every experience changes your brain" is false.</li>
+    <li>Aim for about 15% errors when learning new skills. For things you already know, aim for 100% (drilling).</li>
+    <li>Steps: be alert, be focused, make errors, then stop, come back a day or two later, and reinforce.</li>
+    <li>Self-testing is the best way to remember. Read once, then test yourself. This beat rereading, highlighting and notes in studies. Use AI to make a test.</li>
+    <li>Dementia: staying mentally, physically and socially active is linked to better outcomes. Some people have plaques and tangles but no dementia, and they tend to be avid exercisers and learners.</li>
+    <li>Parkinson's patients can move smoothly when escaping a fire. Kids with severe ADHD can focus on video games. This shows motivation systems matter.</li></ul></div>
+  <div class="block example"><h4>Example / analogy</h4><p>A dancer drills known moves, but to learn new ones must fail some of the time.</p></div>
+  <div class="block why"><h4>Why it matters</h4><p>It shows how to set up hard learning so it actually sticks.</p></div>
+</section>
+
+<!-- Section M -->
+<section class="card" id="sec-m">
+  <span class="sec-label">Section M</span>
+  <h2>Personal Development (James Hollis)</h2>
+  <div class="block core"><h4>Core idea</h4><p>A good life needs both roles and quiet time. Every day, do four things.</p></div>
+  <div class="block points"><h4>Key points</h4><ul>
+    <li>Hollis (84-year-old Jungian analyst) says: "shut up" (practice gratitude, there's always someone suffering more), "suit up" (prepare, take care of your health), "show up" (fulfill your roles).</li>
+    <li>Gratitude is about giving and receiving it, not just a list.</li>
+    <li>Once a day, step out of role mode. Meditate, draw, listen to music, camp. Let your unconscious tell you your heart's desires. It speaks in emotions and analogies.</li>
+    <li>You find your calling by working hard at something else, then something you hate a little less. It is not one Easter egg to find.</li>
+    <li>Huberman thinks in five-year chunks. He knows what he'll carry forward (exercise, faith, hydration).</li>
+    <li>The last chapter also covers grief.</li></ul></div>
+  <div class="block example"><h4>Example / analogy</h4><p>Like Martha Beck's "essential self" (a person can drift far from it while fulfilling roles).</p></div>
+  <div class="block why"><h4>Why it matters</h4><p>Doing roles alone can make people miserable. Quiet time keeps you on your true path.</p></div>
+</section>
+
+<!-- Section N -->
+<section class="card" id="sec-n">
+  <span class="sec-label">Section N</span>
+  <h2>Sleep Side-Notes (Side Sleeping, Lymph, Meditation)</h2>
+  <div class="block core"><h4>Core idea</h4><p>Sleep clears waste from the brain, and a few small habits may help.</p></div>
+  <div class="block points"><h4>Key points</h4><ul>
+    <li>During sleep, brain waste is cleared (the "glymphatic" system). Sleeping on your side with your head slightly elevated may improve this. It may also reduce bags under the eyes.</li>
+    <li>Moving, shaking, jumping rope or hanging upside down can help the lymph system. Your brain has no such pump, so it relies on sleep.</li>
+    <li>A study in PNAS found short meditation increases glymphatic clearance in the day. Regular meditators may shave about an hour off sleep (20 minutes of meditation a day).</li>
+    <li>His morning routine: 10 breaths of meditation, pee, hydrate, sunlight, movement or dog walk, caffeine, exercise.</li>
+    <li>"No human being has ever escaped these circadian influences."</li></ul></div>
+  <div class="block example"><h4>Example / analogy</h4><p>After two nights of good sleep you look like your "handsome self again."</p></div>
+  <div class="block why"><h4>Why it matters</h4><p>Sleep and meditation help flush waste linked to brain health.</p></div>
+</section>
+
+<!-- Section O -->
+<section class="card" id="sec-o">
+  <span class="sec-label">Section O</span>
+  <h2>Supplements</h2>
+  <div class="block core"><h4>Core idea</h4><p>He lists what he'd choose if limited to five. Good sleep, hydration and food come first.</p></div>
+  <div class="block points"><h4>Key points</h4><ul>
+    <li>Magnesium (threonate or bisglycinate) if sleep is not great.</li>
+    <li>Omega-3 (EPA): at least 1 gram a day, ideally the prescription form (Lovaza), which is cheap, high-dose and free of heavy metals.</li>
+    <li>Vitamin D: 5,000 to 10,000 IU a day. He says most people underdose. He sees his hormone bloods improve at 5,000 vs. 3,000. He says don't take 25,000.</li>
+    <li>Alpha-GPC (600 to 900 mg): boosts choline and acetylcholine, helps focus, and gives more REM sleep. It can raise TMAO (linked to cardiovascular risk), so he takes a garlic capsule (600 mg) with it.</li>
+    <li>Creatine: 5 to 10 grams per day, since age 17 or 18. Helps cognition when sleep-deprived or stressed, and strength.</li>
+    <li>Caffeine: 200 to 400 mg a day is linked to offsetting dementia (correlation, not cause).</li>
+    <li>The book also discusses theanine with low-dose caffeine, tart cherry, apigenin and others.</li></ul></div>
+  <div class="block example"><h4>Example / analogy</h4><p>Dealer's choice for the fifth: he picked creatine.</p></div>
+  <div class="block why"><h4>Why it matters</h4><p>Supplements add on top of behavior. They don't replace it.</p></div>
+</section>
+
+<!-- Section P -->
+<section class="card" id="sec-p">
+  <span class="sec-label">Section P</span>
+  <h2>CO2 and Air Quality (Brief)</h2>
+  <div class="block core"><h4>Core idea</h4><p>Stale air may make you tired.</p></div>
+  <div class="block points"><h4>Key points</h4><ul>
+    <li>Stephen's studio CO2 monitor went from 600 to 1,700 ppm during the interview.</li>
+    <li>He read that above about 1,000 ppm cognitive performance drops.</li></ul></div>
+  <div class="block why"><h4>Why it matters</h4><p>A simple cue that fresh air may help alertness.</p></div>
+</section>
+
+<!-- ===== 4. GLOSSARY ===== -->
+<section class="card" id="glossary">
+  <span class="sec-label">4</span>
+  <h2>Key Terms Glossary</h2>
+  <div class="block gloss">
+    <dl class="glossary">
+      <dt>Cortisol</dt><dd>A hormone that mobilizes energy. It rises during stress, exercise and each morning.</dd>
+      <dt>Cortisol awakening response</dt><dd>The cortisol rise that wakes you. It can be trained.</dd>
+      <dt>Melatonin</dt><dd>The sleepiness hormone.</dd>
+      <dt>Adenosine</dt><dd>A chemical that builds up the longer you are awake and makes you sleepy.</dd>
+      <dt>Circadian clock (suprachiasmatic nucleus)</dt><dd>Your master clock in the hypothalamus, set by light.</dd>
+      <dt>Melanopsin cells</dt><dd>Light-sensing cells in the eye that tell your clock it's day.</dd>
+      <dt>Lux</dt><dd>A measure of light brightness.</dd>
+      <dt>Long-wavelength light</dt><dd>Red and infrared light that goes into the body.</dd>
+      <dt>Mitochondria</dt><dd>Energy factories inside cells.</dd>
+      <dt>Anterior midcingulate cortex</dt><dd>Brain area for tenacity and leaning into challenge.</dd>
+      <dt>Prefrontal cortex</dt><dd>Brain area behind the forehead for planning and impulse control.</dd>
+      <dt>Top-down inhibition</dt><dd>Feeling an impulse and not acting on it.</dd>
+      <dt>Physiological sigh</dt><dd>Double inhale through the nose, then a long exhale.</dd>
+      <dt>Heart rate variability (HRV)</dt><dd>How much your heart rate slows when you exhale.</dd>
+      <dt>Vagus nerve</dt><dd>A big nerve bundle linking organs and brain.</dd>
+      <dt>Cerebellum</dt><dd>The "mini brain" for balance, timing and error signals.</dd>
+      <dt>Neuroplasticity</dt><dd>The brain's ability to change itself.</dd>
+      <dt>Glymphatic system</dt><dd>Brain waste clearance during sleep.</dd>
+      <dt>GLP-1</dt><dd>A peptide that suppresses hunger. GLP-1 drugs are used for weight loss.</dd>
+      <dt>Peptide</dt><dd>A short chain of amino acids that acts as a signal in the body.</dd>
+      <dt>TMAO</dt><dd>A compound linked to cardiovascular risk.</dd>
+    </dl>
+  </div>
+</section>
+
+<!-- ===== 5. STEPS ===== -->
+<section class="card" id="process">
+  <span class="sec-label">5</span>
+  <h2>Step-by-Step Process: His Daily Sequence</h2>
+  <ol class="steps">
+    <li>On waking, do 10 breaths of meditation.</li>
+    <li>Go to the bathroom, then hydrate (16 to 32 oz water).</li>
+    <li>Get sunlight (or 10,000 lux light) in your eyes within the first hour.</li>
+    <li>Add movement or a walk.</li>
+    <li>Drink caffeine, then exercise (ideally in the first 3 to 4 hours).</li>
+    <li>Do a 90-minute to 2-hour focused learning bout, with the phone in another room.</li>
+    <li>Walk after meals and keep moving (7,000 to 8,000 steps).</li>
+    <li>Get daylight in your eyes in the late afternoon or evening.</li>
+    <li>At night, dim the lights, use a red screen, and avoid screens for the last 30 minutes.</li>
+    <li>Sleep in a dark room. If you wake up, use long exhales or the eye-movement trick.</li>
+  </ol>
+</section>
+
+<!-- ===== 6. MISTAKES ===== -->
+<section class="card" id="mistakes">
+  <span class="sec-label">6</span>
+  <h2>Common Mistakes or Misconceptions</h2>
+  <div class="block warn"><ul>
+    <li>Thinking cortisol is always bad. Healthy cortisol is high in the morning and low at night.</li>
+    <li>Believing cold exposure spikes cortisol. It mainly raises adrenaline, norepinephrine and dopamine.</li>
+    <li>Thinking you need a red light lamp. Sunlight is enough.</li>
+    <li>Looking at light only through a window or windshield.</li>
+    <li>Thinking screens can replace morning light. They are too dim.</li>
+    <li>Believing every experience changes your brain. Plasticity needs alertness, focus and errors.</li>
+    <li>Rereading and highlighting as study methods. Self-testing works better.</li>
+    <li>Doing things or sending messages when tired or stressed.</li>
+    <li>Assuming metabolism just slows with age. Less movement and muscle loss play a big role.</li>
+    <li>Treating peptides or supplements as a foundation. Behavior comes first.</li>
+    <li>Thinking "find your passion" means one thing to discover.</li></ul></div>
+</section>
+
+<!-- ===== 7. MEMORY AIDS ===== -->
+<section class="card" id="memory">
+  <span class="sec-label">7</span>
+  <h2>Memory Aids</h2>
+  <div class="block memory"><h3>5 key takeaways</h3>
+    <ol>
+      <li>Get bright light early and dim light at night.</li>
+      <li>High morning cortisol, low night cortisol, is the goal.</li>
+      <li>Do hard things on purpose to build your tenacity muscle.</li>
+      <li>One physiological sigh calms you in real time.</li>
+      <li>Learn with friction, then rest, then self-test.</li>
+    </ol></div>
+  <div class="block memory"><h3>Memorable phrase</h3>
+    <p><strong>"Bright days, dark nights, hard things, long exhales."</strong></p></div>
+  <div class="block memory"><h3>Mental picture</h3>
+    <p>A day as a wave. Cortisol surges up in the morning with sun, water and movement, then slides down into a calm, dark night. Stress blips ride on top, and long exhales smooth them out.</p></div>
+</section>
+
+<!-- ===== 8. ACTIVE RECALL ===== -->
+<section class="card" id="recall">
+  <span class="sec-label">8</span>
+  <h2>Active Recall Questions</h2>
+  <details class="q"><summary>1. What is the healthy cortisol pattern?</summary><div class="ans">High in the first hour after waking, then low in the afternoon and at night.</div></details>
+  <details class="q"><summary>2. Why should you view sunlight in the first hour?</summary><div class="ans">It triggers an extra cortisol release that raises the morning peak and sets up better sleep.</div></details>
+  <details class="q"><summary>3. Why is low morning sun safer than midday sun?</summary><div class="ans">It has a lower UV index.</div></details>
+  <details class="q"><summary>4. What does cold exposure raise most?</summary><div class="ans">Adrenaline, norepinephrine and dopamine. Cortisol rises only a little.</div></details>
+  <details class="q"><summary>5. What happens to the prefrontal cortex in the first 20 to 30 seconds of stress?</summary><div class="ans">Its activity drops, so you should avoid reacting.</div></details>
+  <details class="q"><summary>6. How does the physiological sigh work?</summary><div class="ans">Two inhales reopen lung sacs, then a long exhale offloads CO2 and slows the heart.</div></details>
+  <details class="q"><summary>7. What error rate does he suggest for learning something new?</summary><div class="ans">About 15%.</div></details>
+  <details class="q"><summary>8. Why is self-testing better than rereading?</summary><div class="ans">Studies showed it led to more stable memory months and years later.</div></details>
+  <details class="q"><summary>9. What does having your phone in the room do?</summary><div class="ans">It lowers cognitive flexibility even if it's off.</div></details>
+  <details class="q"><summary>10. What are the three things Hollis says to do daily?</summary><div class="ans">Shut up (gratitude), suit up (prepare) and show up (fulfill roles), plus quiet time out of role mode.</div></details>
+</section>
+
+<!-- ===== 9. ACTION ITEMS ===== -->
+<section class="card" id="actions">
+  <span class="sec-label">9</span>
+  <h2>Action Items</h2>
+  <div class="block action"><ul>
+    <li>Drink water and get outside light within an hour of waking.</li>
+    <li>Dim lights and use a red screen at night. Stop screens 30 minutes before sleep.</li>
+    <li>Exercise early if you can, with three lifting days and three cardio days.</li>
+    <li>Walk 5 to 10 minutes after meals and aim for 7,000 to 8,000 steps.</li>
+    <li>Use one physiological sigh when stressed.</li>
+    <li>Try the eye-movement trick or 10 long exhales when you wake at night.</li>
+    <li>Do one 90-minute focused learning block with your phone in another room.</li>
+    <li>After learning, test yourself rather than rereading.</li>
+    <li>Do one hard thing a day that you don't want to do.</li>
+    <li>Take a few minutes of quiet time each day with no goal.</li>
+    <li>Ask your doctor about EPA omega-3 and check your own supplement needs.</li></ul></div>
+</section>
+
+<!-- ===== 10. RECAP ===== -->
+<section class="recap" id="recap">
+  <h2>30-Second Recap</h2>
+  <p>Huberman says a few free habits move the needle most. Get water and bright light early to lift your morning cortisol, then keep nights dark so cortisol drops and sleep is deep. Exercise early, walk often, and eat enough protein, plants and starches. Do hard things on purpose to build the brain's tenacity area. Use a physiological sigh to calm down fast, and a simple eye-movement trick to fall back asleep. Learn in focused blocks with errors, then rest and self-test. Supplements, peptides and faith are add-ons, not the base. He closes with Hollis's advice: shut up, suit up, show up, and take quiet time each day.</p>
+</section>
+</main>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p class="note">Note: Some claims (for example, the "spiritual anorexia" comparison, the cold-cortisol claim and the GLP-1 and peptide comments) are Huberman's personal views or anecdotes as stated in the interview. The transcript includes sponsor reads, which were ignored.</p>
+</footer>
+
+<button id="topBtn" type="button" aria-label="Back to top">↑</button>
+
+<script>
+/* ===== DARK MODE (in memory only) ===== */
+var dark=false,root=document.documentElement,themeBtn=document.getElementById('themeBtn');
+themeBtn.addEventListener('click',function(){
+  dark=!dark;
+  if(dark){root.setAttribute('data-theme','dark')}else{root.removeAttribute('data-theme')}
+  themeBtn.setAttribute('aria-pressed',dark);
+  themeBtn.textContent=dark?'☀️ Light mode':'🌙 Dark mode';
+});
+
+/* ===== MOBILE TOC TOGGLE ===== */
+var tocBtn=document.getElementById('tocBtn'),tocList=document.getElementById('tocList');
+tocBtn.addEventListener('click',function(){
+  var open=tocList.classList.toggle('open');
+  tocBtn.setAttribute('aria-expanded',open);
+});
+tocList.addEventListener('click',function(e){
+  if(e.target.tagName==='A'&&window.innerWidth<768){tocList.classList.remove('open');tocBtn.setAttribute('aria-expanded','false')}
+});
+
+/* ===== EXPAND / COLLAPSE ALL QUESTIONS ===== */
+var allOpen=false,toggleAll=document.getElementById('toggleAll');
+toggleAll.addEventListener('click',function(){
+  allOpen=!allOpen;
+  document.querySelectorAll('details.q').forEach(function(d){d.open=allOpen});
+  toggleAll.textContent=allOpen?'Collapse all questions':'Expand all questions';
+});
+
+/* ===== PROGRESS BAR, BACK TO TOP, ACTIVE TOC LINK ===== */
+var bar=document.getElementById('progress'),topBtn=document.getElementById('topBtn');
+var links=[].slice.call(document.querySelectorAll('#tocList a'));
+var targets=links.map(function(a){return document.querySelector(a.getAttribute('href'))});
+function onScroll(){
+  var h=document.documentElement,max=h.scrollHeight-h.clientHeight;
+  bar.style.width=(max>0?(h.scrollTop/max)*100:0)+'%';
+  topBtn.classList.toggle('show',h.scrollTop>400);
+  var cur=0;
+  targets.forEach(function(t,i){if(t&&t.getBoundingClientRect().top<window.innerHeight*0.35)cur=i});
+  links.forEach(function(a,i){a.classList.toggle('active',i===cur)});
+}
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',onScroll);
+onScroll();
+topBtn.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})});
+</script>
+</body>
+</html>
