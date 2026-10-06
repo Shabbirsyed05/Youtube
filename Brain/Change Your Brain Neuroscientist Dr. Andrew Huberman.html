@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to Control Your Brain State: Focus, Stress, Reward and Recovery</title>
+<style>
+/* ===== COLOR SYSTEM ===== */
+:root{
+  --bg:#f4f5f8;--card:#fff;--text:#1c2430;--muted:#4a5568;--border:#d9dee7;
+  --blue:#1d4ed8;--core:#e3eefc;--points:#e2f5e6;--example:#fff3cd;--why:#eee6fb;
+  --gloss:#dff4f2;--warn:#fde4e4;--memory:#ffe8d1;--recall:#fde3ef;--action:#e5e8fd;
+  --recapbg:#14213d;--recaptx:#fff;--shadow:0 2px 8px rgba(20,30,50,.08);
+}
+[data-theme="dark"]{
+  --bg:#0f141b;--card:#18202b;--text:#e8edf4;--muted:#b4bfce;--border:#2c3748;
+  --blue:#8ab4ff;--core:#1b2f4d;--points:#173326;--example:#40361a;--why:#2f2547;
+  --gloss:#12363a;--warn:#451f21;--memory:#46301a;--recall:#471f35;--action:#242a52;
+  --recapbg:#05080f;--recaptx:#fff;--shadow:0 2px 8px rgba(0,0,0,.4);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:1rem}
+body{margin:0;background:var(--bg);color:var(--text);font:1rem/1.65 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+a{color:var(--blue)}
+/* ===== PROGRESS BAR ===== */
+#progress{position:fixed;top:0;left:0;height:5px;width:0;background:var(--blue);z-index:100}
+/* ===== HEADER ===== */
+header.top{padding:clamp(1.5rem,5vw,3rem) 1rem;background:linear-gradient(135deg,#1e3a8a,#3b82f6);color:#fff;text-align:center}
+header.top h1{margin:0 auto .5rem;font-size:clamp(1.6rem,5vw,2.6rem);line-height:1.2;max-width:900px}
+header.top p{margin:0 auto;max-width:760px;font-size:clamp(1rem,2.5vw,1.2rem)}
+.toolbar{display:flex;gap:.5rem;justify-content:center;margin-top:1rem;flex-wrap:wrap}
+button{font:inherit;cursor:pointer;min-height:2.75rem;padding:.4rem 1rem;border-radius:.6rem;border:1px solid var(--border);background:var(--card);color:var(--text);transition:transform .15s,box-shadow .15s}
+button:hover{transform:translateY(-1px);box-shadow:var(--shadow)}
+button:focus-visible,summary:focus-visible,a:focus-visible{outline:3px solid #f59e0b;outline-offset:2px}
+/* ===== LAYOUT ===== */
+.layout{display:grid;grid-template-columns:1fr;gap:1rem;max-width:1250px;margin:0 auto;padding:1rem}
+nav#toc{background:var(--card);border:1px solid var(--border);border-radius:.8rem;box-shadow:var(--shadow);padding:.5rem}
+#tocBtn{width:100%;text-align:left;font-weight:700}
+#tocList{display:none;list-style:none;margin:.5rem 0 0;padding:0}
+#tocList.open{display:block}
+#tocList a{display:block;padding:.65rem .75rem;border-radius:.5rem;text-decoration:none;color:var(--text)}
+#tocList a:hover,#tocList a.active{background:var(--core);color:var(--text)}
+main{min-width:0;max-width:900px}
+/* ===== CARDS ===== */
+section.card{background:var(--card);border:1px solid var(--border);border-left:8px solid var(--ac,var(--blue));border-radius:.8rem;box-shadow:var(--shadow);padding:clamp(1rem,3vw,1.75rem);margin:0 0 1.25rem;transition:box-shadow .2s}
+section.card:hover{box-shadow:0 6px 18px rgba(20,30,50,.14)}
+section.card>h2{margin:0 0 .75rem;color:var(--blue);font-size:clamp(1.3rem,3.5vw,1.7rem);line-height:1.25}
+section.card h3{margin:1rem 0 .5rem;font-size:1.15rem}
+.sec-label{display:inline-block;background:var(--ac,var(--blue));color:#fff;font-size:.8rem;font-weight:700;padding:.1rem .6rem;border-radius:2rem;margin-bottom:.4rem}
+/* ===== LABELLED BLOCKS ===== */
+.block{border-radius:.6rem;padding:.75rem 1rem;margin:.75rem 0;color:var(--text)}
+.block>h4{margin:0 0 .4rem;font-size:.85rem;text-transform:uppercase;letter-spacing:.06em}
+.block p{margin:0}.block ul,.block ol{margin:.2rem 0;padding-left:1.3rem}.block li{margin:.25rem 0}
+.core{background:var(--core)}.points{background:var(--points)}.example{background:var(--example)}
+.why{background:var(--why)}.gloss{background:var(--gloss)}.warn{background:var(--warn)}
+.memory{background:var(--memory)}.action{background:var(--action)}
+/* ===== GLOSSARY ===== */
+dl.glossary{display:grid;grid-template-columns:1fr;gap:.25rem 1rem;margin:0}
+dl.glossary dt{font-weight:700;margin-top:.5rem}
+dl.glossary dd{margin:0}
+/* ===== STEPS ===== */
+ol.steps{list-style:none;margin:0;padding:0;counter-reset:s}
+ol.steps li{position:relative;counter-increment:s;padding:0 0 1.25rem 3.25rem;margin:0}
+ol.steps li::before{content:counter(s);position:absolute;left:0;top:0;width:2.3rem;height:2.3rem;border-radius:50%;background:#1d4ed8;color:#fff;font-weight:700;display:grid;place-items:center}
+ol.steps li::after{content:"";position:absolute;left:1.1rem;top:2.3rem;bottom:.1rem;width:2px;background:var(--border)}
+ol.steps li:last-child{padding-bottom:0}ol.steps li:last-child::after{display:none}
+/* ===== RECALL ===== */
+details.q{background:var(--recall);border-radius:.6rem;margin:.5rem 0;padding:0;color:var(--text)}
+details.q summary{cursor:pointer;padding:.85rem 1rem;font-weight:600;min-height:2.75rem}
+details.q .ans{padding:0 1rem 1rem}
+details.q:hover{box-shadow:var(--shadow)}
+/* ===== RECAP ===== */
+.recap{background:var(--recapbg);color:var(--recaptx);border-radius:.8rem;padding:clamp(1.25rem,4vw,2rem);margin:0 0 1.25rem;border-left:8px solid #fbbf24}
+.recap h2{margin-top:0;color:#fbbf24}
+.recap p{margin:0;font-size:1.05rem}
+.note{font-size:.95rem;color:var(--muted);padding:1rem;border:1px dashed var(--border);border-radius:.6rem}
+footer{max-width:1250px;margin:0 auto;padding:1rem 1rem 4rem}
+/* ===== BACK TO TOP ===== */
+#topBtn{position:fixed;right:1rem;bottom:1rem;width:3rem;height:3rem;padding:0;border-radius:50%;background:var(--blue);color:#fff;border:0;display:none;font-size:1.3rem;z-index:90}
+#topBtn.show{display:block}
+html:not([data-theme="dark"]) #topBtn{background:#1d4ed8}
+[data-theme="dark"] #topBtn{color:#0f141b}
+/* ===== TABLET / LAPTOP ===== */
+@media (min-width:768px){
+  .layout{grid-template-columns:260px minmax(0,1fr);align-items:start;gap:1.5rem}
+  nav#toc{position:sticky;top:1rem;max-height:calc(100vh - 2rem);overflow:auto}
+  #tocBtn{display:none}
+  #tocList{display:block;margin:0}
+  #tocList a{padding:.45rem .65rem;font-size:.95rem}
+  dl.glossary{grid-template-columns:minmax(10rem,30%) 1fr}
+  dl.glossary dt{margin-top:0;padding:.4rem 0;border-top:1px solid var(--border)}
+  dl.glossary dd{padding:.4rem 0;border-top:1px solid var(--border)}
+}
+/* ===== PRINT ===== */
+@media print{
+  .toolbar,nav#toc,#topBtn,#progress,button{display:none!important}
+  .layout{display:block}
+  body{background:#fff;color:#000}
+  section.card,.recap{box-shadow:none;break-inside:avoid}
+  details.q .ans{display:block}
+  .recap{background:#eee;color:#000}.recap h2{color:#000}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+
+<!-- ===== HEADER ===== -->
+<header class="top" id="top">
+  <h1>How to Control Your Brain State: Focus, Stress, Reward and Recovery</h1>
+  <p>A Stanford neuroscientist explains how to push through discomfort, manage stress and stay focused, using his own turnaround story as the example.</p>
+  <div class="toolbar">
+    <button id="themeBtn" type="button" aria-pressed="false">🌙 Dark mode</button>
+    <button id="toggleAll" type="button">Expand all questions</button>
+  </div>
+</header>
+
+<div class="layout">
+<!-- ===== TABLE OF CONTENTS ===== -->
+<nav id="toc" aria-label="Table of contents">
+  <button id="tocBtn" type="button" aria-expanded="false" aria-controls="tocList">☰ Contents</button>
+  <ol id="tocList" style="list-style:none">
+    <li><a href="#big-picture">Big Picture</a></li>
+    <li><a href="#sec-a">A: From Feral Kid to Scientist</a></li>
+    <li><a href="#sec-b">B: What the Nervous System Does</a></li>
+    <li><a href="#sec-c">C: Neuroplasticity</a></li>
+    <li><a href="#sec-d">D: Dopamine, Quitting, Rewards</a></li>
+    <li><a href="#sec-e">E: Behavior First</a></li>
+    <li><a href="#sec-f">F: Body Tools</a></li>
+    <li><a href="#sec-g">G: Addiction and Narrow Vision</a></li>
+    <li><a href="#sec-h">H: Polarization and Self-Regulation</a></li>
+    <li><a href="#glossary">Key Terms Glossary</a></li>
+    <li><a href="#process">Step-by-Step Process</a></li>
+    <li><a href="#mistakes">Common Mistakes</a></li>
+    <li><a href="#memory">Memory Aids</a></li>
+    <li><a href="#recall">Active Recall Questions</a></li>
+    <li><a href="#actions">Action Items</a></li>
+    <li><a href="#recap">30-Second Recap</a></li>
+  </ol>
+</nav>
+
+<main>
+<!-- ===== 2. BIG PICTURE ===== -->
+<section class="card" id="big-picture" style="--ac:#2563eb">
+  <span class="sec-label">2</span>
+  <h2>Big Picture</h2>
+  <p>This is a long interview with Dr. Andrew Huberman, a Stanford brain scientist. He tells how he went from a troubled teenager to a professor. Then he explains how focus, stress chemicals, rewards and rest work in the brain. It is for anyone who struggles to start work, stay motivated, calm down or sleep. You will learn simple body-based tools (breathing, vision, action) to shift your mental state.</p>
+</section>
+
+<!-- ===== 3. MAIN SECTIONS ===== -->
+<!-- Section A -->
+<section class="card" id="sec-a" style="--ac:#db2777">
+  <span class="sec-label">Section A</span>
+  <h2>From Feral Kid to Scientist</h2>
+  <div class="block core"><h4>Core idea</h4><p>Huberman grew up around science, but his parents split when he was 13 and he lost structure. He hit bottom around age 20 and rebuilt his life with fear as fuel, routines and mentors.</p></div>
+  <div class="block points"><h4>Key points</h4><ul>
+    <li>He skipped school, skated with a "parentless" crowd and was sent to a locked facility for a time.</li>
+    <li>A therapist taught him behavioral practices: exercise, meditation, homework. He steered him away from psychedelics while his brain was developing.</li>
+    <li>After a fight on July 4th, 1994, he decided "it's now or never" and chose school as his path.</li>
+    <li>A professor, Harry Carlisle, gave him a lab spot and told him grad school pays you to do science.</li>
+    <li>He trained focus by setting a timer and not leaving his chair until it rang.</li>
+    <li>He says about a third of that skate crowd thrived, a third drifted and a third are dead or in jail.</li></ul></div>
+  <div class="block example"><h4>Example / analogy</h4><p>Some people join the military to get structure. He used school the same way, as a path with known steps.</p></div>
+  <div class="block why"><h4>Why it matters</h4><p>Mentors, structure and small daily practices can change a life. Fear can be a valid motivator when love is not available.</p></div>
+</section>
+
+<!-- Section B -->
+<section class="card" id="sec-b" style="--ac:#059669">
+  <span class="sec-label">Section B</span>
+  <h2>What the Nervous System Does</h2>
+  <div class="block core"><h4>Core idea</h4><p>Huberman treats brain and mind as the same thing, tied to the body. It handles five jobs and constantly tries to match your inner state to the outside world.</p></div>
+  <div class="block points"><h4>Key points</h4><ul>
+    <li>The five jobs: sensation, perception, feelings, thoughts, behavior.</li>
+    <li>Sensation is non-negotiable (you can't see infrared). Perception is a spotlight you can steer.</li>
+    <li>Thoughts pop up on their own, like browser pop-ups, but you can also think on purpose.</li>
+    <li>Stress and agitation exist to get you moving toward something useful, like a thirsty person finding water.</li>
+    <li>Impatience (his idea, called "emerging") is when your inner "metronome" doesn't match the outside pace.</li></ul></div>
+  <div class="block example"><h4>Example / analogy</h4><p>Standing in a slow store line feels awful when you're agitated, but fine when you're texting and having a good day.</p></div>
+  <div class="block why"><h4>Why it matters</h4><p>Feelings like stress or calm are not random. They are the brain trying to fit your body to the situation.</p></div>
+</section>
+
+<!-- Section C -->
+<section class="card" id="sec-c" style="--ac:#d97706">
+  <span class="sec-label">Section C</span>
+  <h2>Neuroplasticity Needs Focus, Urgency and Rest</h2>
+  <div class="block core"><h4>Core idea</h4><p>Neuroplasticity is the brain's ability to change itself. Kids do it passively. Adults need intense focus plus a real sense of need, and the actual rewiring happens during deep sleep or rest.</p></div>
+  <div class="block points"><h4>Key points</h4><ul>
+    <li>Before about age 25 the brain is very changeable. Adults can still change as fast, if they focus (research by Eric Knudsen).</li>
+    <li>Focus means the brain works out duration (how long), path (what happens) and outcome (the result).</li>
+    <li>Norepinephrine (an adrenaline-like chemical) creates alertness. Acetylcholine marks the exact brain connections to be changed.</li>
+    <li>Urgency is required. Love or fear both work; the brain doesn't care.</li>
+    <li>Without a goal, plasticity is spread everywhere, like learning a little of nine languages.</li>
+    <li>Starting hard work feels like agitation and stress. That is a gate, not a sign you're failing.</li></ul></div>
+  <div class="block example"><h4>Example / analogy</h4><p>You can't lift a heavy PR without warming up, and the brain needs a warm-up too. The host's book finally got written when a deadline flipped a switch.</p></div>
+  <div class="block why"><h4>Why it matters</h4><p>Expecting instant "flow" makes people quit. Expecting the rough start helps you push through.</p></div>
+</section>
+
+<!-- Section D -->
+<section class="card" id="sec-d" style="--ac:#7c3aed">
+  <span class="sec-label">Section D</span>
+  <h2>Dopamine, Quitting and Internal Rewards</h2>
+  <div class="block core"><h4>Core idea</h4><p>Dopamine rewards you for being on the right path. It pushes back the "quit" signal from norepinephrine, so you have more energy. It works best when the reward comes from inside you.</p></div>
+  <div class="block points"><h4>Key points</h4><ul>
+    <li>Each effort releases norepinephrine, like a counter in the brainstem. When it's too high, you quit.</li>
+    <li>Dopamine pushes that counter back down. That's why a joke or a win gives sudden extra energy.</li>
+    <li>Split a big goal into small milestones and reward yourself for each one.</li>
+    <li>Positive self-talk that isn't true gives no reward. Rewarding real effort does.</li>
+    <li>Carol Dweck's growth mindset: some kids enjoyed puzzles they couldn't solve, and they became better.</li>
+    <li>External rewards can kill drive (the gold-star drawing study with nursery-school kids).</li>
+    <li>Addiction is a progressive narrowing of the things that bring you pleasure.</li></ul></div>
+  <div class="block example"><h4>Example / analogy</h4><p>A Super Bowl winner has extra energy after a hard game. It's not sugar or fitness, it's dopamine.</p></div>
+  <div class="block why"><h4>Why it matters</h4><p>Self-reward is a form of grit. Anyone can do it, not just elite people.</p></div>
+</section>
+
+<!-- Section E -->
+<section class="card" id="sec-e" style="--ac:#dc2626">
+  <span class="sec-label">Section E</span>
+  <h2>Behavior First (Goggins and Navy SEALs)</h2>
+  <div class="block core"><h4>Core idea</h4><p>The easiest way to change how you feel is to act first. Thoughts, feelings and perception then follow.</p></div>
+  <div class="block points"><h4>Key points</h4><ul>
+    <li>Trying to change sensation, perception or thoughts directly is hard. Behavior is the "control panel."</li>
+    <li>David Goggins steps toward discomfort. He volunteered first for the shark VR test even after saying he doesn't like sharks.</li>
+    <li>SEAL selection (BUD/S) uses cold water and sleep loss. Those who finish slice the day into small goals and give meaning to each one, rather than using brute grit.</li>
+    <li>A 2018 Nature paper from his lab: moving forward in the face of threat links to the dopamine circuit and makes future forward action more likely.</li>
+    <li>Low-motivation people may need more arousal. Over-agitated people need calming.</li></ul></div>
+  <div class="block example"><h4>Example / analogy</h4><p>A deer feels agitated, walks to a stream, drinks, and remembers the path.</p></div>
+  <div class="block why"><h4>Why it matters</h4><p>"Mood follows action." You don't have to wait to feel ready.</p></div>
+</section>
+
+<!-- Section F -->
+<section class="card" id="sec-f" style="--ac:#0891b2">
+  <span class="sec-label">Section F</span>
+  <h2>Body Tools for Arousal, Focus and Recovery</h2>
+  <div class="block core"><h4>Core idea</h4><p>Breathing and vision give you real-time control over your alertness.</p></div>
+  <div class="block points"><h4>Key points</h4><ul>
+    <li>To calm down: the physiological sigh, two inhales through the nose and one long exhale. One to three rounds can work.</li>
+    <li>To wake up: 25 to 30 fast, deep breaths (similar to Wim Hof or Tummo), then exhale and hold. Cold exposure also raises adrenaline.</li>
+    <li>The diaphragm (breathing muscle) is the fastest link to the brain. The vagus nerve is slow (minutes to hours).</li>
+    <li>Focused vision (like portrait mode) helps mental focus. Mental focus follows visual focus.</li>
+    <li>Wide, "panoramic" vision relaxes alertness and broadens your sense of time. Looking at a horizon is best.</li>
+    <li>Short "deliberate decompression" between tasks saves energy better than checking your phone.</li>
+    <li>Yoga nidra and hypnosis scripts bring deep rest while awake. They may speed plasticity and help sleep.</li>
+    <li>Walking, running or cycling (optic flow) calms threat circuits. Side-to-side eye movements in EMDR therapy quiet the amygdala (the brain's alarm center).</li></ul></div>
+  <div class="block example"><h4>Example / analogy</h4><p>He doesn't trust his thinking between 3 and 7 AM after an all-nighter. Words like "the" start looking misspelled.</p></div>
+  <div class="block why"><h4>Why it matters</h4><p>You can reset yourself in real time, not just on a weekend retreat.</p></div>
+</section>
+
+<!-- Section G -->
+<section class="card" id="sec-g" style="--ac:#65a30d">
+  <span class="sec-label">Section G</span>
+  <h2>Addiction and Narrow Vision</h2>
+  <div class="block core"><h4>Core idea</h4><p>Under stress or even great joy, vision and thinking narrow ("myopia"), and an addict sees no other options. Widening perception and time sense helps.</p></div>
+  <div class="block points"><h4>Key points</h4><ul>
+    <li>Relapse can come when life is terrible or when it's great.</li>
+    <li>Time feels fixed on getting the substance. Dilating time perception opens other choices.</li>
+    <li>No single pill will fix addiction. Many elements are needed, and the person's own tools matter most.</li>
+    <li>Biomarkers (such as wearable devices that track nervous system control) might warn of risk.</li>
+    <li>The host adds that the decision to use starts long before the act, so intervene early.</li></ul></div>
+  <div class="block why"><h4>Why it matters</h4><p>It shifts the view from "bad choice" toward "narrowed state" and offers body-based help.</p></div>
+</section>
+
+<!-- Section H -->
+<section class="card" id="sec-h" style="--ac:#4f46e5">
+  <span class="sec-label">Section H</span>
+  <h2>Polarization and Self-Regulation</h2>
+  <div class="block core"><h4>Core idea</h4><p>Our brains reward us for hearing what we already believe. Calming yourself is the first step to really listening.</p></div>
+  <div class="block points"><h4>Key points</h4><ul>
+    <li>Info that confirms beliefs raises reward chemicals and changes what we see and hear.</li>
+    <li>Stress spreads between people more easily than empathy.</li>
+    <li>Three gates (he lists the first): lower your internal urgency so information can get in.</li>
+    <li>Teach kids to read and regulate their nervous system.</li>
+    <li>Gratitude involves serotonin, which he links to resilience and recovery.</li>
+    <li>The host raises that society also needs system-level changes.</li></ul></div>
+  <div class="block why"><h4>Why it matters</h4><p>Better listening starts with better self-control.</p></div>
+</section>
+
+<!-- ===== 4. GLOSSARY ===== -->
+<section class="card" id="glossary" style="--ac:#0d9488">
+  <span class="sec-label">4</span>
+  <h2>Key Terms Glossary</h2>
+  <div class="block gloss">
+    <dl class="glossary">
+      <dt>Nervous system</dt><dd>Brain, spinal cord and body connections working together.</dd>
+      <dt>Neuroplasticity</dt><dd>The brain's ability to change itself based on experience.</dd>
+      <dt>Norepinephrine (noradrenaline)</dt><dd>Alertness chemical, like adrenaline. Too much leads to quitting.</dd>
+      <dt>Acetylcholine</dt><dd>Chemical that marks which connections to change.</dd>
+      <dt>Dopamine</dt><dd>Chemical that rewards progress and keeps you on the path.</dd>
+      <dt>Duration, path, outcome</dt><dd>The brain's way of thinking about how long, what happens and the result. This equals focused work.</dd>
+      <dt>Interoception</dt><dd>Sensing your inner body state.</dd>
+      <dt>Autonomic arousal</dt><dd>Your body's alertness level (heart rate, breathing).</dd>
+      <dt>Physiological sigh</dt><dd>Two inhales, one long exhale, to calm down.</dd>
+      <dt>Panoramic vision</dt><dd>Wide, relaxed gaze that lowers alertness.</dd>
+      <dt>Amygdala</dt><dd>Brain area that detects threats.</dd>
+      <dt>Growth mindset</dt><dd>Belief that you can change and that effort is rewarding.</dd>
+    </dl>
+  </div>
+</section>
+
+<!-- ===== 5. STEPS ===== -->
+<section class="card" id="process" style="--ac:#0ea5e9">
+  <span class="sec-label">5</span>
+  <h2>Step-by-Step Process: Getting Into Hard Work</h2>
+  <ol class="steps">
+    <li>Pick one clear goal and add urgency (a deadline or a real reason).</li>
+    <li>Expect agitation at the start. Treat it as the gate.</li>
+    <li>If you're sluggish, raise alertness (fast breathing, cold). If you're scattered, do a physiological sigh.</li>
+    <li>Fix your eyes on one thing (your page or screen) for a couple of minutes.</li>
+    <li>Split the work into small milestones.</li>
+    <li>Reward yourself mentally at each one.</li>
+    <li>Take short breaks by widening your gaze, not by scrolling.</li>
+    <li>Sleep or do deep rest so the changes lock in.</li>
+  </ol>
+</section>
+
+<!-- ===== 6. MISTAKES ===== -->
+<section class="card" id="mistakes" style="--ac:#b91c1c">
+  <span class="sec-label">6</span>
+  <h2>Common Mistakes or Misconceptions</h2>
+  <div class="block warn"><ul>
+    <li>Waiting for "flow." He says we barely understand it, and the start feels bad.</li>
+    <li>Thinking positive self-talk equals growth mindset. It doesn't if it isn't true.</li>
+    <li>Relying on external rewards for long-term drive.</li>
+    <li>Trying to suppress bad thoughts. It is futile.</li>
+    <li>Trying to fix feelings before changing behavior.</li>
+    <li>Believing stress is always bad. It's built to move you.</li>
+    <li>Using breath or tools at the last moment before a relapse. It's better to act earlier.</li></ul></div>
+</section>
+
+<!-- ===== 7. MEMORY AIDS ===== -->
+<section class="card" id="memory" style="--ac:#ea580c">
+  <span class="sec-label">7</span>
+  <h2>Memory Aids</h2>
+  <div class="block memory"><h3 style="margin-top:0">5 key takeaways</h3>
+    <ol>
+      <li>Rough starts are normal. Agitation is the gate to focus.</li>
+      <li>Plasticity needs urgency and focus, then deep rest.</li>
+      <li>Reward yourself for effort and small milestones.</li>
+      <li>Mood follows action. Move first.</li>
+      <li>Breathing and vision give real-time control of your state.</li>
+    </ol></div>
+  <div class="block memory"><h3 style="margin-top:0">Memorable phrase</h3>
+    <p><strong>"Gate, Goal, Gift, Go, Rest"</strong>: pass the agitation gate, set a goal, give yourself rewards, go, then rest.</p></div>
+  <div class="block memory"><h3 style="margin-top:0">Mental picture</h3>
+    <p>A dimmer switch and a camera lens. Your breath turns alertness up or down, and your eyes zoom in for focus or out for rest.</p></div>
+</section>
+
+<!-- ===== 8. ACTIVE RECALL ===== -->
+<section class="card" id="recall" style="--ac:#db2777">
+  <span class="sec-label">8</span>
+  <h2>Active Recall Questions</h2>
+  <details class="q"><summary>What are the five jobs of the nervous system?</summary><div class="ans">Sensation, perception, feelings, thoughts and behavior.</div></details>
+  <details class="q"><summary>Why does starting hard work feel bad?</summary><div class="ans">Norepinephrine kicks in first, creating agitation and stress before focus.</div></details>
+  <details class="q"><summary>What does acetylcholine do?</summary><div class="ans">It marks the brain connections involved in focused effort for later change.</div></details>
+  <details class="q"><summary>When does the brain actually change?</summary><div class="ans">During deep sleep or rest, after intense focus.</div></details>
+  <details class="q"><summary>How does dopamine help you keep going?</summary><div class="ans">It pushes back norepinephrine, which otherwise leads you to quit.</div></details>
+  <details class="q"><summary>Why are external rewards risky?</summary><div class="ans">They can replace internal motivation (the gold-star study).</div></details>
+  <details class="q"><summary>How do you calm down quickly?</summary><div class="ans">A physiological sigh: two inhales, then a long exhale.</div></details>
+  <details class="q"><summary>How does vision affect focus?</summary><div class="ans">Narrow, sharp visual focus pulls mental focus in. Wide gaze relaxes you.</div></details>
+  <details class="q"><summary>What did SEAL candidates do to finish?</summary><div class="ans">They split time into small goals, found meaning and rewarded themselves.</div></details>
+</section>
+
+<!-- ===== 9. ACTION ITEMS ===== -->
+<section class="card" id="actions" style="--ac:#4338ca">
+  <span class="sec-label">9</span>
+  <h2>Action Items</h2>
+  <div class="block action"><ul>
+    <li>Next time you resist starting, expect the agitation and keep going for a few minutes.</li>
+    <li>Set a deadline or a clear reason for one important task.</li>
+    <li>Break the task into milestones and tell yourself "I'm on the right path" at each.</li>
+    <li>Try a physiological sigh when stressed.</li>
+    <li>Between tasks, look at a far horizon for a few seconds instead of your phone.</li>
+    <li>Try a yoga nidra or hypnosis audio for rest or sleep.</li>
+    <li>Take a walk with no phone when you need to reset.</li></ul></div>
+</section>
+
+<!-- ===== 10. RECAP ===== -->
+<section class="recap" id="recap">
+  <h2>30-Second Recap</h2>
+  <p>Huberman went from a troubled teen to a Stanford professor by using fear, routines and mentors. He explains that the brain changes when you bring intense focus and urgency to a goal, then rest. Starting feels rough because of adrenaline, but that is just the gate. Rewarding your own effort with dopamine keeps you going and holds off quitting. Act first and your mood follows. Use breathing and your eyes to calm down or wake up in real time. Narrowed, stressed states trap addicts and polarize society, so learning to self-regulate is the first step.</p>
+</section>
+</main>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p class="note">Note: This summary follows the transcript. The host's name is not given in it. Some claims, like the "impatience" idea, are described by the speaker as emerging or unproven.</p>
+</footer>
+
+<button id="topBtn" type="button" aria-label="Back to top">↑</button>
+
+<script>
+/* ===== DARK MODE (in memory only) ===== */
+var dark=false,root=document.documentElement,themeBtn=document.getElementById('themeBtn');
+themeBtn.addEventListener('click',function(){
+  dark=!dark;
+  if(dark){root.setAttribute('data-theme','dark')}else{root.removeAttribute('data-theme')}
+  themeBtn.setAttribute('aria-pressed',dark);
+  themeBtn.textContent=dark?'☀️ Light mode':'🌙 Dark mode';
+});
+
+/* ===== MOBILE TOC TOGGLE ===== */
+var tocBtn=document.getElementById('tocBtn'),tocList=document.getElementById('tocList');
+tocBtn.addEventListener('click',function(){
+  var open=tocList.classList.toggle('open');
+  tocBtn.setAttribute('aria-expanded',open);
+});
+tocList.addEventListener('click',function(e){
+  if(e.target.tagName==='A'&&window.innerWidth<768){tocList.classList.remove('open');tocBtn.setAttribute('aria-expanded','false')}
+});
+
+/* ===== EXPAND / COLLAPSE ALL QUESTIONS ===== */
+var allOpen=false,toggleAll=document.getElementById('toggleAll');
+toggleAll.addEventListener('click',function(){
+  allOpen=!allOpen;
+  document.querySelectorAll('details.q').forEach(function(d){d.open=allOpen});
+  toggleAll.textContent=allOpen?'Collapse all questions':'Expand all questions';
+});
+
+/* ===== PROGRESS BAR, BACK TO TOP, ACTIVE TOC LINK ===== */
+var bar=document.getElementById('progress'),topBtn=document.getElementById('topBtn');
+var links=[].slice.call(document.querySelectorAll('#tocList a'));
+var targets=links.map(function(a){return document.querySelector(a.getAttribute('href'))});
+function onScroll(){
+  var h=document.documentElement,max=h.scrollHeight-h.clientHeight;
+  bar.style.width=(max>0?(h.scrollTop/max)*100:0)+'%';
+  topBtn.classList.toggle('show',h.scrollTop>400);
+  var cur=0;
+  targets.forEach(function(t,i){if(t&&t.getBoundingClientRect().top<window.innerHeight*0.35)cur=i});
+  links.forEach(function(a,i){a.classList.toggle('active',i===cur)});
+}
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',onScroll);
+onScroll();
+topBtn.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})});
+</script>
+</body>
+</html>
