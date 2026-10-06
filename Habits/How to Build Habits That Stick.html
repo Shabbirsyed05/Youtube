@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>James Clear: How to Build Habits That Stick – Study Guide</title>
+<style>
+/* ===== Color tokens ===== */
+:root{--bg:#f4f6f9;--fg:#1c2430;--card:#fff;--blue:#1d4ed8;--line:#d5dbe5;
+--core:#e0edff;--key:#e3f6e8;--ex:#fff3cd;--why:#ece5fb;--gl:#dcf5f2;--warn:#fde2e2;--mem:#ffe8d1;--rec:#fde4ef;--act:#e3e6fb;--recap:#14213d}
+:root[data-theme=dark]{--bg:#10151d;--fg:#e8edf4;--card:#1a212c;--blue:#8ab4ff;--line:#2e394a;
+--core:#1b2e4d;--key:#17362a;--ex:#40361a;--why:#2d2548;--gl:#14393a;--warn:#471f22;--mem:#46301a;--rec:#472238;--act:#252b52;--recap:#050a14}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;padding-top:env(safe-area-inset-top,0px);scroll-padding-top:1rem}
+body{margin:0;background:var(--bg);color:var(--fg);font:1rem/1.65 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;padding-bottom:env(safe-area-inset-bottom,0px)}
+#bar{position:fixed;top:0;left:0;height:4px;width:0;background:var(--blue);z-index:20}
+header{padding:1.5rem 1rem;background:var(--card);border-bottom:1px solid var(--line)}
+header h1{margin:0 0 .4rem;font-size:clamp(1.4rem,4vw,2.1rem);color:var(--blue)}
+header p{margin:0;max-width:60rem}
+.tools{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:1rem}
+button{font:inherit;min-height:2.75rem;padding:.4rem 1rem;border-radius:.6rem;border:1px solid var(--line);background:var(--card);color:var(--fg);cursor:pointer;transition:transform .15s,box-shadow .15s}
+button:hover{transform:translateY(-1px);box-shadow:0 3px 8px #0003}
+.layout{display:grid;grid-template-columns:1fr;gap:1rem;padding:1rem;max-width:75rem;margin:auto}
+nav{background:var(--card);border:1px solid var(--line);border-radius:.8rem;padding:.3rem 1rem}
+nav summary{min-height:2.75rem;display:flex;align-items:center;font-weight:700;cursor:pointer}
+nav a{display:block;padding:.35rem 0;color:var(--blue);text-decoration:none}
+nav a:hover{text-decoration:underline}
+main{max-width:900px;min-width:0}
+section.card{background:var(--card);border:1px solid var(--line);border-left:8px solid var(--ac);border-radius:.8rem;padding:1rem 1.2rem;margin-bottom:1.2rem;transition:box-shadow .2s}
+section.card:hover{box-shadow:0 4px 14px #0002}
+h2{color:var(--blue);margin:.2rem 0 .8rem;font-size:clamp(1.25rem,3vw,1.6rem)}
+h3{margin:0 0 .3rem;font-size:.85rem;text-transform:uppercase;letter-spacing:.05em}
+.b{border-radius:.6rem;padding:.7rem 1rem;margin:.7rem 0}
+.b p,.b ul,.b ol{margin:0}.b ul,.b ol{padding-left:1.3rem}
+.core{background:var(--core)}.key{background:var(--key)}.ex{background:var(--ex)}.why{background:var(--why)}
+.gl{background:var(--gl)}.warn{background:var(--warn)}.mem{background:var(--mem)}.rec{background:var(--rec)}.act{background:var(--act)}
+dl{display:grid;grid-template-columns:minmax(7rem,1fr) 3fr;gap:.4rem 1rem;margin:0}dt{font-weight:700}dd{margin:0}
+.steps{list-style:none;padding:0!important;counter-reset:s}
+.steps li{counter-increment:s;position:relative;padding:0 0 1rem 2.8rem}
+.steps li:before{content:counter(s);position:absolute;left:0;top:0;width:2rem;height:2rem;border-radius:50%;background:var(--blue);color:var(--card);display:grid;place-items:center;font-weight:700}
+.steps li:not(:last-child):after{content:"";position:absolute;left:.95rem;top:2rem;bottom:0;width:2px;background:var(--blue)}
+details.q{background:var(--rec);border-radius:.6rem;margin:.5rem 0;padding:.2rem 1rem}
+details.q summary{min-height:2.75rem;display:flex;align-items:center;cursor:pointer;font-weight:600}
+details.q p{margin:.2rem 0 .8rem}
+.recap{background:var(--recap);color:#fff;border-radius:.8rem;padding:1rem 1.2rem}
+.recap h2{color:#fff}
+#top{position:fixed;right:1rem;bottom:calc(1rem + env(safe-area-inset-bottom,0px));display:none}
+footer{text-align:center;padding:1.5rem;font-size:.9rem}
+@media(min-width:768px){.layout{grid-template-columns:15rem 1fr}nav{position:sticky;top:1rem;align-self:start}}
+@media print{#bar,.tools,nav,#top{display:none!important}.layout{display:block}body{background:#fff;color:#000}}
+</style>
+</head>
+<body>
+<div id="bar"></div>
+<!-- ===== Header ===== -->
+<header>
+<h1>How to Build Habits That Stick (James Clear on Atomic Habits)</h1>
+<p>Big idea: small, easy actions repeated every day shape who you become, and the hardest part is simply getting started.</p>
+<div class="tools"><button id="dm">🌙 Dark mode</button><button id="ex">Expand all questions</button></div>
+</header>
+<div class="layout">
+<!-- ===== Table of contents ===== -->
+<nav aria-label="Contents"><details id="toc" open><summary>Contents</summary><div id="tl"></div></details></nav>
+<main id="m"></main>
+</div>
+<button id="top" aria-label="Back to top">↑ Top</button>
+<footer>Study summary of a podcast interview with James Clear.</footer>
+<script>
+/* ===== Content data ===== */
+const S=[
+{t:"Getting Started: Make It Tiny",ac:"#2563eb",
+c:"Most of habit-building is about starting. If you make the first step very easy, you get in the game, and you can improve from there.",
+k:["Set up your space so the first action is easy (write the first sentence the day before; sleep in or lay out running clothes).","Two-minute rule: shrink a habit to two minutes. 'Read 30 books' becomes 'read one page'. 'Yoga' becomes 'take out the mat'.","A habit must be established before it can be improved.","Habit shaping: grow it in steps (shoes on, step outside, walk the block, then run).","Ask what you can stick to on your bad days, not your best day. That is your starting point.","Reduce the scope but stick to the schedule. Do a short version rather than a zero."],
+e:"Mitch went to the gym for six weeks but could stay only 5 minutes. He was learning to show up. (Also: a patient's first steps were bringing in a vacuum, then plugging it in.)",
+w:"Motivation follows starting. Progress, even tiny, is what keeps you going, and a low bar lets you feel it on bad days."},
+{t:"The Four Laws of Behavior Change",ac:"#059669",
+c:"Every habit runs through four steps: cue, craving, response, reward. Each step has a law to help you build the habit. To break a habit, flip each law.",
+k:["Cue → make it obvious (put creatine on the counter; put a guitar stand in the living room).","Craving → make it attractive (a 'party in a bowl' salad; ask 'what would make this fun?').","Response → make it easy (less friction, more convenience).","Reward → make it satisfying (a streak, a paperclip moved, a belt for the winner).","To break a habit: make it invisible, unattractive, difficult and unsatisfying (phone in another room).","Rewards of good habits come now or later? Good habits cost now, pay later. Pull the reward forward and the cost of bad habits closer."],
+e:"Trent Durstman moved 100 paperclips from one jar to another, one per sales call, and became his firm's top broker.",
+w:"The first three laws make a habit happen this time. The fourth makes it happen next time."},
+{t:"Habit Tracking, Scorecard and Stacking",ac:"#d97706",
+c:"Awareness changes behavior. Write down what you do, then attach new habits to ones you already have.",
+k:["Habit scorecard: list your daily habits and mark each + (good), − (bad) or = (neutral). Do not judge, just observe.","Habit stacking: 'After I [current habit], I will [new habit].'","Chain stacks together once they feel normal.","Do habits earlier in the day when you have more control and energy.","A habit tracker gives a signal of progress when real results are slow."],
+e:"After I make my morning coffee, I will meditate for 60 seconds. Another reader brushes her teeth on one leg to improve balance.",
+w:"A cue you already have is free and reliable, so the new habit has a home."},
+{t:"Systems Beat Goals",ac:"#7c3aed",
+c:"A goal is the outcome you want. A system is the daily habits that get you there. When they disagree, your habits win.",
+k:["Winners and losers have the same goals, so goals do not make the difference.","Goals set direction; then focus your time on the system.","Goals suit winning once. Systems suit winning repeatedly.","Ask: can my current habits carry me to my desired future?","Ask: how do I want to spend my days? Want the lifestyle, not just the result.","Delaying happiness until a goal is hit is a trap. Enjoy the process."],
+e:"A soccer coach gave his players systems for everything (tying cleats, practice prep). The team went from 5–13 to a national title in about five years.",
+w:"You do not rise to the level of your goals; you fall to the level of your systems."},
+{t:"Identity and Environment",ac:"#db2777",
+c:"Each action is a vote for the person you want to become. Your surroundings and your groups pull you toward certain behavior.",
+k:["Start with 'who do I wish to become?', not only 'what do I want?'.","Let behavior lead belief: do one push-up and cast a vote for 'I am someone who works out'.","'I'm not a smoker' works better than 'I'm trying not to smoke'.","A habit is tied to a context. A new place (a journaling chair) helps a new habit.","Join groups where your desired behavior is normal. You do not need to drop friends; find a place where the habit can thrive.","Create the space yourself if it does not exist (he hosted retreats for authors)."],
+e:"Environment is like gravity. You walk out through the door, not the wall, because the room nudges you that way.",
+w:"Most of the time the wish to belong beats the wish to improve, so use that force on your side."},
+{t:"Consistency, Progress and Bouncing Back",ac:"#0891b2",
+c:"Showing up in a flexible way beats rare big efforts. Progress compounds slowly, and the key skill is recovering quickly after you slip.",
+k:["1% better daily compounds (about 37 times in a year), but the biggest returns come late.","Focus on trajectory, not current position.","Make small steps that accumulate into something bigger. Two time frames matter: 10 years and one hour.","Consistency enlarges ability, and consistency often means being adaptable (the willow bends).","Have a plan for getting back on track fast.","Handle losses with a 'next play' mindset and emphasize your wins."],
+e:"A friend's tennis game changed when he told himself, after losing a point, that it did not matter because he is the better player.",
+w:"The speed of your comeback matters more than avoiding every mistake."},
+{t:"Choosing Habits and Seasons of Life",ac:"#ca8a04",
+c:"You cannot do everything at once. Pick habits that make other good things happen, decide quickly, and let habits change shape over time.",
+k:["Start with upstream habits (sleep, a workout, reading) that lift the rest of your day.","Reflection and review is the 'meta habit' that lets you fix other habits.","Hats, haircuts, tattoos: easy-to-reverse choices need speed; only permanent ones need long thought.","Four burners theory: you cannot run work, family, friends and health at full heat together.","Habits have seasons. His writing went from two articles a week, to a book, to a weekly newsletter.","Map your day: which hours are best and most under your control?"],
+e:"Clear turned his career burner down while his kids are young.",
+w:"Habits that stop serving you should change, and that is not failure."}
+];
+const G=[["Habit stacking","Adding a new habit right after one you already do."],["Two-minute rule","Shrink a habit to something that takes two minutes or less."],["Habit shaping","Growing a habit gradually in small steps."],["Habit scorecard","A list of your daily habits marked +, − or =."],["System","The daily habits you follow to reach a goal."],["Four burners theory","Work, family, friends and health: you can only run two or so at full heat."],["Activation energy","The effort needed to start; smaller habits need less."],["Lagging measure","A result (money, knowledge) that reflects past habits."]];
+const ST=["Write down what you do each day (scorecard) and mark +, − or =.","Pick one habit to start, ideally one that is upstream of other good things.","Make it tiny (two-minute rule).","Choose a current habit as the cue and write 'After I…, I will…'.","Prime your space so the first action is obvious and easy.","Track it (paper clips, an X on a calendar).","When you slip, do a smaller version and get back on track fast."];
+const MS=["Starting is the hardest part, so shrink the first step.","Four laws: obvious, attractive, easy, satisfying (invert to break).","Systems beat goals: you fall to the level of your systems.","Every action is a vote for who you are becoming.","Do not aim for perfect days; recover fast and keep the streak alive."];
+const Q=[["What is the two-minute rule?","Scale a habit down to something that takes two minutes or less, like reading one page."],["Why does Clear say to start with your worst day?","Your baseline should be what you can do even when tired, so you keep making progress."],["What are the four steps of every habit?","Cue, craving, response, reward."],["How do you break a bad habit using the laws?","Make it invisible, unattractive, difficult and unsatisfying."],["Why do systems matter more than goals?","Winners and losers share goals; daily habits decide results."],["How does habit stacking work?","Attach a new habit to an existing one: 'After I make coffee, I will meditate for 60 seconds.'"],["Why is a new environment useful for a new habit?","A habit is tied to a context, so a new place avoids old triggers."],["What is the 'hats, haircuts, tattoos' idea?","Easy-to-undo decisions should be made fast; only permanent ones need slow thought."],["How should you handle missing a day?","Do a smaller version and have a plan to get back quickly."]];
+const A=["Do the habit scorecard for one normal day.","Pick one habit and shrink it to two minutes.","Write one habit stack and put the cue where you can see it.","Ask 'what would make this fun?' and list options.","Find or build a group where your habit is normal.","Schedule time to reflect and review each week."];
+/* ===== Render ===== */
+const L=a=>"<ul>"+a.map(x=>"<li>"+x+"</li>").join("")+"</ul>";
+const blk=(c,h,x)=>`<div class="b ${c}"><h3>${h}</h3>${x}</div>`;
+let h="",toc="";
+S.forEach((s,i)=>{toc+=`<a href="#s${i}">${s.t}</a>`;
+h+=`<section class="card" id="s${i}" style="--ac:${s.ac}"><h2>${s.t}</h2>${blk("core","Core idea","<p>"+s.c+"</p>")}${blk("key","Key points",L(s.k))}${blk("ex","Example / analogy","<p>"+s.e+"</p>")}${blk("why","Why it matters","<p>"+s.w+"</p>")}</section>`});
+const sec=(id,t,ac,body)=>{toc+=`<a href="#${id}">${t}</a>`;return `<section class="card" id="${id}" style="--ac:${ac}"><h2>${t}</h2>${body}</section>`};
+h+=sec("gl","Key Terms Glossary","#0d9488",`<div class="b gl"><dl>${G.map(g=>`<dt>${g[0]}</dt><dd>${g[1]}</dd>`).join("")}</dl></div>`);
+h+=sec("pr","Step-by-Step: Start a Habit","#2563eb",`<ol class="steps">${ST.map(x=>"<li>"+x+"</li>").join("")}</ol>`);
+h+=sec("mi","Common Mistakes","#dc2626",`<div class="b warn">${L(["Planning a perfect routine and expecting perfect days; one miss then ends it.","Treating a habit as a finish line (a 30-day sprint) instead of a lifestyle.","Thinking the 66-day figure says how long habits take (it varies widely).","Making meaningless 1% changes that do not add up to anything.","Comparing big things like net worth or marriage; compare small tactics instead."])}</div>`);
+h+=sec("me","Memory Aids","#ea580c",`<div class="b mem"><h3>5 key takeaways</h3>${L(MS)}</div><div class="b mem"><h3>Memorable phrase</h3><p><b>"Start tiny, stack it, vote for who you want to be."</b></p></div><div class="b mem"><h3>Mental picture</h3><p>A small atom joins others to form a molecule. Small habits join to make a powerful life.</p></div>`);
+h+=sec("re","Active Recall Questions","#db2777",Q.map(q=>`<details class="q"><summary>${q[0]}</summary><p>${q[1]}</p></details>`).join(""));
+h+=sec("ac","Action Items","#4f46e5",`<div class="b act">${L(A)}</div>`);
+toc+=`<a href="#rc">30-Second Recap</a>`;
+h+=`<section class="recap" id="rc"><h2>30-Second Recap</h2><p>Habits shape your results, so change the habits and the results follow. Make the start tiny, stack it on something you already do, and put cues where you can see them. Choose systems over goals, and treat each action as a vote for who you want to become. Surround yourself with people for whom the habit is normal. Progress compounds slowly, so track it and celebrate small wins. When you slip, do a smaller version and bounce back fast.</p></section>`;
+document.getElementById("m").innerHTML=h;document.getElementById("tl").innerHTML=toc;
+/* ===== Behavior ===== */
+const R=document.documentElement,qs=()=>[...document.querySelectorAll("details.q")];
+const mq=matchMedia("(min-width:768px)"),T=document.getElementById("toc");
+const fit=()=>{T.open=mq.matches};fit();mq.addEventListener("change",fit);
+document.getElementById("dm").onclick=function(){const d=R.dataset.theme=="dark";R.dataset.theme=d?"light":"dark";this.textContent=d?"🌙 Dark mode":"☀️ Light mode"};
+let open=false;document.getElementById("ex").onclick=function(){open=!open;qs().forEach(d=>d.open=open);this.textContent=open?"Collapse all questions":"Expand all questions"};
+const tp=document.getElementById("top"),bar=document.getElementById("bar");
+tp.onclick=()=>scrollTo({top:0,behavior:"smooth"});
+addEventListener("scroll",()=>{const m=R.scrollHeight-innerHeight;bar.style.width=(m>0?scrollY/m*100:0)+"%";tp.style.display=scrollY>400?"block":"none"});
+</script>
+</body>
+</html>
