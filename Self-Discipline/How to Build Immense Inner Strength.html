@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>David Goggins on Willpower, Self-Discipline, and Going Inward – Study Summary</title>
+<style>
+/* ===== COLOR SYSTEM (CSS variables) ===== */
+:root{
+  --bg:#f3f5f9; --card:#ffffff; --text:#1b2433; --muted:#4a5568; --border:#d9dfe9;
+  --blue:#1d4ed8; --blue-bg:#e3eeff;
+  --green-bg:#e4f6e8; --amber-bg:#fff4d1; --purple-bg:#efe6fb; --teal-bg:#d9f3f1;
+  --red-bg:#fde4e4; --orange-bg:#ffe9d6; --pink-bg:#fde6f0; --indigo-bg:#e6e8fb;
+  --recap-bg:#12203a; --recap-text:#ffffff;
+  --a1:#1d4ed8; --a2:#0f766e; --a3:#7e22ce; --a4:#b45309; --a5:#be123c; --a6:#4d7c0f; --a7:#0369a1; --a8:#a21caf; --a9:#c2410c; --a10:#4338ca;
+  --shadow:0 2px 8px rgba(20,30,60,.08);
+}
+:root[data-theme="dark"]{
+  --bg:#0e1420; --card:#17202f; --text:#e8edf6; --muted:#b4bfd1; --border:#2b3850;
+  --blue:#8ab4ff; --blue-bg:#1b2c4d;
+  --green-bg:#173525; --amber-bg:#40330f; --purple-bg:#2f2147; --teal-bg:#12393a;
+  --red-bg:#43191c; --orange-bg:#44280f; --pink-bg:#451a30; --indigo-bg:#23274f;
+  --recap-bg:#050b16; --recap-text:#ffffff;
+  --a1:#8ab4ff; --a2:#4fd1c5; --a3:#c9a0ff; --a4:#f6ad55; --a5:#fb7185; --a6:#a3e635; --a7:#63b3ed; --a8:#f0abfc; --a9:#fb923c; --a10:#a5b4fc;
+  --shadow:0 2px 8px rgba(0,0,0,.4);
+}
+/* ===== BASE ===== */
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:1rem}
+body{margin:0;background:var(--bg);color:var(--text);font:clamp(1rem,.95rem + .25vw,1.125rem)/1.65 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+a{color:var(--blue)}
+h1,h2,h3,h4{line-height:1.25;margin:0 0 .6rem}
+ul,ol{margin:.3rem 0;padding-left:1.4rem}
+li{margin:.3rem 0}
+button{font:inherit;cursor:pointer;min-height:2.75rem;padding:.5rem 1rem;border-radius:.6rem;border:1px solid var(--border);background:var(--card);color:var(--text);transition:transform .15s,box-shadow .15s,background .15s}
+button:hover{transform:translateY(-1px);box-shadow:var(--shadow)}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+/* ===== PROGRESS BAR ===== */
+#progress{position:fixed;top:0;left:0;height:5px;width:0;background:var(--blue);z-index:100}
+/* ===== HEADER ===== */
+header.site{background:linear-gradient(135deg,var(--blue-bg),var(--card));border-bottom:1px solid var(--border);padding:clamp(1.25rem,4vw,2.5rem) clamp(1rem,4vw,2rem)}
+header.site .inner{max-width:1160px;margin:auto}
+header.site .tag{margin:0 0 .4rem;color:var(--muted);font-size:.9rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em}
+header.site h1{font-size:clamp(1.6rem,4vw,2.5rem);color:var(--blue)}
+header.site p.one{margin:.5rem 0 1rem;font-size:1.1em}
+.tools{display:flex;flex-wrap:wrap;gap:.6rem}
+/* ===== LAYOUT ===== */
+.layout{display:grid;grid-template-columns:1fr;gap:1rem;max-width:1160px;margin:auto;padding:1rem}
+nav.toc{background:var(--card);border:1px solid var(--border);border-radius:.8rem;box-shadow:var(--shadow);padding:.75rem}
+nav.toc .toggle{width:100%;text-align:left;font-weight:700}
+nav.toc .list{display:none;margin-top:.5rem}
+nav.toc.open .list{display:block}
+nav.toc ol,nav.toc ul{list-style:none;padding:0;margin:0}
+nav.toc ul{padding-left:1rem;font-size:.95em}
+nav.toc a{display:block;padding:.45rem .6rem;border-radius:.4rem;text-decoration:none;color:var(--text);transition:background .15s}
+nav.toc a:hover,nav.toc a.active{background:var(--blue-bg);color:var(--blue)}
+main{min-width:0}
+/* ===== CARDS ===== */
+.card{background:var(--card);border:1px solid var(--border);border-left:8px solid var(--accent,var(--blue));border-radius:.8rem;box-shadow:var(--shadow);padding:clamp(1rem,3vw,1.75rem);margin:0 0 1.25rem;transition:box-shadow .2s,transform .2s}
+.card:hover{box-shadow:0 6px 18px rgba(20,30,60,.14)}
+.card>h2,.card>h3{color:var(--accent,var(--blue))}
+.group>h2{color:var(--blue);margin:1.5rem 0 1rem}
+.c1{--accent:var(--a1)}.c2{--accent:var(--a2)}.c3{--accent:var(--a3)}.c4{--accent:var(--a4)}.c5{--accent:var(--a5)}.c6{--accent:var(--a6)}.c7{--accent:var(--a7)}.c8{--accent:var(--a8)}.c9{--accent:var(--a9)}.c10{--accent:var(--a10)}
+/* ===== CONTENT BLOCKS ===== */
+.block{border-radius:.6rem;padding:.8rem 1rem;margin:.8rem 0}
+.block h4{margin:0 0 .3rem;font-size:.85rem;text-transform:uppercase;letter-spacing:.06em}
+.block p{margin:.2rem 0}
+.core{background:var(--blue-bg)}
+.key{background:var(--green-bg)}
+.example{background:var(--amber-bg)}
+.why{background:var(--purple-bg)}
+.note{background:var(--amber-bg)}
+.mistakes{background:var(--red-bg)}
+.memory{background:var(--orange-bg)}
+.actions{background:var(--indigo-bg)}
+.mnemonic{font-size:1.2em;font-weight:700;margin:.2rem 0}
+/* ===== GLOSSARY ===== */
+dl.glossary{display:grid;grid-template-columns:1fr;gap:.5rem;margin:0;background:var(--teal-bg);border-radius:.6rem;padding:1rem}
+dl.glossary dt{font-weight:700;margin-top:.5rem}
+dl.glossary dd{margin:0}
+/* ===== STEPS ===== */
+ol.steps{list-style:none;padding:0;margin:.5rem 0;counter-reset:s}
+ol.steps li{counter-increment:s;position:relative;padding:.2rem 0 1.2rem 3.4rem;margin:0}
+ol.steps li::before{content:counter(s);position:absolute;left:0;top:0;width:2.4rem;height:2.4rem;border-radius:50%;background:var(--accent);color:#fff;display:grid;place-items:center;font-weight:700}
+[data-theme="dark"] ol.steps li::before{color:#0e1420}
+ol.steps li::after{content:"";position:absolute;left:1.15rem;top:2.5rem;bottom:.1rem;width:3px;background:var(--accent);opacity:.45}
+ol.steps li:last-child{padding-bottom:0}
+ol.steps li:last-child::after{display:none}
+/* ===== RECALL ===== */
+.recall-wrap{background:var(--pink-bg);border-radius:.6rem;padding:.8rem}
+details.q{background:var(--card);border:1px solid var(--border);border-radius:.5rem;margin:.5rem 0;transition:box-shadow .15s}
+details.q:hover{box-shadow:var(--shadow)}
+details.q summary{cursor:pointer;padding:.8rem 1rem;font-weight:600;min-height:2.75rem}
+details.q .ans{padding:0 1rem 1rem;border-top:1px dashed var(--border);padding-top:.7rem}
+/* ===== RECAP ===== */
+.recap{background:var(--recap-bg);color:var(--recap-text);border-radius:.9rem;padding:clamp(1.2rem,4vw,2rem);border:2px solid var(--blue);box-shadow:var(--shadow)}
+.recap h2{color:#fff}
+/* ===== BACK TO TOP ===== */
+#top{position:fixed;right:1rem;bottom:1rem;display:none;z-index:50;box-shadow:var(--shadow)}
+#top.show{display:block}
+footer{max-width:1160px;margin:auto;padding:1rem 1rem 2.5rem;color:var(--muted);font-size:.9rem}
+/* ===== TABLET / LAPTOP ===== */
+@media (min-width:768px){
+  .layout{grid-template-columns:260px minmax(0,900px);gap:1.5rem;padding:1.5rem}
+  nav.toc{position:sticky;top:1rem;align-self:start;max-height:calc(100vh - 2rem);overflow:auto}
+  nav.toc .toggle{display:none}
+  nav.toc .list{display:block;margin:0}
+  dl.glossary{grid-template-columns:minmax(10rem,30%) 1fr;column-gap:1.25rem}
+  dl.glossary dt{margin-top:0}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+/* ===== PRINT ===== */
+@media print{
+  .tools,nav.toc,#progress,#top{display:none!important}
+  body{background:#fff;color:#000;font-size:11pt}
+  .layout{display:block;padding:0}
+  .card,.recap{box-shadow:none;break-inside:avoid;border:1px solid #999}
+  .recap{background:#fff;color:#000}.recap h2{color:#000}
+  details.q .ans{display:block}
+}
+</style>
+</head>
+<body>
+<!-- Reading progress bar -->
+<div id="progress" aria-hidden="true"></div>
+
+<!-- ===== HEADER ===== -->
+<header class="site" id="top-of-page">
+  <div class="inner">
+    <p class="tag">Study Summary: David Goggins on Willpower, Friction, and Going Inward</p>
+    <h1>"David Goggins on Willpower, Self-Discipline, and Going Inward" (Huberman Lab, with Andrew Huberman)</h1>
+    <p class="one">Goggins says real change comes from doing what you don't want to do, every day, and from facing your own inner voices honestly, not from hacks or motivation.</p>
+    <div class="tools">
+      <button id="themeBtn" type="button" aria-pressed="false">🌙 Dark mode</button>
+      <button id="toggleAll" type="button">Expand all questions</button>
+    </div>
+  </div>
+</header>
+
+<div class="layout">
+<!-- ===== TABLE OF CONTENTS ===== -->
+<nav class="toc" id="toc" aria-label="Table of contents">
+  <button class="toggle" id="tocBtn" type="button" aria-expanded="false" aria-controls="tocList">☰ Table of contents</button>
+  <div class="list" id="tocList">
+    <ol>
+      <li><a href="#s1">1. Title and One-Line Summary</a></li>
+      <li><a href="#s2">2. Big Picture</a></li>
+      <li><a href="#s3">3. Main Sections</a>
+        <ul>
+          <li><a href="#a">A. Learning the hard way</a></li>
+          <li><a href="#b">B. Friction and being "haunted"</a></li>
+          <li><a href="#c">C. The brain science of willpower</a></li>
+          <li><a href="#d">D. No hacks, and nobody can light the flame for you</a></li>
+          <li><a href="#e">E. Trade-offs: sleep, balance, and relationships</a></li>
+          <li><a href="#f">F. Unseen work and the inner "medicine cabinet"</a></li>
+          <li><a href="#g">G. Being misunderstood and "capped success"</a></li>
+          <li><a href="#h">H. Going inward: the Mona Lisa</a></li>
+          <li><a href="#i">I. Two voices and learning to fail</a></li>
+          <li><a href="#j">J. The cupboards: facing the dark stuff daily</a></li>
+        </ul></li>
+      <li><a href="#s4">4. Key Terms Glossary</a></li>
+      <li><a href="#s5">5. Step-by-Step Process</a></li>
+      <li><a href="#s6">6. Common Mistakes or Misconceptions</a></li>
+      <li><a href="#s7">7. Memory Aids</a></li>
+      <li><a href="#s8">8. Active Recall Questions</a></li>
+      <li><a href="#s9">9. Action Items</a></li>
+      <li><a href="#s10">10. 30-Second Recap</a></li>
+    </ol>
+  </div>
+</nav>
+
+<main>
+<!-- ===== 1. TITLE ===== -->
+<section class="card c1" id="s1">
+  <h2>1. Title and One-Line Summary</h2>
+  <p><strong>"David Goggins on Willpower, Self-Discipline, and Going Inward" (Huberman Lab, with Andrew Huberman).</strong> Goggins says real change comes from doing what you don't want to do, every day, and from facing your own inner voices honestly, not from hacks or motivation.</p>
+</section>
+
+<!-- ===== 2. BIG PICTURE ===== -->
+<section class="card c2" id="s2">
+  <h2>2. Big Picture</h2>
+  <p>Goggins, a retired Navy SEAL and ultramarathon runner, explains the mindset behind his life. He grew up in an abusive home, struggled to learn, and weighed over 300 pounds at 24. Huberman, a neuroscientist, adds brain science that matches what Goggins describes. Strong profanity runs throughout. The video suits anyone who feels stuck or wants to understand discipline.</p>
+  <div class="block note"><h4>My note</h4><p>The life story is Goggins's own account. The brain science comes from Huberman's description, and the transcript gives no sources. Goggins also says his way of living is extreme and costs him sleep and balance, so it isn't presented as a plan for everyone.</p></div>
+</section>
+
+<!-- ===== 3. MAIN SECTIONS ===== -->
+<section class="group" id="s3">
+  <h2>3. Main Sections</h2>
+
+  <article class="card c3" id="a">
+    <h3>A. Learning the hard way</h3>
+    <div class="block core"><h4>Core idea</h4><p>Goggins says he was born with ADD/ADHD and can't hold information easily. He now studies medicine to be a better paramedic, and it is as hard for him as running.</p></div>
+    <div class="block key"><h4>Key points</h4><ul>
+      <li>He writes every page by hand, again and again, until he can picture it.</li>
+      <li>He studies the same material every day, 4+ hours, and passes the exams, but it never "sticks" permanently.</li>
+      <li>He never took medication for ADHD.</li>
+      <li>When he runs, he can't recall any of the studying. Each thing gets his full focus.</li></ul></div>
+    <div class="block example"><h4>Example</h4><p>At 2 a.m. he wakes up thinking about a drug and gets up to check his book.</p></div>
+    <div class="block why"><h4>Why it matters</h4><p>It shows that skills he lacks can be built through repetition, though it never gets easy.</p></div>
+  </article>
+
+  <article class="card c4" id="b">
+    <h3>B. Friction and being "haunted"</h3>
+    <div class="block core"><h4>Core idea</h4><p>Goggins runs on "the stick," meaning pain and fear of going back to who he was. There is almost no "carrot," meaning a reward.</p></div>
+    <div class="block key"><h4>Key points</h4><ul>
+      <li>Friction is growth, and it starts the moment he wakes up.</li>
+      <li>Being 300 pounds, lying, and faking a character left him haunted by his own life. He says that haunting was necessary to push him out.</li>
+      <li>Change isn't permanent. If he stops, he goes back to that old self.</li>
+      <li>No one ever stood between him and the world.</li></ul></div>
+    <div class="block example"><h4>Example</h4><p>On hard exams, a voice says "this ain't you." He has to outwork that voice each time.</p></div>
+    <div class="block why"><h4>Why it matters</h4><p>Effort alone isn't enough, according to Huberman. The unpleasant part is the lever.</p></div>
+  </article>
+
+  <article class="card c5" id="c">
+    <h3>C. The brain science of willpower</h3>
+    <div class="block core"><h4>Core idea</h4><p>Huberman describes a brain area, the anterior mid-cingulate cortex. He says it grows when you do things you don't want to do, and shrinks when you stop.</p></div>
+    <div class="block key"><h4>Key points</h4><ul>
+      <li>He says it is smaller in obese people, bigger when they diet, larger in athletes, and stays large in people who live very long.</li>
+      <li>It only grows from things you dislike. Loving the ice bath won't do it.</li>
+      <li>It links to the dopamine system. Huberman says pain can also release dopamine here, and that this is learned.</li>
+      <li>It can shrink like Silly Putty, so it needs daily upkeep.</li>
+      <li>Everyone has one on each side of the brain.</li></ul></div>
+    <div class="block example"><h4>Example</h4><p>Someone afraid of water who puts their head under grows it. If they enjoy it the next day, it doesn't.</p></div>
+    <div class="block why"><h4>Why it matters</h4><p>It makes willpower something you build, not something you're born with. Goggins had never heard of this area but says it matches how he lived.</p></div>
+  </article>
+
+  <article class="card c6" id="d">
+    <h3>D. No hacks, and nobody can light the flame for you</h3>
+    <div class="block core"><h4>Core idea</h4><p>Goggins says there are no life hacks. You grow willpower by doing hard things repeatedly.</p></div>
+    <div class="block key"><h4>Key points</h4><ul>
+      <li>He says you already know what to do. The question is why you aren't doing it.</li>
+      <li>Something inside you has to wake up. He says no one else can do it.</li>
+      <li>He says he'd tell someone at 300 pounds that the first weeks will be miserable, and they'll need an invented "false reality" to get out of bed.</li>
+      <li>Huberman shares a friend who quit drinking and lost 60 pounds after one conversation.</li></ul></div>
+    <div class="block example"><h4>Example</h4><p>Goggins says that when he was 300 pounds he needed help wiping himself.</p></div>
+    <div class="block why"><h4>Why it matters</h4><p>Waiting for motivation, a seminar, or a supplement lets you avoid the work.</p></div>
+  </article>
+
+  <article class="card c7" id="e">
+    <h3>E. Trade-offs: sleep, balance, and relationships</h3>
+    <div class="block core"><h4>Core idea</h4><p>Goggins says he gave up balance to build confidence. Sleep, nutrition, and recovery matter, but "something had to give."</p></div>
+    <div class="block key"><h4>Key points</h4><ul>
+      <li>He stopped stuttering as his confidence grew.</li>
+      <li>With family, he gives them everything they need so they leave him alone for his work.</li>
+      <li>He says to tell people up front who you are.</li>
+      <li>He says he tried to please people for years and "stopped living."</li></ul></div>
+    <div class="block example"><h4>Example</h4><p>Huberman jokes his bulldog Charlie does his resting for him.</p></div>
+    <div class="block why"><h4>Why it matters</h4><p>It shows the real cost of his path. Honesty with partners lets them choose.</p></div>
+  </article>
+
+  <article class="card c8" id="f">
+    <h3>F. Unseen work and the inner "medicine cabinet"</h3>
+    <div class="block core"><h4>Core idea</h4><p>Praise and team pats on the back are "false dopamine" in Goggins's view. His motivation comes from work no one saw.</p></div>
+    <div class="block key"><h4>Key points</h4><ul>
+      <li>He trained 99% of his life alone.</li>
+      <li>When he's down, he recalls past proof: "you had nobody anyway."</li>
+      <li>He uses no pre-workout or caffeine, and says he has run 70 hours without it.</li>
+      <li>He says you must put the medicine in your own cabinet, or it stays empty.</li></ul></div>
+    <div class="block example"><h4>Example</h4><p>There was no pat on the back at 300, 275, 250, or 220 pounds.</p></div>
+    <div class="block why"><h4>Why it matters</h4><p>Motivation that comes from inside can't be taken away.</p></div>
+  </article>
+
+  <article class="card c9" id="g">
+    <h3>G. Being misunderstood and "capped success"</h3>
+    <div class="block core"><h4>Core idea</h4><p>People focus on the running and swearing, and miss the process. Goggins says he caps his financial success so he doesn't lose his willpower.</p></div>
+    <div class="block key"><h4>Key points</h4><ul>
+      <li>Running was never the point. He kept going through heart surgeries and knee surgeries.</li>
+      <li>He spends 3-5 months a year smokejumping, parachuting to fight remote fires, and loses millions of dollars doing it.</li>
+      <li>He calls willpower a "perishable skill."</li>
+      <li>He says swearing is part of the passion, and that his critics have time on their hands.</li></ul></div>
+    <div class="block example"><h4>Example</h4><p>He says he'd become "a speaking monkey" if he spoke and did gigs 12 months a year.</p></div>
+    <div class="block why"><h4>Why it matters</h4><p>The goal is who you become. Honesty feels good when "who I say I am, I am."</p></div>
+  </article>
+
+  <article class="card c10" id="h">
+    <h3>H. Going inward: the Mona Lisa</h3>
+    <div class="block core"><h4>Core idea</h4><p>Goggins plans each day in advance and shuts out distractions. He compares it to painting a new Mona Lisa each day, where the masterpiece is himself.</p></div>
+    <div class="block key"><h4>Key points</h4><ul>
+      <li>Block yourself off, phone included.</li>
+      <li>Sit with yourself long enough that your mind tells you what's next.</li>
+      <li>Stop following the pack. He says "once you figure out yourself, all the answers come."</li></ul></div>
+    <div class="block example"><h4>Example</h4><p>Huberman mentions Nelson Mandela, who found his strength "between his ears."</p></div>
+    <div class="block why"><h4>Why it matters</h4><p>Googling for answers won't tell you who you are.</p></div>
+  </article>
+
+  <article class="card c1" id="i">
+    <h3>I. Two voices and learning to fail</h3>
+    <div class="block core"><h4>Core idea</h4><p>Goggins says most people have one voice, the one that says "you're a piece of shit." He built a second voice that argues back.</p></div>
+    <div class="block key"><h4>Key points</h4><ul>
+      <li>Huberman says it's a two-way dialogue, not just chatter.</li>
+      <li>Kind self-talk alone would have sent Goggins back to the 7-Eleven.</li>
+      <li>He taught himself how to fail before how to win.</li>
+      <li>Outside criticism is "insignificant" next to the voices in his own head.</li></ul></div>
+    <div class="block example"><h4>Example</h4><p>In Hell Week's freezing water, both voices wanted out, but the second voice won.</p></div>
+    <div class="block why"><h4>Why it matters</h4><p>Without conflict, inaction wins.</p></div>
+  </article>
+
+  <article class="card c2" id="j">
+    <h3>J. The cupboards: facing the dark stuff daily</h3>
+    <div class="block core"><h4>Core idea</h4><p>Huberman relays psychiatrist Paul Conti's idea that the unconscious mind is the real "supercomputer" and that it holds the scary "cupboards." Goggins says he cleans his every day.</p></div>
+    <div class="block key"><h4>Key points</h4><ul>
+      <li>He starts the day with the scariest ones.</li>
+      <li>Saying "my dad beat me, but I'm fine" isn't enough. You have to relive the details.</li>
+      <li>He calls life a test that comes when you think you're in a great place.</li></ul></div>
+    <div class="block example"><h4>Example</h4><p>He says he talks to the same demons every day, and sometimes they go back in.</p></div>
+    <div class="block why"><h4>Why it matters</h4><p>Locked cupboards keep you from growing.</p></div>
+  </article>
+</section>
+
+<!-- ===== 4. GLOSSARY ===== -->
+<section class="card c3" id="s4">
+  <h2>4. Key Terms Glossary</h2>
+  <dl class="glossary">
+    <dt>The stick / the carrot</dt><dd>Pain and fear that push you vs. rewards that pull you.</dd>
+    <dt>Haunted</dt><dd>Driven by memory of who you used to be.</dd>
+    <dt>Friction</dt><dd>The unpleasant effort that builds willpower.</dd>
+    <dt>Anterior mid-cingulate cortex</dt><dd>Brain area Huberman links to willpower. It grows with disliked effort.</dd>
+    <dt>Neuroplasticity</dt><dd>The brain's ability to change. Here it works in both directions.</dd>
+    <dt>"Stay hard"</dt><dd>Goggins's phrase for keeping going without a gift or shortcut.</dd>
+    <dt>Capped success</dt><dd>Limiting his own financial success to protect his willpower.</dd>
+    <dt>Perishable skill</dt><dd>A skill that fades if you stop practicing.</dd>
+    <dt>Unconscious "supercomputer"</dt><dd>Conti's idea that hidden mind processes run most of what we do.</dd>
+    <dt>n of 1</dt><dd>A sample of one. Huberman says Goggins is highly unusual.</dd>
+  </dl>
+</section>
+
+<!-- ===== 5. STEPS ===== -->
+<section class="card c4" id="s5">
+  <h2>5. Step-by-Step Process (Goggins's approach, as described)</h2>
+  <ol class="steps">
+    <li>Go inward. Cut distractions and spend time alone with your thoughts.</li>
+    <li>Open the "cupboards" and face the worst things about yourself first.</li>
+    <li>Create a second voice that argues back.</li>
+    <li>Learn how to fail before expecting to win.</li>
+    <li>Plan the next day before bed. Nothing is on the fly.</li>
+    <li>Do the thing you don't want to do, starting now, not at a "better" time.</li>
+    <li>Repeat daily, because the skill fades if you stop.</li>
+    <li>Use your own past proof when it gets bad.</li>
+  </ol>
+</section>
+
+<!-- ===== 6. MISTAKES ===== -->
+<section class="card c5" id="s6">
+  <h2>6. Common Mistakes or Misconceptions</h2>
+  <div class="block mistakes"><h4>⚠ Watch out for</h4><ul>
+    <li>Thinking Goggins is only about running or swearing.</li>
+    <li>Searching for hacks, supplements, or protocols instead of doing the work.</li>
+    <li>Waiting for praise, a team, or a coach.</li>
+    <li>Counting hard things you enjoy as willpower-building.</li>
+    <li>Using only kind self-talk.</li>
+    <li>Doing the inner work once and calling it done.</li>
+    <li>Starting "at the next half hour" and slipping.</li>
+    <li>Thinking listening or reading is the hard part.</li>
+    <li>Hiding who you are from the people close to you.</li></ul></div>
+</section>
+
+<!-- ===== 7. MEMORY AIDS ===== -->
+<section class="card c6" id="s7">
+  <h2>7. Memory Aids</h2>
+  <div class="block memory"><h4>Five key takeaways</h4><ol>
+    <li>Friction you dislike builds willpower, and enjoyed effort doesn't.</li>
+    <li>There are no hacks. You know what to do.</li>
+    <li>Motivation comes from unseen work you did alone.</li>
+    <li>Argue with your inner voice and clean out the "cupboards" daily.</li>
+    <li>Willpower is perishable, so repeat it daily.</li></ol></div>
+  <div class="block memory"><h4>Mnemonic</h4><p class="mnemonic">"Go in, face it, do it, repeat it."</p></div>
+  <div class="block memory"><h4>Mental picture</h4><p>A dungeon you clean every morning, starting with the dustiest cupboard, because if you stop, the dust returns.</p></div>
+</section>
+
+<!-- ===== 8. ACTIVE RECALL ===== -->
+<section class="card c8" id="s8">
+  <h2>8. Active Recall Questions</h2>
+  <div class="recall-wrap">
+    <details class="q"><summary>1. How does Goggins study?</summary><div class="ans">He writes each page by hand repeatedly until he can picture it.</div></details>
+    <details class="q"><summary>2. What is "the stick"?</summary><div class="ans">Pain and fear of returning to his old self, with almost no reward.</div></details>
+    <details class="q"><summary>3. Which brain area did Huberman describe?</summary><div class="ans">The anterior mid-cingulate cortex.</div></details>
+    <details class="q"><summary>4. Why does loving the ice bath not grow it?</summary><div class="ans">Huberman says it grows only from things you don't want to do.</div></details>
+    <details class="q"><summary>5. Why does Goggins say there are no hacks?</summary><div class="ans">Willpower is built by doing hard things repeatedly.</div></details>
+    <details class="q"><summary>6. How does he handle relationships?</summary><div class="ans">He gives family what they need and tells people up front who he is.</div></details>
+    <details class="q"><summary>7. Why does he call motivation from others "false dopamine"?</summary><div class="ans">It's praise from outside, not earned from unseen work.</div></details>
+    <details class="q"><summary>8. Why did he teach himself to fail first?</summary><div class="ans">Facing failures prevents getting stuck in them.</div></details>
+    <details class="q"><summary>9. What does "capped success" mean?</summary><div class="ans">He limits financial success so his willpower doesn't fade.</div></details>
+    <details class="q"><summary>10. What are the "cupboards"?</summary><div class="ans">The unconscious fears and memories you must face daily.</div></details>
+  </div>
+</section>
+
+<!-- ===== 9. ACTION ITEMS ===== -->
+<section class="card c10" id="s9">
+  <h2>9. Action Items</h2>
+  <div class="block actions"><ul>
+    <li>Pick one thing you avoid and do it today, without waiting for a "better time."</li>
+    <li>Notice whether your "hard" habits are things you enjoy.</li>
+    <li>Spend quiet time alone, phone off, and write down what you hear.</li>
+    <li>Name one cupboard you avoid and talk it through honestly.</li>
+    <li>Plan tomorrow tonight.</li>
+    <li>Tell someone close one honest thing about who you are.</li>
+    <li>Remember: the brain-science claims are Huberman's and Goggins's own, so treat his extreme habits (little sleep, ignoring recovery) as his choices, not advice.</li></ul></div>
+</section>
+
+<!-- ===== 10. RECAP ===== -->
+<section class="recap" id="s10">
+  <h2>10. 30-Second Recap</h2>
+  <p>Goggins says change comes from daily friction: doing what you hate, alone, again and again. Huberman links this to the anterior mid-cingulate cortex, which he says grows with disliked effort and shrinks when you stop. There are no hacks, and no one can light your flame. Goggins's drive comes from unseen work and from an inner second voice that argues back. He faces his "cupboards" daily, learned to fail before winning, and caps his success to keep his willpower sharp. It is a perishable skill, so it needs daily practice. His story is extreme, so take the ideas, not necessarily his sacrifices.</p>
+</section>
+</main>
+</div>
+
+<footer>Study Summary: David Goggins on Willpower, Friction, and Going Inward</footer>
+
+<!-- Back to top button -->
+<button id="top" type="button" aria-label="Back to top">↑ Top</button>
+
+<script>
+/* ===== JAVASCRIPT ===== */
+(function(){
+  var root = document.documentElement;
+
+  /* Dark mode (state kept in memory only) */
+  var dark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  var themeBtn = document.getElementById('themeBtn');
+  function applyTheme(){
+    root.setAttribute('data-theme', dark ? 'dark' : 'light');
+    themeBtn.textContent = dark ? '☀️ Light mode' : '🌙 Dark mode';
+    themeBtn.setAttribute('aria-pressed', dark);
+  }
+  themeBtn.addEventListener('click', function(){ dark = !dark; applyTheme(); });
+  applyTheme();
+
+  /* Expand all / Collapse all recall questions */
+  var qs = document.querySelectorAll('details.q');
+  var allBtn = document.getElementById('toggleAll');
+  var expanded = false;
+  allBtn.addEventListener('click', function(){
+    expanded = !expanded;
+    qs.forEach(function(d){ d.open = expanded; });
+    allBtn.textContent = expanded ? 'Collapse all questions' : 'Expand all questions';
+  });
+
+  /* Mobile collapsible table of contents */
+  var toc = document.getElementById('toc'), tocBtn = document.getElementById('tocBtn');
+  tocBtn.addEventListener('click', function(){
+    var o = toc.classList.toggle('open');
+    tocBtn.setAttribute('aria-expanded', o);
+  });
+  document.querySelectorAll('#tocList a').forEach(function(a){
+    a.addEventListener('click', function(){
+      toc.classList.remove('open'); tocBtn.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  /* Reading progress bar + back to top + active TOC link */
+  var bar = document.getElementById('progress'), topBtn = document.getElementById('top');
+  var links = Array.prototype.slice.call(document.querySelectorAll('#tocList a'));
+  var targets = links.map(function(a){ return document.querySelector(a.getAttribute('href')); });
+  function onScroll(){
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+    topBtn.classList.toggle('show', window.scrollY > 600);
+    var cur = -1;
+    targets.forEach(function(t, i){ if(t && t.getBoundingClientRect().top < window.innerHeight * 0.35) cur = i; });
+    links.forEach(function(a, i){ a.classList.toggle('active', i === cur); });
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  window.addEventListener('resize', onScroll);
+  onScroll();
+  topBtn.addEventListener('click', function(){ window.scrollTo({top:0, behavior:'smooth'}); });
+})();
+</script>
+</body>
+</html>
