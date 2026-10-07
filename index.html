@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Knowledge & Performance Library</title>
+  <title>Knowledge &amp; Habits Library</title>
   <style>
     :root {
       --bg: #0f172a;
       --card-bg: #1e293b;
-      --text: #f8fafc;
-      --muted: #94a3b8;
+      --card-hover: #334155;
+      --text-main: #f8fafc;
+      --text-sub: #94a3b8;
       --accent: #38bdf8;
-      --accent-hover: #0ea5e9;
       --border: #334155;
     }
 
@@ -22,85 +22,86 @@
     }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       background-color: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      padding: 2rem 1rem;
+      color: var(--text-main);
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+      padding: 40px 24px;
     }
 
     .container {
-      max-width: 800px;
-      margin: 0 auto;
+      width: 100%;
+      max-width: 680px;
     }
 
     header {
-      margin-bottom: 2.5rem;
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 1.25rem;
+      margin-bottom: 32px;
     }
 
-    header h1 {
+    h1 {
       font-size: 1.85rem;
       font-weight: 700;
       letter-spacing: -0.02em;
-      color: var(--text);
+      margin-bottom: 6px;
     }
 
-    header p {
-      color: var(--muted);
-      margin-top: 0.25rem;
+    p.subtitle {
+      color: var(--text-sub);
       font-size: 0.95rem;
     }
 
-    .section {
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text-sub);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin: 28px 0 12px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-title:first-of-type {
+      margin-top: 0;
+    }
+
+    .card-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .card {
+      display: block;
       background: var(--card-bg);
       border: 1px solid var(--border);
       border-radius: 10px;
-      padding: 1.5rem;
-      margin-bottom: 1.5rem;
+      padding: 16px 20px;
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.2s ease-in-out;
     }
 
-    .section-title {
-      font-size: 1.2rem;
+    .card:hover {
+      background: var(--card-hover);
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .card-title {
+      font-size: 1rem;
       font-weight: 600;
       color: var(--accent);
-      margin-bottom: 1rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
+      line-height: 1.4;
+      margin-bottom: 4px;
     }
 
-    ul.links {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-    }
-
-    ul.links li a {
-      display: inline-block;
-      color: var(--text);
-      text-decoration: none;
-      font-size: 0.975rem;
-      transition: color 0.15s ease, transform 0.15s ease;
-    }
-
-    ul.links li a:hover {
-      color: var(--accent-hover);
-      text-decoration: underline;
-      transform: translateX(3px);
-    }
-
-    .author-badge {
-      display: inline-block;
-      font-size: 0.75rem;
-      font-weight: 600;
-      padding: 0.1rem 0.45rem;
-      border-radius: 4px;
-      background-color: #334155;
-      color: #cbd5e1;
-      margin-right: 0.4rem;
+    .card-meta {
+      font-size: 0.85rem;
+      color: var(--text-sub);
     }
   </style>
 </head>
@@ -108,96 +109,69 @@
 
   <div class="container">
     <header>
-      <h1>Personal Knowledge Base</h1>
-      <p>Curated notes, frameworks, and guides on neuroscience, execution, and habits.</p>
+      <h1>Personal Knowledge Library</h1>
+      <p class="subtitle">Curated guides and frameworks on neuroscience, habits, mindset, and manifestation</p>
     </header>
 
-    <!-- Brain -->
-    <div class="section">
-      <h2 class="section-title">🧠 Brain & Cognitive Control</h2>
-      <ul class="links">
-        <li>
-          <span class="author-badge">Huberman</span>
-          <a href="Brain/Andrew%20Huberman%20Become%20Mentally%20Dangerous%20With%20These%20Daily%20Habits.html">
-            Become Mentally Dangerous With These Daily Habits
-          </a>
-        </li>
-        <li>
-          <span class="author-badge">Huberman</span>
-          <a href="Brain/Change%20Your%20Brain%20Neuroscientist%20Dr.%20Andrew%20Huberman.html">
-            Change Your Brain — Dr. Andrew Huberman
-          </a>
-        </li>
-        <li>
-          <span class="author-badge">Dispenza</span>
-          <a href="Brain/Dr%20Joe%20Dispenza%20Rewire%20Your%20Brain,%20Heal%20Your%20Mind,%20Fear%20and%20Anxiety.html">
-            Rewire Your Brain, Heal Your Mind, Fear and Anxiety
-          </a>
-        </li>
-        <li>
-          <span class="author-badge">Yousef</span>
-          <a href="Brain/sahar-yousef-focus-memory.html">
-            Neuroscientist's Guide To 10X Your Focus and Memory — Dr. Sahar Yousef
-          </a>
-        </li>
-        <li>
-          <span class="author-badge">Goggins & Huberman</span>
-          <a href="Brain/How%20to%20Build%20Extreme%20Willpower%20%7C%20David%20Goggins%20and%20Dr.%20Andrew%20Huberman.html">
-            How to Build Extreme Willpower
-          </a>
-        </li>
-        <li>
-          <span class="author-badge">Goggins</span>
-          <a href="Brain/How%20To%20Defeat%20Laziness%20and%20Build%20Relentless%20Focus%20(4K)%20%7C%20David%20Goggins.html">
-            How To Defeat Laziness and Build Relentless Focus (4K)
-          </a>
-        </li>
-      </ul>
+    <!-- Brain Section -->
+    <div class="section-title">Brain &amp; Neuroscience</div>
+    <div class="card-list">
+      <a class="card" href="Brain/Andrew%20Huberman%20Become%20Mentally%20Dangerous%20With%20These%20Daily%20Habits.html" target="_blank">
+        <div class="card-title">Andrew Huberman Become Mentally Dangerous With These Daily Habits</div>
+        <div class="card-meta">Daily routines, focus, and neurobiology</div>
+      </a>
+
+      <a class="card" href="Brain/Change%20Your%20Brain%20Neuroscientist%20Dr.%20Andrew%20Huberman.html" target="_blank">
+        <div class="card-title">Change Your Brain | Neuroscientist Dr. Andrew Huberman</div>
+        <div class="card-meta">Neuroplasticity, cognitive states, and mental rewiring</div>
+      </a>
+
+      <a class="card" href="Brain/Dr%20Joe%20Dispenza%20Rewire%20Your%20Brain,%20Heal%20Your%20Mind,%20Fear%20and%20Anxiety.html" target="_blank">
+        <div class="card-title">Dr Joe Dispenza Rewire Your Brain, Heal Your Mind, Fear and Anxiety</div>
+        <div class="card-meta">Emotional regulation, overcoming fear, and healing</div>
+      </a>
+
+      <a class="card" href="Brain/sahar-yousef-focus-memory.html" target="_blank">
+        <div class="card-title">Neuroscientists Guide To 10X Your Focus and Memory | Dr Sahar Yousef</div>
+        <div class="card-meta">Cognitive productivity and memory enhancement</div>
+      </a>
+
+      <a class="card" href="Brain/How%20to%20Build%20Extreme%20Willpower%20%7C%20David%20Goggins%20and%20Dr.%20Andrew%20Huberman.html" target="_blank">
+        <div class="card-title">How to Build Extreme Willpower | David Goggins &amp; Dr. Andrew Huberman</div>
+        <div class="card-meta">Anterior midcingulate cortex, friction, and mental grit</div>
+      </a>
     </div>
 
-    <!-- Habits -->
-    <div class="section">
-      <h2 class="section-title">⚡ Habits & Optimization</h2>
-      <ul class="links">
-        <li>
-          <span class="author-badge">Huberman</span>
-          <a href="Habits/Andrew%20Huberman%20The%20Real%20Reason%20You%20Can%27t%20Get%20Deep%20Sleep%20and%20Wake%20Up%20Exhausted.html">
-            The Real Reason You Can't Get Deep Sleep and Wake Up Exhausted
-          </a>
-        </li>
-        <li>
-          <span class="author-badge">Framework</span>
-          <a href="Habits/How%20to%20Build%20Habits%20That%20Stick.html">
-            How to Build Habits That Stick
-          </a>
-        </li>
-      </ul>
+    <!-- Habits Section -->
+    <div class="section-title">Habits &amp; Sleep</div>
+    <div class="card-list">
+      <a class="card" href="Habits/Andrew%20Huberman%20The%20Real%20Reason%20You%20Can%27t%20Get%20Deep%20Sleep%20and%20Wake%20Up%20Exhausted.html" target="_blank">
+        <div class="card-title">Andrew Huberman: The Real Reason You Can't Get Deep Sleep and Wake Up Exhausted</div>
+        <div class="card-meta">Circadian rhythm optimization, sleep architecture, and morning wakefulness</div>
+      </a>
+
+      <a class="card" href="Habits/How%20to%20Build%20Habits%20That%20Stick.html" target="_blank">
+        <div class="card-title">How to Build Habits That Stick</div>
+        <div class="card-meta">Behavior design, loop triggers, and long-term consistency</div>
+      </a>
     </div>
 
-    <!-- Self-Discipline -->
-    <div class="section">
-      <h2 class="section-title">🛡️ Self-Discipline & Inner Strength</h2>
-      <ul class="links">
-        <li>
-          <span class="author-badge">Guide</span>
-          <a href="Self-Discipline/How%20to%20Build%20Immense%20Inner%20Strength.html">
-            How to Build Immense Inner Strength
-          </a>
-        </li>
-      </ul>
+    <!-- Self-Discipline Section -->
+    <div class="section-title">Self-Discipline &amp; Mindset</div>
+    <div class="card-list">
+      <a class="card" href="Self-Discipline/How%20to%20Build%20Immense%20Inner%20Strength.html" target="_blank">
+        <div class="card-title">How to Build Immense Inner Strength</div>
+        <div class="card-meta">Willpower cultivation, emotional resilience, and stoic discipline</div>
+      </a>
     </div>
 
-    <!-- Manifest -->
-    <div class="section">
-      <h2 class="section-title">✨ Mindset & Possibility</h2>
-      <ul class="links">
-        <li>
-          <span class="author-badge">Stanford</span>
-          <a href="Manifest/Stanford%20Luck%20Researcher%20How%20to%20Manifest%20the%20Life%20You%20Want.html">
-            Stanford Luck Researcher: How to Manifest the Life You Want
-          </a>
-        </li>
-      </ul>
+    <!-- Manifest Section -->
+    <div class="section-title">Manifestation &amp; Psychology</div>
+    <div class="card-list">
+      <a class="card" href="Manifest/Stanford%20Luck%20Researcher%20How%20to%20Manifest%20the%20Life%20You%20Want.html" target="_blank">
+        <div class="card-title">Stanford Luck Researcher: How to Manifest the Life You Want</div>
+        <div class="card-meta">Serendipity architecture, behavioral psychology, and opportunity generation</div>
+      </a>
     </div>
 
   </div>
