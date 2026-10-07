@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Phelps Mindset: Study Guide</title>
+<style>
+/* ===== COLOR SYSTEM ===== */
+:root{--bg:#f4f6f9;--card:#fff;--text:#1d2433;--muted:#4a5568;--blue:#1e5fbf;--core:#e3f0ff;--key:#e4f6e6;--ex:#fff3cd;--why:#eee6fa;--gloss:#dff5f3;--warn:#fde4e4;--mem:#ffe9d6;--recall:#fde6f0;--act:#e5e8fb;--recapbg:#14213d;--border:#d5dbe5;
+--a1:#1e5fbf;--a2:#1b7f3b;--a3:#b45309;--a4:#7c3aed;--a5:#0f766e;--a6:#be123c;--a7:#4338ca}
+[data-theme=dark]{--bg:#10141c;--card:#1a2130;--text:#e8ecf3;--muted:#b4bfd0;--blue:#8ab8ff;--core:#16304f;--key:#163a22;--ex:#47390f;--why:#32244f;--gloss:#124040;--warn:#4a1c1c;--mem:#4a2c14;--recall:#4a1d33;--act:#252a57;--recapbg:#05080f;--border:#2c3649;
+--a1:#6ea8ff;--a2:#5fd382;--a3:#f0a64d;--a4:#b99bff;--a5:#4fd6c8;--a6:#ff8aa5;--a7:#9ea6ff}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font:clamp(1rem,.95rem + .25vw,1.12rem)/1.65 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+a{color:var(--blue)}
+/* ===== PROGRESS BAR ===== */
+#bar{position:fixed;top:0;left:0;height:5px;width:0;background:var(--blue);z-index:50}
+/* ===== HEADER ===== */
+header{padding:2rem 1rem 1.2rem;max-width:72rem;margin:0 auto}
+header h1{font-size:clamp(1.6rem,4vw,2.4rem);line-height:1.2;margin:0 0 .5rem;color:var(--blue)}
+header p{margin:0;color:var(--muted);font-size:1.1rem}
+.tools{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1rem}
+button{font:inherit;cursor:pointer;border:1px solid var(--blue);background:var(--card);color:var(--blue);padding:.7rem 1rem;border-radius:.6rem;min-height:2.75rem;transition:.2s}
+button:hover{background:var(--blue);color:var(--card);transform:translateY(-1px)}
+/* ===== LAYOUT ===== */
+.wrap{max-width:72rem;margin:0 auto;padding:0 1rem 3rem;display:grid;gap:1rem}
+nav{background:var(--card);border:1px solid var(--border);border-radius:.8rem;padding:.8rem}
+nav h2{font-size:1rem;margin:0 0 .4rem;color:var(--blue)}
+nav ol{margin:.5rem 0 0;padding-left:1.3rem;display:none}
+nav.open ol{display:block}
+nav a{display:block;padding:.35rem 0;text-decoration:none}nav a:hover{text-decoration:underline}
+#tocbtn{width:100%}
+main{min-width:0}
+@media(min-width:768px){
+.wrap{grid-template-columns:16rem minmax(0,1fr);align-items:start}
+nav{position:sticky;top:1rem;max-height:calc(100vh - 2rem);overflow:auto}
+nav ol{display:block}#tocbtn{display:none}main{max-width:900px}}
+/* ===== CARDS ===== */
+section.card{background:var(--card);border:1px solid var(--border);border-left:8px solid var(--ac,var(--a1));border-radius:.8rem;padding:1.2rem;margin-bottom:1.2rem;scroll-margin-top:1rem;transition:box-shadow .2s}
+section.card:hover{box-shadow:0 4px 16px rgba(0,0,0,.12)}
+section.card>h2{margin:0 0 .8rem;color:var(--ac,var(--blue));font-size:clamp(1.3rem,3vw,1.6rem)}
+.blk{border-radius:.6rem;padding:.8rem 1rem;margin:.7rem 0}
+.blk h3{margin:0 0 .3rem;font-size:.85rem;text-transform:uppercase;letter-spacing:.06em}
+.blk p,.blk ul,.blk ol{margin:.3rem 0}.blk ul,.blk ol{padding-left:1.2rem}
+.core{background:var(--core)}.key{background:var(--key)}.ex{background:var(--ex)}.why{background:var(--why)}
+.gloss{background:var(--gloss)}.warn{background:var(--warn)}.mem{background:var(--mem)}.act{background:var(--act)}
+/* ===== GLOSSARY ===== */
+dl{display:grid;grid-template-columns:minmax(7rem,1fr) 2fr;gap:.5rem 1rem;margin:0}
+dt{font-weight:700}dd{margin:0}
+/* ===== STEPS ===== */
+ol.steps{list-style:none;padding:0;margin:.5rem 0;counter-reset:s}
+ol.steps li{counter-increment:s;position:relative;padding:0 0 1.1rem 3rem}
+ol.steps li::before{content:counter(s);position:absolute;left:0;top:0;width:2rem;height:2rem;border-radius:50%;background:var(--blue);color:var(--card);display:grid;place-items:center;font-weight:700}
+ol.steps li::after{content:"";position:absolute;left:.95rem;top:2.1rem;bottom:.1rem;width:2px;background:var(--blue);opacity:.4}
+ol.steps li:last-child::after{display:none}
+/* ===== RECALL ===== */
+details.q{background:var(--recall);border-radius:.6rem;margin:.5rem 0;padding:.2rem 1rem}
+details.q summary{cursor:pointer;padding:.7rem 0;font-weight:600;min-height:2.75rem}
+details.q p{margin:.2rem 0 .8rem}
+/* ===== RECAP ===== */
+.recap{background:var(--recapbg);color:#fff;border-radius:.8rem;padding:1.4rem;border:2px solid var(--blue)}
+.recap h2{margin-top:0;color:#fff}.recap p{margin:0 0 .8rem}.recap p:last-child{margin-bottom:0}
+footer{text-align:center;color:var(--muted);padding:1rem}
+#top{position:fixed;right:1rem;bottom:1rem;display:none;z-index:40;background:var(--blue);color:var(--card)}
+@media(max-width:600px){dl{grid-template-columns:1fr}}
+/* ===== PRINT ===== */
+@media print{#bar,#top,.tools,nav{display:none}.wrap{display:block}section.card{break-inside:avoid;box-shadow:none}}
+</style>
+</head>
+<body>
+<div id="bar"></div>
+<!-- ===== HEADER ===== -->
+<header>
+<h1>The Phelps Mindset: Preparation, Hating to Lose, and Mental Health</h1>
+<p>Michael Phelps says greatness comes from small things done well every day, and that talking about mental health matters more to him than any gold medal.</p>
+<div class="tools">
+<button id="theme" type="button">Toggle dark mode</button>
+<button id="all" type="button">Expand all questions</button>
+</div>
+</header>
+<div class="wrap">
+<!-- ===== TABLE OF CONTENTS ===== -->
+<nav id="toc" aria-label="Table of contents">
+<button id="tocbtn" type="button" aria-expanded="false">☰ Contents</button>
+<h2>Contents</h2>
+<ol>
+<li><a href="#big">Big Picture</a></li>
+<li><a href="#sa">A: Where the Drive Came From</a></li>
+<li><a href="#sb">B: The Coach and the Process</a></li>
+<li><a href="#sc">C: Preparation and Visualization</a></li>
+<li><a href="#sd">D: Race-Day Mindset</a></li>
+<li><a href="#se">E: Highs and Lows</a></li>
+<li><a href="#sf">F: Living in the Moment</a></li>
+<li><a href="#sg">G: Mental Health</a></li>
+<li><a href="#glossary">Key Terms Glossary</a></li>
+<li><a href="#process">Step-by-Step Process</a></li>
+<li><a href="#mistakes">Common Mistakes</a></li>
+<li><a href="#aids">Memory Aids</a></li>
+<li><a href="#recall">Active Recall Questions</a></li>
+<li><a href="#actions">Action Items</a></li>
+<li><a href="#recap">30-Second Recap</a></li>
+</ol>
+</nav>
+<main>
+<!-- ===== BIG PICTURE ===== -->
+<section class="card" id="big" style="--ac:var(--a1)">
+<h2>Big Picture</h2>
+<div class="blk core"><p>Michael Phelps has 28 Olympic medals, 23 of them gold, and 39 world records. In this interview he explains how he prepared, how he handled pressure, and why he hates losing. He also talks openly about depression, anxiety and suicidal thoughts. It's for anyone who wants to reach a big goal or understand mental health better.</p></div>
+</section>
+<!-- ===== SECTION A ===== -->
+<section class="card" id="sa" style="--ac:var(--a2)">
+<h2>Section A: Where the Drive Came From</h2>
+<div class="blk core"><h3>Core idea</h3><p>Phelps says he hates losing more than he enjoys winning. As a restless child with ADHD, swimming gave him an outlet and a focus.</p></div>
+<div class="blk key"><h3>Key points</h3><ul>
+<li>At 7, he was always bouncing around. Water was a release for his anger and energy.</li>
+<li>A middle school teacher told him he would never amount to anything. He used it as motivation and still remembers her.</li>
+<li>He says he turned the ADHD label into "a superpower" because it let him focus on what he loved.</li>
+<li>His two older sisters swam. His father was an athlete, and Phelps says "there was no second place."</li>
+<li>His coach told him at 11 that he could make the Olympic team in four years, but he had to drop baseball, lacrosse and soccer.</li>
+<li>His favorite quote: "Actions speak louder than words."</li>
+</ul></div>
+<div class="blk ex"><h3>Example / Analogy</h3><p>He still uses the pool to reset. When he is grouchy or low, his wife tells him to go jump in. There, nobody talks to him and he doesn't have to think.</p></div>
+<div class="blk why"><h3>Why it matters</h3><p>What others see as a flaw or a doubt can become fuel.</p></div>
+</section>
+<!-- ===== SECTION B ===== -->
+<section class="card" id="sb" style="--ac:var(--a3)">
+<h2>Section B: The Coach and the Process</h2>
+<div class="blk core"><h3>Core idea</h3><p>Phelps trusted his coach, Bob, who rebuilt his technique from scratch and became a father figure. The two argued like a married couple but shared the same passion.</p></div>
+<div class="blk key"><h3>Key points</h3><ul>
+<li>Bob broke his strokes apart. When Phelps dropped his legs and skipped the six-beat kick, Bob kicked him out of practice. Phelps lasted a bit longer each day until he finished a full workout.</li>
+<li>After that, he never dropped his feet for a single freestyle stroke in his career.</li>
+<li>After Sydney, the workout sheet said "WR." Six months later he broke a world record.</li>
+<li>His warm-ups never changed from age 13 or 14 until retirement.</li>
+<li>Bob removed the word "can't" from his vocabulary. If you say you can't, your mind has already decided.</li>
+<li>When Phelps made the 2000 Olympic team, Bob told his mom it was the last time they'd decorate the yard. The goal was winning, not just making the team.</li>
+<li>Phelps admits he was ruthless and sometimes said things to anger Bob on purpose.</li>
+</ul></div>
+<div class="blk ex"><h3>Example / Analogy</h3><p>Phelps compares it to a college class. You can't take the thousand-level course without taking levels one through nine.</p></div>
+<div class="blk why"><h3>Why it matters</h3><p>Small technical basics are what allow big results later.</p></div>
+</section>
+<!-- ===== SECTION C ===== -->
+<section class="card" id="sc" style="--ac:var(--a4)">
+<h2>Section C: Preparation, Adversity and Visualization</h2>
+<div class="blk core"><h3>Core idea</h3><p>Phelps says nobody on the planet was more prepared than him. Preparation meant controlling what you can control, practicing for bad surprises, and playing the race in your head.</p></div>
+<div class="blk key"><h3>Key points</h3><ul>
+<li>He trained about six years in a row without missing a day (he says "a six-year stretch").</li>
+<li>His routine was eat, sleep and swim: training, big meals, naps, recovery, then training again.</li>
+<li>He started ice tubs around 2002 or 2003 and treated his body like a Ferrari.</li>
+<li>Bob stepped on his goggles on purpose so he'd carry a backup pair.</li>
+<li>In 2008 his goggles filled with water. He counted strokes as he'd trained to do, hit each wall right, won and broke the world record.</li>
+<li>He says he was still annoyed, because he thought he could have gone faster.</li>
+<li>Visualization used three "tapes": how you want the race to go, how you don't want it to go, and "what if" (suit rips, cap rips, illness).</li>
+<li>He did this for big meets, starting about six months out.</li>
+<li>"Controlling the controllables" came from his friend Greg Harden in 2004.</li>
+<li>He and his coach called training a "deposit into the bank." The Olympics was the withdrawal.</li>
+<li>He broke goals into 50-meter splits down to the hundredth of a second, with short-term and long-term goals.</li>
+</ul></div>
+<div class="blk ex"><h3>Example / Analogy</h3><p>When his cap ripped before an Olympic relay, he borrowed a teammate's cap and flipped it inside out. He stayed calm because he had prepared for it.</p></div>
+<div class="blk why"><h3>Why it matters</h3><p>If you've already imagined the problem, you stay calm when it happens.</p></div>
+</section>
+<!-- ===== SECTION D ===== -->
+<section class="card" id="sd" style="--ac:var(--a5)">
+<h2>Section D: Race-Day Mindset and Hating to Lose</h2>
+<div class="blk core"><h3>Core idea</h3><p>Phelps competed against the clock, not people. Before a race he thinks of nothing, and he remembers his losses more than his wins.</p></div>
+<div class="blk key"><h3>Key points</h3><ul>
+<li>He says he was racing "a clock." If he hit the time, the win would follow.</li>
+<li>On the block: "Nothing." He does his stretch and arm slap, then is "like a dog trying to get out of the cage."</li>
+<li>He says he doesn't care about competitors in that moment. "It is a full-blown war." He calls himself a shark that smells blood.</li>
+<li>He says he feared no one, because if he was prepared it didn't matter.</li>
+<li>He did learn from rivals, such as Ian Thorpe's kick and underwaters.</li>
+<li>Thorpe said no one would win eight golds. Phelps taped that quote in his locker as motivation.</li>
+<li>He says only golds count: "Silver is losing." He doesn't talk about the other five medals.</li>
+<li>He remembers losses more than wins, because he never wants that feeling again.</li>
+<li>Before races he wore headphones and replayed a few songs (Eminem, Lil Wayne, Young Jeezy, Biggie).</li>
+<li>When Chad Le Clos shadow-boxed in front of him in 2016, Phelps got angry but won. His lesson: focus on you, don't try to intimidate others.</li>
+</ul></div>
+<div class="blk ex"><h3>Example / Analogy</h3><p>In 2016 he won a race by 0.01 seconds. He says he practiced finishes thousands of times, so "you don't think, you just be."</p></div>
+<div class="blk why"><h3>Why it matters</h3><p>Focusing on what you control saves energy and keeps you steady.</p></div>
+</section>
+<!-- ===== SECTION E ===== -->
+<section class="card" id="se" style="--ac:var(--a6)">
+<h2>Section E: The Highs and Lows (2000 to 2016)</h2>
+<div class="blk core"><h3>Core idea</h3><p>Phelps's career had big peaks and a dark middle. His motivation changed over time.</p></div>
+<div class="blk key"><h3>Key points</h3><ul>
+<li>2000: He made the Olympics at 15, the youngest US male swimmer since 1932, and came fifth. He was angry about it. He says the paper they gave him felt like a "participation" award.</li>
+<li>He also grabbed his roommate's credential by mistake, which delayed his warm-up.</li>
+<li>2004: first gold, in the 400 IM, with a world record. Right after, Bob whistled him to warm down.</li>
+<li>2008: he says he felt "unbeatable." He swam 17 or 18 races in eight days and won all eight golds.</li>
+<li>He says 2007 may have been even better, and that he broke his wrist about six months before Olympic trials in 2008.</li>
+<li>After 2008, he wanted space from the sport. By 2012 he says he hated swimming and trained less than two of the four years. He still won four golds.</li>
+<li>2016: he came back because he still wanted it, and says he felt the best in years.</li>
+</ul></div>
+<div class="blk ex"><h3>Example / Analogy</h3><p>He compares building success to building a house: "one brick at a time."</p></div>
+<div class="blk why"><h3>Why it matters</h3><p>Burnout is real, and he says his comeback happened when he wanted it again.</p></div>
+</section>
+<!-- ===== SECTION F ===== -->
+<section class="card" id="sf" style="--ac:var(--a7)">
+<h2>Section F: Living in the Moment</h2>
+<div class="blk core"><h3>Core idea</h3><p>Phelps could not enjoy his early medals because he had to prepare for the next race. He says living in the present is the key to being your best.</p></div>
+<div class="blk key"><h3>Key points</h3><ul>
+<li>In 2004, he couldn't get caught up in one moment, since more races were coming.</li>
+<li>In 2016 he let the tears come during the anthem, because he knew it was his last.</li>
+<li>He has read <em>The Power of Now</em> about a dozen times and says his four boys live in the moment perfectly.</li>
+<li>He says you can't live in the past or the future.</li>
+<li>He kept goal sheets by his bed so he knew why he was getting up. On low days, he asks: isn't 10%, 20% or 50% better than zero?</li>
+<li>He still works out daily, even when he doesn't feel like it. He says his mood often flips once he starts.</li>
+<li>He says it takes about 30 days to build or lose a habit.</li>
+</ul></div>
+<div class="blk ex"><h3>Example / Analogy</h3><p>He didn't want to go to the gym one morning. After stretching, he was excited and ready.</p></div>
+<div class="blk why"><h3>Why it matters</h3><p>Presence helps you perform now and recover quickly from bad days.</p></div>
+</section>
+<!-- ===== SECTION G ===== -->
+<section class="card" id="sg" style="--ac:var(--a1)">
+<h2>Section G: Mental Health</h2>
+<div class="blk core"><h3>Core idea</h3><p>Phelps says helping people with mental health matters more to him than winning gold. He has lived with depression, anxiety and suicidal thoughts.</p></div>
+<div class="blk key"><h3>Key points</h3><ul>
+<li>He cites a stat his wife sent: suicide is the second leading cause of death for ages 10 to 34.</li>
+<li>He says he has thought about suicide multiple times.</li>
+<li>He used to compartmentalize and shove feelings down. He says that makes you "erupt like a volcano."</li>
+<li>Seeing a therapist "saved my life." He says "it's okay not to be okay."</li>
+<li>His tools: his therapist, a men's group, friends, his wife, journaling, cold tub, infrared sauna, and grounding with a ring or crystals.</li>
+<li>He teaches his kids the "lion breath": a deep breath and a roar to release big feelings.</li>
+<li>He disagrees that working hard can make depression go away. Depression and anxiety won't leave, but they challenge him to learn about himself.</li>
+<li>He says vulnerability allows growth and change.</li>
+<li>His main goal: "saving a life is a thousand times better than winning an Olympic gold medal."</li>
+</ul></div>
+<div class="blk ex"><h3>Example / Analogy</h3><p>He screamed underwater during hard sets as a release. His kids now do the lion breath.</p></div>
+<div class="blk why"><h3>Why it matters</h3><p>Talking and getting help works better than hiding feelings.</p></div>
+</section>
+<!-- ===== GLOSSARY ===== -->
+<section class="card" id="glossary" style="--ac:var(--a5)">
+<h2>Key Terms Glossary</h2>
+<div class="blk gloss"><dl>
+<dt>WR</dt><dd>World record.</dd>
+<dt>Six-beat kick</dt><dd>Three leg kicks per arm stroke in freestyle.</dd>
+<dt>Controlling the controllables</dt><dd>Focusing only on what you can influence.</dd>
+<dt>Deposit into the bank</dt><dd>Each practice adds to a future payoff.</dd>
+<dt>Visualization (three tapes)</dt><dd>Imagining the best case, the worst case and "what if."</dd>
+<dt>Compartmentalize</dt><dd>Pushing feelings away instead of facing them.</dd>
+<dt>Lion breath</dt><dd>A deep breath followed by a loud roar, used to release stress.</dd>
+<dt>DQ</dt><dd>Disqualified.</dd>
+<dt>Goal sheet</dt><dd>A written list of target times and goals.</dd>
+</dl></div>
+</section>
+<!-- ===== STEPS ===== -->
+<section class="card" id="process" style="--ac:var(--a7)">
+<h2>Step-by-Step Process</h2>
+<p>Phelps's preparation method:</p>
+<ol class="steps">
+<li>Set a big goal (dream).</li>
+<li>Break it into small daily steps (plan).</li>
+<li>Do the work every day and track times and goals.</li>
+<li>Control what you can: eat, sleep, hydrate, stretch, recover.</li>
+<li>Visualize three versions: perfect, bad, and "what if."</li>
+<li>Practice for problems on purpose, such as goggles or cap trouble.</li>
+<li>Stay present and reach for the goal.</li>
+</ol>
+</section>
+<!-- ===== MISTAKES ===== -->
+<section class="card" id="mistakes" style="--ac:var(--a6)">
+<h2>Common Mistakes</h2>
+<div class="blk warn"><h3>Warnings</h3><ul>
+<li>Aiming only to "make the team" instead of to win.</li>
+<li>Skipping the small basics.</li>
+<li>Hiding feelings and pushing them down.</li>
+<li>Saying "can't."</li>
+<li>Getting caught up in one win and losing focus.</li>
+<li>Trying to intimidate others instead of focusing on yourself.</li>
+<li>Saying "I've been meaning to" instead of doing it.</li>
+<li>Trying to conquer everything at once.</li>
+</ul></div>
+</section>
+<!-- ===== MEMORY AIDS ===== -->
+<section class="card" id="aids" style="--ac:var(--a3)">
+<h2>Memory Aids</h2>
+<div class="blk mem"><h3>Five takeaways</h3><ol>
+<li>Greatness is small things done well, stacked daily.</li>
+<li>Control the controllables.</li>
+<li>Prepare for the worst so you stay calm.</li>
+<li>Stay in the present moment.</li>
+<li>It's okay not to be okay, so talk about it.</li>
+</ol></div>
+<div class="blk mem"><h3>Mnemonic</h3><p>Phelps's own phrase, "Dream, plan, reach."</p></div>
+<div class="blk mem"><h3>Mental picture (my analogy)</h3><p>A swimmer making daily deposits into a bank account, then withdrawing it all on the biggest day.</p></div>
+</section>
+<!-- ===== ACTIVE RECALL ===== -->
+<section class="card" id="recall" style="--ac:var(--a6)">
+<h2>Active Recall Questions</h2>
+<details class="q"><summary>1. What did Phelps say his coach removed from his vocabulary?</summary><p>The word "can't."</p></details>
+<details class="q"><summary>2. How did he react to the teacher who doubted him?</summary><p>He used it as motivation.</p></details>
+<details class="q"><summary>3. Why did Bob kick him out of practice?</summary><p>He dropped his legs instead of doing a six-beat kick.</p></details>
+<details class="q"><summary>4. What were the three visualization "tapes"?</summary><p>How you want it, how you don't want it, and "what if."</p></details>
+<details class="q"><summary>5. How did he finish the 2008 race with leaking goggles?</summary><p>He counted strokes as in training.</p></details>
+<details class="q"><summary>6. Why did he say silver doesn't count?</summary><p>He says second place means you lost.</p></details>
+<details class="q"><summary>7. Who was he racing against?</summary><p>The clock.</p></details>
+<details class="q"><summary>8. Why couldn't he enjoy his early medals?</summary><p>More races were coming, so he had to recover.</p></details>
+<details class="q"><summary>9. What does "controlling the controllables" mean?</summary><p>Do the things in your power, like eating, sleeping and preparing.</p></details>
+<details class="q"><summary>10. What does he say saved his life?</summary><p>Seeing a therapist and learning it's okay to talk.</p></details>
+</section>
+<!-- ===== ACTION ITEMS ===== -->
+<section class="card" id="actions" style="--ac:var(--a7)">
+<h2>Action Items</h2>
+<div class="blk act"><h3>Try these</h3><ul>
+<li>Write one big goal and break it into small daily steps.</li>
+<li>Identify what you can control and do those things first.</li>
+<li>Imagine the best case, the worst case and a "what if" before a big event.</li>
+<li>Practice a backup plan.</li>
+<li>Do something small even on low days.</li>
+<li>Pick one habit and stick with it for 30 days.</li>
+<li>Try the lion breath when stressed.</li>
+<li>Talk to someone you trust, or a therapist, about hard feelings.</li>
+</ul></div>
+</section>
+<!-- ===== RECAP ===== -->
+<section class="recap" id="recap">
+<h2>30-Second Recap</h2>
+<p>Phelps says his success came from preparation, not magic. He hated losing, trusted a demanding coach, and trained every day for years. He controlled what he could, practiced for problems, and visualized three versions of each race. On the block he thought of nothing, and he raced the clock. He learned to stay in the moment and treat goals as small daily deposits. Today he says talking about mental health and getting help matters more than any medal.</p>
+<p>This video covers suicide and depression. If any of that is close to home for you, I can help you find support.</p>
+</section>
+</main>
+</div>
+<footer>Study guide based on a video transcript.</footer>
+<button id="top" type="button" aria-label="Back to top">↑ Top</button>
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+(function(){
+var root=document.documentElement,theme="light"; // theme kept in memory only
+document.getElementById("theme").onclick=function(){theme=theme==="light"?"dark":"light";root.setAttribute("data-theme",theme)};
+// Expand / collapse all recall questions
+var open=false,qs=document.querySelectorAll("details.q"),all=document.getElementById("all");
+all.onclick=function(){open=!open;qs.forEach(function(d){d.open=open});all.textContent=open?"Collapse all questions":"Expand all questions"};
+// Mobile table of contents
+var toc=document.getElementById("toc"),tb=document.getElementById("tocbtn");
+tb.onclick=function(){var o=toc.classList.toggle("open");tb.setAttribute("aria-expanded",o)};
+toc.querySelectorAll("a").forEach(function(a){a.onclick=function(){toc.classList.remove("open")}});
+// Progress bar and back-to-top
+var bar=document.getElementById("bar"),top=document.getElementById("top");
+function sc(){var h=document.documentElement,m=h.scrollHeight-h.clientHeight;bar.style.width=(m>0?h.scrollTop/m*100:0)+"%";top.style.display=h.scrollTop>400?"block":"none"}
+window.addEventListener("scroll",sc);sc();
+top.onclick=function(){window.scrollTo({top:0,behavior:"smooth"})};
+})();
+</script>
+</body>
+</html>
