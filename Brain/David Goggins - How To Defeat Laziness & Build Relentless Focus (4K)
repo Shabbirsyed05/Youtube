@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>David Goggins on Armoring Your Mind: Study Guide</title>
+<style>
+/* ===== COLOR SYSTEM ===== */
+:root{--bg:#f4f6f9;--card:#fff;--text:#1d2433;--muted:#4a5568;--blue:#1e5fbf;--core:#e3f0ff;--key:#e4f6e6;--ex:#fff3cd;--why:#eee6fa;--gloss:#dff5f3;--warn:#fde4e4;--mem:#ffe9d6;--recall:#fde6f0;--act:#e5e8fb;--recapbg:#14213d;--border:#d5dbe5;
+--a1:#1e5fbf;--a2:#1b7f3b;--a3:#b45309;--a4:#7c3aed;--a5:#0f766e;--a6:#be123c;--a7:#4338ca}
+[data-theme=dark]{--bg:#10141c;--card:#1a2130;--text:#e8ecf3;--muted:#b4bfd0;--blue:#8ab8ff;--core:#16304f;--key:#163a22;--ex:#47390f;--why:#32244f;--gloss:#124040;--warn:#4a1c1c;--mem:#4a2c14;--recall:#4a1d33;--act:#252a57;--recapbg:#05080f;--border:#2c3649;
+--a1:#6ea8ff;--a2:#5fd382;--a3:#f0a64d;--a4:#b99bff;--a5:#4fd6c8;--a6:#ff8aa5;--a7:#9ea6ff}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font:clamp(1rem,.95rem + .25vw,1.12rem)/1.65 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+a{color:var(--blue)}
+/* ===== PROGRESS BAR ===== */
+#bar{position:fixed;top:0;left:0;height:5px;width:0;background:var(--blue);z-index:50}
+/* ===== HEADER ===== */
+header{padding:2rem 1rem 1.2rem;max-width:72rem;margin:0 auto}
+header h1{font-size:clamp(1.6rem,4vw,2.4rem);line-height:1.2;margin:0 0 .5rem;color:var(--blue)}
+header p{margin:0;color:var(--muted);font-size:1.1rem}
+.tools{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1rem}
+button{font:inherit;cursor:pointer;border:1px solid var(--blue);background:var(--card);color:var(--blue);padding:.7rem 1rem;border-radius:.6rem;min-height:2.75rem;transition:.2s}
+button:hover{background:var(--blue);color:var(--card);transform:translateY(-1px)}
+/* ===== LAYOUT ===== */
+.wrap{max-width:72rem;margin:0 auto;padding:0 1rem 3rem;display:grid;gap:1rem}
+nav{background:var(--card);border:1px solid var(--border);border-radius:.8rem;padding:.8rem}
+nav h2{font-size:1rem;margin:0 0 .4rem;color:var(--blue)}
+nav ol{margin:.5rem 0 0;padding-left:1.3rem;display:none}
+nav.open ol{display:block}
+nav a{display:block;padding:.35rem 0;text-decoration:none}nav a:hover{text-decoration:underline}
+#tocbtn{width:100%}
+main{min-width:0}
+@media(min-width:768px){
+.wrap{grid-template-columns:16rem minmax(0,1fr);align-items:start}
+nav{position:sticky;top:1rem;max-height:calc(100vh - 2rem);overflow:auto}
+nav ol{display:block}#tocbtn{display:none}main{max-width:900px}}
+/* ===== CARDS ===== */
+section.card{background:var(--card);border:1px solid var(--border);border-left:8px solid var(--ac,var(--a1));border-radius:.8rem;padding:1.2rem;margin-bottom:1.2rem;scroll-margin-top:1rem;transition:box-shadow .2s}
+section.card:hover{box-shadow:0 4px 16px rgba(0,0,0,.12)}
+section.card>h2{margin:0 0 .8rem;color:var(--ac,var(--blue));font-size:clamp(1.3rem,3vw,1.6rem)}
+.blk{border-radius:.6rem;padding:.8rem 1rem;margin:.7rem 0}
+.blk h3{margin:0 0 .3rem;font-size:.85rem;text-transform:uppercase;letter-spacing:.06em}
+.blk p,.blk ul,.blk ol{margin:.3rem 0}.blk ul,.blk ol{padding-left:1.2rem}
+.core{background:var(--core)}.key{background:var(--key)}.ex{background:var(--ex)}.why{background:var(--why)}
+.gloss{background:var(--gloss)}.warn{background:var(--warn)}.mem{background:var(--mem)}.act{background:var(--act)}
+/* ===== GLOSSARY ===== */
+dl{display:grid;grid-template-columns:minmax(7rem,1fr) 2fr;gap:.5rem 1rem;margin:0}
+dt{font-weight:700}dd{margin:0}
+/* ===== STEPS ===== */
+ol.steps{list-style:none;padding:0;margin:.5rem 0;counter-reset:s}
+ol.steps li{counter-increment:s;position:relative;padding:0 0 1.1rem 3rem}
+ol.steps li::before{content:counter(s);position:absolute;left:0;top:0;width:2rem;height:2rem;border-radius:50%;background:var(--blue);color:var(--card);display:grid;place-items:center;font-weight:700}
+ol.steps li::after{content:"";position:absolute;left:.95rem;top:2.1rem;bottom:.1rem;width:2px;background:var(--blue);opacity:.4}
+ol.steps li:last-child::after{display:none}
+/* ===== RECALL ===== */
+details.q{background:var(--recall);border-radius:.6rem;margin:.5rem 0;padding:.2rem 1rem}
+details.q summary{cursor:pointer;padding:.7rem 0;font-weight:600;min-height:2.75rem}
+details.q p{margin:.2rem 0 .8rem}
+/* ===== RECAP ===== */
+.recap{background:var(--recapbg);color:#fff;border-radius:.8rem;padding:1.4rem;border:2px solid var(--blue)}
+.recap h2{margin-top:0;color:#fff}.recap p{margin:0}
+footer{text-align:center;color:var(--muted);padding:1rem}
+#top{position:fixed;right:1rem;bottom:1rem;display:none;z-index:40;background:var(--blue);color:var(--card)}
+@media(max-width:600px){dl{grid-template-columns:1fr}}
+/* ===== PRINT ===== */
+@media print{#bar,#top,.tools,nav{display:none}.wrap{display:block}section.card{break-inside:avoid;box-shadow:none}}
+</style>
+</head>
+<body>
+<div id="bar"></div>
+<!-- ===== HEADER ===== -->
+<header>
+<h1>David Goggins on Armoring Your Mind: Building Belief Through Chosen Suffering</h1>
+<p>Goggins says toughness, confidence and peace are built by doing hard things every day, facing your past, and never believing you're done.</p>
+<div class="tools">
+<button id="theme" type="button">Toggle dark mode</button>
+<button id="all" type="button">Expand all questions</button>
+</div>
+</header>
+<div class="wrap">
+<!-- ===== TABLE OF CONTENTS ===== -->
+<nav id="toc" aria-label="Table of contents">
+<button id="tocbtn" type="button" aria-expanded="false">☰ Contents</button>
+<h2>Contents</h2>
+<ol>
+<li><a href="#big">Big Picture</a></li>
+<li><a href="#sa">A: Capping Success</a></li>
+<li><a href="#sb">B: The One Second Decision</a></li>
+<li><a href="#sc">C: Built Belief</a></li>
+<li><a href="#sd">D: Motivation and Routine</a></li>
+<li><a href="#se">E: Haters and Role Models</a></li>
+<li><a href="#sf">F: Facing Trauma</a></li>
+<li><a href="#sg">G: Toughness and Peace</a></li>
+<li><a href="#glossary">Key Terms Glossary</a></li>
+<li><a href="#process">Step-by-Step Process</a></li>
+<li><a href="#mistakes">Common Mistakes</a></li>
+<li><a href="#aids">Memory Aids</a></li>
+<li><a href="#recall">Active Recall Questions</a></li>
+<li><a href="#actions">Action Items</a></li>
+<li><a href="#recap">30-Second Recap</a></li>
+</ol>
+</nav>
+<main>
+<!-- ===== BIG PICTURE ===== -->
+<section class="card" id="big" style="--ac:var(--a1)">
+<h2>Big Picture</h2>
+<div class="blk core"><p>David Goggins talks about his new book and audiobook, his life since the first one, and how he trains his mind. The host is Chris Williamson. It's for anyone who feels stuck, soft, ashamed of their past, or short on motivation. You'll learn his ideas on capping success, the "one second decision," built belief, and facing trauma.</p></div>
+</section>
+<!-- ===== SECTION A ===== -->
+<section class="card" id="sa" style="--ac:var(--a2)">
+<h2>Section A: Capping Success and Trained Humility</h2>
+<div class="blk core"><h3>Core idea</h3><p>Goggins says success can make you soft. To keep growing, he limits it and returns to hard, humble work, which he calls his "mental lab."</p></div>
+<div class="blk key"><h3>Key points</h3><ul>
+<li>He left the military and became a smoke jumper because "there's no growth" in retirement.</li>
+<li>Smoke jumpers parachute into spots with no vehicle access, with gear dropped to them, and put out wildfires on their own.</li>
+<li>Pay is about $12 to $15 an hour. He says he turned down millions to do it.</li>
+<li>He says growth comes from the cold, miserable moments when you question why you're there.</li>
+<li>He avoids too many podcasts and too much social media. He says to cut the noise and get back to work.</li>
+<li>His first book gave "credentials." The new one goes deeper.</li>
+<li>He says don't do exactly what he says. Take advice with a grain of salt.</li>
+<li>Stay hungry, but humility matters more.</li>
+</ul></div>
+<div class="blk ex"><h3>Example / Analogy</h3><p>William Crawford won the Medal of Honor, then worked as a janitor at the Air Force Academy. Goggins says he put the medal "in his closet," picked up his broom and cleaned for young men.</p></div>
+<div class="blk why"><h3>Why it matters</h3><p>A past win doesn't last. If you think you've arrived, you stop growing.</p></div>
+</section>
+<!-- ===== SECTION B ===== -->
+<section class="card" id="sb" style="--ac:var(--a3)">
+<h2>Section B: The One Second Decision and Taking One More Step</h2>
+<div class="blk core"><h3>Core idea</h3><p>When pain makes you want to quit, the choice happens in one second. Goggins says to stay put physically, calm your mind, and think logically about the future.</p></div>
+<div class="blk key"><h3>Key points</h3><ul>
+<li>At Moab 240, he got lost and later got sick (he says pulmonary edema). He was out for about 12 hours and returned to the race.</li>
+<li>He later asked a doctor and learned that leaving the course would end his race.</li>
+<li>He rested, then went back to finish the last 40 miles. He couldn't officially finish and ended at a telephone pole, about 250 to 255 miles.</li>
+<li>He asks himself: "Can I take one more step?" Usually the answer is yes. If you can and don't, that is real quitting.</li>
+<li>Hell Week lasts 130 hours. You can win every second but one and still lose.</li>
+<li>In cold surf, your mind jumps to hour 130 and you forget every reason you came. You just want warmth and comfort.</li>
+<li>His method: stay in the water physically, but mentally picture standing on the beach in a warm parka. Then think: where will I end up if I quit?</li>
+<li>The host adds that you should picture the long-term shame and regret. The future is much longer than now.</li>
+<li>Failure is "my first, second and third attempt."</li>
+</ul></div>
+<div class="blk ex"><h3>Example / Analogy</h3><p>People who quit training call him years later with good lives but still talk about that one moment. "They're now warm... but you're thinking about what you could have been."</p></div>
+<div class="blk why"><h3>Why it matters</h3><p>One moment can shape decades. Learning to control it matters more than strength.</p></div>
+</section>
+<!-- ===== SECTION C ===== -->
+<section class="card" id="sc" style="--ac:var(--a4)">
+<h2>Section C: Built Belief and Confidence</h2>
+<div class="blk core"><h3>Core idea</h3><p>Goggins says real confidence is built, not shouted. It comes from a stack of proof that you did hard things.</p></div>
+<div class="blk key"><h3>Key points</h3><ul>
+<li>He rejects pounding your chest in a mirror. He calls it an "after school special" belief.</li>
+<li>His "built belief" comes from his everyday resume: three Hell Weeks, Ranger School and Delta selection tryouts.</li>
+<li>The host quotes a friend: you gain confidence from "undeniable proof," not affirmations.</li>
+<li>The host says confidence should be a little ahead of competence, but not delusional.</li>
+<li>"Don't make dreams your master." Talking about a goal gives a dopamine hit, but the work is the tasks.</li>
+<li>Limited horizons hold people back. He came from a small Indiana town of about 8,000.</li>
+</ul></div>
+<div class="blk ex"><h3>Example / Analogy</h3><p>He lost 106 pounds in under three months to become a SEAL. He says the dream disappears and the "laundry list" of tasks takes over.</p></div>
+<div class="blk why"><h3>Why it matters</h3><p>Belief that rests on proof can't be shaken by mood or by others' opinions.</p></div>
+</section>
+<!-- ===== SECTION D ===== -->
+<section class="card" id="sd" style="--ac:var(--a5)">
+<h2>Section D: Motivation, Discipline and the Daily Routine</h2>
+<div class="blk core"><h3>Core idea</h3><p>Motivation is not permanent. You must learn to perform without it, and keep your mind organized so discipline can work.</p></div>
+<div class="blk key"><h3>Key points</h3><ul>
+<li>Motivation is "kindling." You must be your best self when least motivated.</li>
+<li>A cluttered mind blocks discipline. He compares it to a crowded garage or an overloaded circuit breaker.</li>
+<li>He meditates about two hours every night to "reorganize the garage."</li>
+<li>Mornings: up around 5 to 5:30, fasted run of at least 12 miles (about 1.5 to 2 hours, in heart-rate zone 2 because of his leg), then eat, gym, bike three or four days a week.</li>
+<li>He calls the run "armor plating" before he opens his phone.</li>
+<li>He says he sleeps about 7 to 8 hours, and has done this routine for seven years.</li>
+<li>"Performance without purpose": keep training when nothing is on the schedule. He says you are always the purpose.</li>
+<li>Hard mental toughness is "perishable." You must "recall" it every day, not once a year.</li>
+<li>Unchosen suffering will come, so practice chosen suffering.</li>
+</ul></div>
+<div class="blk ex"><h3>Example / Analogy</h3><p>He says he runs first because it's the thing he hates most. "That's my cup of coffee."</p></div>
+<div class="blk why"><h3>Why it matters</h3><p>Routine and mental order keep you steady when life hits.</p></div>
+</section>
+<!-- ===== SECTION E ===== -->
+<section class="card" id="se" style="--ac:var(--a6)">
+<h2>Section E: Haters, Reverse Role Models and Studying People</h2>
+<div class="blk core"><h3>Core idea</h3><p>Goggins studies critics instead of reacting. He says people who attack others are usually in a bad place.</p></div>
+<div class="blk key"><h3>Key points</h3><ul>
+<li>He makes "mixtapes" of hate comments and plays them while he runs as fuel.</li>
+<li>He says he was once that negative person himself.</li>
+<li>The host describes a "reverse role model": learn who not to be.</li>
+<li>Goggins watched his family as the youngest and treated it as a blueprint of how not to live.</li>
+<li>A former SEAL Team Six member attacked his character. Goggins planned to sue, then felt sorry for him and didn't.</li>
+<li>The host says you see your own flaws constantly but not others', so people seem to have it together.</li>
+<li>Before getting hurt by a bully, "take one second to pull back and study them."</li>
+</ul></div>
+<div class="blk ex"><h3>Example / Analogy</h3><p>The host got an apology message from a man who bullied him at school. He thanked the man and said that if the pain led his daughter to be kinder, it was worth it.</p></div>
+<div class="blk why"><h3>Why it matters</h3><p>Understanding where hate comes from takes away its power.</p></div>
+</section>
+<!-- ===== SECTION F ===== -->
+<section class="card" id="sf" style="--ac:var(--a7)">
+<h2>Section F: Facing Trauma and the Past</h2>
+<div class="blk core"><h3>Core idea</h3><p>Goggins says to own your story and face it. Hiding it keeps its power.</p></div>
+<div class="blk key"><h3>Key points</h3><ul>
+<li>He says his first 100-mile race (Badwater qualifier) was the most painful. He was unprepared, urinated blood and could barely stand.</li>
+<li>He says he never wants to feel it again, but it showed him what's possible. He warns that it's dangerous.</li>
+<li>His mother talks about leaving his father, and he says her fight left once she was free.</li>
+<li>She also mentions considering taking her own life. She says her sons kept her going.</li>
+<li>He went back to see his father to face "the unsolved mystery."</li>
+<li>He learned his father was beaten by his own father. Goggins wanted an apology so he could "go be a loser." He realized he had to make it on his own.</li>
+<li>He calls this a "live autopsy."</li>
+<li>He wants to break the cycle of generational trauma.</li>
+<li>"Don't ever be ashamed... face it, fix it, make it better."</li>
+<li>He has a 21-year-old daughter.</li>
+<li>He says he told his mom it's the "Eight Mile" idea: tell everything and the power is gone.</li>
+</ul></div>
+<div class="blk ex"><h3>Example / Analogy</h3><p>He compares the honesty to the end of the film <em>8 Mile</em>: tell everyone your secrets first, so nobody can use them.</p></div>
+<div class="blk why"><h3>Why it matters</h3><p>Shame holds people back. Facing it turns pain into knowledge.</p></div>
+</section>
+<!-- ===== SECTION G ===== -->
+<section class="card" id="sg" style="--ac:var(--a1)">
+<h2>Section G: Toughness, Loneliness and Peace</h2>
+<div class="blk core"><h3>Core idea</h3><p>Goggins says the world is hard, so people need to be prepared. Things you feared as a kid can become your strengths.</p></div>
+<div class="blk key"><h3>Key points</h3><ul>
+<li>On the news story about SEAL tear-gas training, he says he doesn't know if it's necessary but that very few people want such jobs and society needs them.</li>
+<li>The host compares this to Elon Musk's hard-work message at Twitter: some people want that.</li>
+<li>"We are training kids and people to be soft in a world that continuously gets harder."</li>
+<li>VR sharks with Andrew Huberman didn't work on him because he "deals in reality."</li>
+<li>The host says loneliness as a child became his podcast skills and comfort in solitude.</li>
+<li>Pride in yourself is the key. Write your own mission statement and hold yourself to it.</li>
+<li>"Roger that" means "received orders, given, expect results."</li>
+<li>Joe Rogan believes there is "pie for everybody." The Rock suggested doing the blurb.</li>
+<li>He will return to firefighting after this book. He says peace comes from "going to war with yourself."</li>
+</ul></div>
+<div class="blk ex"><h3>Example / Analogy</h3><p>The host says he spent his childhood listening to audio tapes in his bedroom, and now he hosts a podcast.</p></div>
+<div class="blk why"><h3>Why it matters</h3><p>What shamed you early can become your edge.</p></div>
+</section>
+<!-- ===== GLOSSARY ===== -->
+<section class="card" id="glossary" style="--ac:var(--a5)">
+<h2>Key Terms Glossary</h2>
+<div class="blk gloss"><dl>
+<dt>Capping success</dt><dd>Limiting rewards and attention so you keep working.</dd>
+<dt>Mental lab</dt><dd>The quiet, hard place where he says his growth comes from.</dd>
+<dt>Trained humility</dt><dd>Choosing humble, hard work even when you've earned more.</dd>
+<dt>One second decision</dt><dd>The moment you choose whether to quit.</dd>
+<dt>Built belief</dt><dd>Confidence based on proof of past hard work.</dd>
+<dt>Chosen suffering</dt><dd>Hard things you do on purpose to prepare for unchosen pain.</dd>
+<dt>Performance without purpose</dt><dd>Training with no event or goal ahead.</dd>
+<dt>Reverse role model</dt><dd>Someone you learn from by seeing who you don't want to be.</dd>
+<dt>Live autopsy</dt><dd>Studying why you're "dying" while you're still alive.</dd>
+<dt>DNF</dt><dd>Did not finish a race.</dd>
+<dt>Roger that</dt><dd>Received orders, given, expect results.</dd>
+</dl></div>
+</section>
+<!-- ===== STEPS ===== -->
+<section class="card" id="process" style="--ac:var(--a7)">
+<h2>Step-by-Step Process</h2>
+<p>Goggins's steps for the one second decision:</p>
+<ol class="steps">
+<li>Notice the urge to quit. It comes in one second.</li>
+<li>Stay physically where you are.</li>
+<li>Mentally go to a warm, calm place.</li>
+<li>Think logically about your options.</li>
+<li>Ask where you'll end up and how you'll feel if you quit.</li>
+<li>Ask: can I take one more step?</li>
+</ol>
+</section>
+<!-- ===== MISTAKES ===== -->
+<section class="card" id="mistakes" style="--ac:var(--a6)">
+<h2>Common Mistakes</h2>
+<div class="blk warn"><h3>Warnings</h3><ul>
+<li>Thinking motivation is permanent.</li>
+<li>Using affirmations without proof behind them.</li>
+<li>Letting dreams be your "master" without doing the tasks.</li>
+<li>Believing mental toughness lasts once earned.</li>
+<li>Reacting to haters without studying them.</li>
+<li>Staying ashamed of your past.</li>
+<li>Letting success make you soft.</li>
+<li>Keeping a cluttered mind.</li>
+</ul></div>
+</section>
+<!-- ===== MEMORY AIDS ===== -->
+<section class="card" id="aids" style="--ac:var(--a3)">
+<h2>Memory Aids</h2>
+<div class="blk mem"><h3>Five takeaways</h3><ol>
+<li>Cap success and stay humble.</li>
+<li>In the one second, stay put, calm down, take one more step.</li>
+<li>Confidence is built from proof, not affirmations.</li>
+<li>Organize your mind so discipline works.</li>
+<li>Face your past and study your haters.</li>
+</ol></div>
+<div class="blk mem"><h3>Mnemonic</h3><p>"Cap it, stay put, build proof, clear the garage, face it."</p></div>
+<div class="blk mem"><h3>Mental picture (my analogy)</h3><p>A soldier putting on armor each morning, standing in cold surf but picturing a warm beach.</p></div>
+</section>
+<!-- ===== ACTIVE RECALL ===== -->
+<section class="card" id="recall" style="--ac:var(--a6)">
+<h2>Active Recall Questions</h2>
+<details class="q"><summary>1. What is capping success?</summary><p>Limiting rewards and attention so you keep working.</p></details>
+<details class="q"><summary>2. Why did Goggins become a smoke jumper?</summary><p>He says retirement had no growth.</p></details>
+<details class="q"><summary>3. What is the one second decision?</summary><p>The moment you choose whether to quit under pain.</p></details>
+<details class="q"><summary>4. How does he handle it?</summary><p>Stay physically, go mentally to a warm place, think logically.</p></details>
+<details class="q"><summary>5. What question does he ask in a race?</summary><p>"Can I take one more step?"</p></details>
+<details class="q"><summary>6. How does he define built belief?</summary><p>Confidence from a stack of proof.</p></details>
+<details class="q"><summary>7. Why does he compare the mind to a garage?</summary><p>Clutter blocks discipline.</p></details>
+<details class="q"><summary>8. What is a reverse role model?</summary><p>Someone you learn from by seeing who not to be.</p></details>
+<details class="q"><summary>9. Why did he visit his father?</summary><p>To face the "unsolved mystery" and stop blaming him.</p></details>
+<details class="q"><summary>10. What does he say real peace is?</summary><p>Found by going to war with yourself.</p></details>
+</section>
+<!-- ===== ACTION ITEMS ===== -->
+<section class="card" id="actions" style="--ac:var(--a7)">
+<h2>Action Items</h2>
+<div class="blk act"><h3>Try these</h3><ul>
+<li>Do one hard thing each day that you dislike.</li>
+<li>When you want to quit, ask: can I take one more step?</li>
+<li>Write down your accomplishments as proof.</li>
+<li>Write a personal mission statement.</li>
+<li>Set aside time to clear your mind each day.</li>
+<li>Study a critic or bully before reacting.</li>
+<li>Pick one thing from your past to face.</li>
+</ul></div>
+</section>
+<!-- ===== RECAP ===== -->
+<section class="recap" id="recap">
+<h2>30-Second Recap</h2>
+<p>Goggins says success can make you soft, so cap it and stay humble. When you want to quit, the choice happens in one second: stay put, calm your mind and take one more step. Build confidence from proof, not affirmations. Keep your mind organized so discipline works without motivation. Study haters, learn from people you don't want to be, and face your past instead of hiding it. Peace comes from knowing exactly who you are.</p>
+</section>
+</main>
+</div>
+<footer>Study guide based on a video transcript.</footer>
+<button id="top" type="button" aria-label="Back to top">↑ Top</button>
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+(function(){
+var root=document.documentElement,theme="light"; // theme kept in memory only
+document.getElementById("theme").onclick=function(){theme=theme==="light"?"dark":"light";root.setAttribute("data-theme",theme)};
+// Expand / collapse all recall questions
+var open=false,qs=document.querySelectorAll("details.q"),all=document.getElementById("all");
+all.onclick=function(){open=!open;qs.forEach(function(d){d.open=open});all.textContent=open?"Collapse all questions":"Expand all questions"};
+// Mobile table of contents
+var toc=document.getElementById("toc"),tb=document.getElementById("tocbtn");
+tb.onclick=function(){var o=toc.classList.toggle("open");tb.setAttribute("aria-expanded",o)};
+toc.querySelectorAll("a").forEach(function(a){a.onclick=function(){toc.classList.remove("open")}});
+// Progress bar and back-to-top
+var bar=document.getElementById("bar"),top=document.getElementById("top");
+function sc(){var h=document.documentElement,m=h.scrollHeight-h.clientHeight;bar.style.width=(m>0?h.scrollTop/m*100:0)+"%";top.style.display=h.scrollTop>400?"block":"none"}
+window.addEventListener("scroll",sc);sc();
+top.onclick=function(){window.scrollTo({top:0,behavior:"smooth"})};
+})();
+</script>
+</body>
+</html>
