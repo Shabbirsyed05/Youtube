@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Science of Luck: Study Guide</title>
+<style>
+/* ===== COLOR SYSTEM ===== */
+:root{--bg:#f4f6f9;--card:#fff;--text:#1d2433;--muted:#4a5568;--blue:#1e5fbf;--core:#e3f0ff;--key:#e4f6e6;--ex:#fff3cd;--why:#eee6fa;--gloss:#dff5f3;--warn:#fde4e4;--mem:#ffe9d6;--recall:#fde6f0;--act:#e5e8fb;--recapbg:#14213d;--border:#d5dbe5;
+--a1:#1e5fbf;--a2:#1b7f3b;--a3:#b45309;--a4:#7c3aed;--a5:#0f766e;--a6:#be123c;--a7:#4338ca}
+[data-theme=dark]{--bg:#10141c;--card:#1a2130;--text:#e8ecf3;--muted:#b4bfd0;--blue:#8ab8ff;--core:#16304f;--key:#163a22;--ex:#47390f;--why:#32244f;--gloss:#124040;--warn:#4a1c1c;--mem:#4a2c14;--recall:#4a1d33;--act:#252a57;--recapbg:#05080f;--border:#2c3649;
+--a1:#6ea8ff;--a2:#5fd382;--a3:#f0a64d;--a4:#b99bff;--a5:#4fd6c8;--a6:#ff8aa5;--a7:#9ea6ff}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font:clamp(1rem,.95rem + .25vw,1.12rem)/1.65 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+a{color:var(--blue)}
+/* ===== PROGRESS BAR ===== */
+#bar{position:fixed;top:0;left:0;height:5px;width:0;background:var(--blue);z-index:50}
+/* ===== HEADER ===== */
+header{padding:2rem 1rem 1.2rem;max-width:72rem;margin:0 auto}
+header h1{font-size:clamp(1.6rem,4vw,2.4rem);line-height:1.2;margin:0 0 .5rem;color:var(--blue)}
+header p{margin:0;color:var(--muted);font-size:1.1rem}
+.tools{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1rem}
+button{font:inherit;cursor:pointer;border:1px solid var(--blue);background:var(--card);color:var(--blue);padding:.7rem 1rem;border-radius:.6rem;min-height:2.75rem;transition:.2s}
+button:hover{background:var(--blue);color:var(--card);transform:translateY(-1px)}
+/* ===== LAYOUT ===== */
+.wrap{max-width:72rem;margin:0 auto;padding:0 1rem 3rem;display:grid;gap:1rem}
+nav{background:var(--card);border:1px solid var(--border);border-radius:.8rem;padding:.8rem}
+nav h2{font-size:1rem;margin:0 0 .4rem;color:var(--blue)}
+nav ol{margin:.5rem 0 0;padding-left:1.3rem;display:none}
+nav.open ol{display:block}
+nav a{display:block;padding:.35rem 0;text-decoration:none}nav a:hover{text-decoration:underline}
+#tocbtn{width:100%}
+main{min-width:0}
+@media(min-width:768px){
+.wrap{grid-template-columns:16rem minmax(0,1fr);align-items:start}
+nav{position:sticky;top:1rem;max-height:calc(100vh - 2rem);overflow:auto}
+nav ol{display:block}#tocbtn{display:none}main{max-width:900px}}
+/* ===== CARDS ===== */
+section.card{background:var(--card);border:1px solid var(--border);border-left:8px solid var(--ac,var(--a1));border-radius:.8rem;padding:1.2rem;margin-bottom:1.2rem;scroll-margin-top:1rem;transition:box-shadow .2s}
+section.card:hover{box-shadow:0 4px 16px rgba(0,0,0,.12)}
+section.card>h2{margin:0 0 .8rem;color:var(--ac,var(--blue));font-size:clamp(1.3rem,3vw,1.6rem)}
+.blk{border-radius:.6rem;padding:.8rem 1rem;margin:.7rem 0}
+.blk h3{margin:0 0 .3rem;font-size:.85rem;text-transform:uppercase;letter-spacing:.06em}
+.blk p,.blk ul,.blk ol{margin:.3rem 0}.blk ul,.blk ol{padding-left:1.2rem}
+.core{background:var(--core)}.key{background:var(--key)}.ex{background:var(--ex)}.why{background:var(--why)}
+.gloss{background:var(--gloss)}.warn{background:var(--warn)}.mem{background:var(--mem)}.act{background:var(--act)}
+/* ===== GLOSSARY ===== */
+dl{display:grid;grid-template-columns:minmax(7rem,1fr) 2fr;gap:.5rem 1rem;margin:0}
+dt{font-weight:700}dd{margin:0}
+/* ===== STEPS ===== */
+ol.steps{list-style:none;padding:0;margin:.5rem 0;counter-reset:s}
+ol.steps li{counter-increment:s;position:relative;padding:0 0 1.1rem 3rem}
+ol.steps li::before{content:counter(s);position:absolute;left:0;top:0;width:2rem;height:2rem;border-radius:50%;background:var(--blue);color:var(--card);display:grid;place-items:center;font-weight:700}
+ol.steps li::after{content:"";position:absolute;left:.95rem;top:2.1rem;bottom:.1rem;width:2px;background:var(--blue);opacity:.4}
+ol.steps li:last-child::after{display:none}
+/* ===== RECALL ===== */
+details.q{background:var(--recall);border-radius:.6rem;margin:.5rem 0;padding:.2rem 1rem}
+details.q summary{cursor:pointer;padding:.7rem 0;font-weight:600;min-height:2.75rem}
+details.q p{margin:.2rem 0 .8rem}
+/* ===== RECAP ===== */
+.recap{background:var(--recapbg);color:#fff;border-radius:.8rem;padding:1.4rem;border:2px solid var(--blue)}
+.recap h2{margin-top:0;color:#fff}.recap p{margin:0}
+footer{text-align:center;color:var(--muted);padding:1rem}
+#top{position:fixed;right:1rem;bottom:1rem;display:none;z-index:40;background:var(--blue);color:var(--card)}
+@media(max-width:600px){dl{grid-template-columns:1fr}}
+/* ===== PRINT ===== */
+@media print{#bar,#top,.tools,nav{display:none}.wrap{display:block}section.card{break-inside:avoid;box-shadow:none}}
+</style>
+</head>
+<body>
+<div id="bar"></div>
+<!-- ===== HEADER ===== -->
+<header>
+<h1>The Science of Luck: How to Become a Luckier Person</h1>
+<p>Luck is not just chance: you can build it through your values, your relationships, and your actions.</p>
+<div class="tools">
+<button id="theme" type="button">Toggle dark mode</button>
+<button id="all" type="button">Expand all questions</button>
+</div>
+</header>
+<div class="wrap">
+<!-- ===== TABLE OF CONTENTS ===== -->
+<nav id="toc" aria-label="Table of contents">
+<button id="tocbtn" type="button" aria-expanded="false">☰ Contents</button>
+<h2>Contents</h2>
+<ol>
+<li><a href="#big">Big Picture</a></li>
+<li><a href="#sa">A: Luck vs. Fortune</a></li>
+<li><a href="#sb">B: Winds of Luck</a></li>
+<li><a href="#sc">C: Build Your Sailboat</a></li>
+<li><a href="#sd">D: Know Your Risk Profile</a></li>
+<li><a href="#se">E: Recruit Your Crew</a></li>
+<li><a href="#sf">F: Hoist the Sail</a></li>
+<li><a href="#glossary">Key Terms Glossary</a></li>
+<li><a href="#process">Step-by-Step Process</a></li>
+<li><a href="#mistakes">Common Mistakes</a></li>
+<li><a href="#aids">Memory Aids</a></li>
+<li><a href="#recall">Active Recall Questions</a></li>
+<li><a href="#actions">Action Items</a></li>
+<li><a href="#recap">30-Second Recap</a></li>
+</ol>
+</nav>
+<main>
+<!-- ===== BIG PICTURE ===== -->
+<section class="card" id="big" style="--ac:var(--a1)">
+<h2>Big Picture</h2>
+<div class="blk core"><p>Dr. Tina Seelig, a Stanford neuroscientist and author, explains that luck is something you can influence. She separates fortune (what happens to you) from luck (what you control). This is for anyone who feels unlucky or stuck. You'll learn a three-part framework: build your sailboat, recruit your crew, and hoist the sail.</p></div>
+</section>
+<!-- ===== SECTION A ===== -->
+<section class="card" id="sa" style="--ac:var(--a2)">
+<h2>Section A: Luck vs. Fortune</h2>
+<div class="blk core"><h3>Core idea</h3><p>Luck is defined as success or failure "apparently" caused by chance. The word "apparently" matters because underneath there are usually things you did to attract good luck. Fortune is what happens to you. Luck is what you control.</p></div>
+<div class="blk key"><h3>Key points</h3><ul>
+<li>Some things are out of your control: height, birthplace, parents, a pandemic, war, poverty, systemic racism.</li>
+<li>Many people use "luck" to humbly say they had nothing to do with a success.</li>
+<li>Between what happens and your response, you get to decide how to react (a Victor Frankl idea).</li>
+<li>Every decision opens a door. We are "always one decision away from a completely different life."</li>
+<li>Luck begins when you act in the face of uncertainty.</li>
+<li>Seelig says life is not fair, but we still have choices.</li>
+</ul></div>
+<div class="blk ex"><h3>Example / Analogy</h3><p>Mel met her husband at a bar when he said "make it two" to her drink order. Seelig met her publisher by chatting with the man next to her on a plane, then keeping the relationship going for about two years until it led to her book.</p></div>
+<div class="blk why"><h3>Why it matters</h3><p>If you think luck just happens to you, you stop acting. If you see your part in it, you gain real levers to pull.</p></div>
+</section>
+<!-- ===== SECTION B ===== -->
+<section class="card" id="sb" style="--ac:var(--a3)">
+<h2>Section B: Winds of Luck and the Four Ways to Respond</h2>
+<div class="blk core"><h3>Core idea</h3><p>Opportunities are everywhere, like wind. What matters is how you engage with them. Seelig uses a picture of a house, weather vane, hot air balloon, windmill and sailboat.</p></div>
+<div class="blk key"><h3>Key points</h3><ul>
+<li>Staying inside the house: you shut the shutters and don't notice opportunities.</li>
+<li>Weather vane: you see opportunities but do nothing, like someone who has been "thinking about" a job or a dating profile forever.</li>
+<li>Hot air balloon: you go where the wind takes you. This is reasonable at times, such as when exploring your interests.</li>
+<li>Windmill: you capture the opportunities in your local area, such as being the best you can in a job.</li>
+<li>Sailboat: you pursue a specific goal and seek the winds that get you there.</li>
+<li>Seelig works with The Last Mile at San Quentin, which teaches innovation, entrepreneurship and coding to incarcerated people. She says people can change their attitude and actions to unlock possibilities they didn't see.</li>
+</ul></div>
+<div class="blk ex"><h3>Example / Analogy</h3><p>"You don't get a job, you get the keys to the building." Even in a job you dislike, you can bring energy, excellence and attitude to capture the opportunity around you.</p></div>
+<div class="blk why"><h3>Why it matters</h3><p>The sailboat is the most active stance, and the rest of the talk shows how to build it.</p></div>
+</section>
+<!-- ===== SECTION C ===== -->
+<section class="card" id="sc" style="--ac:var(--a4)">
+<h2>Section C: Build Your Sailboat (Internal Work)</h2>
+<div class="blk core"><h3>Core idea</h3><p>The sailboat is your "prepared mind" (from Louis Pasteur's quote, "fortune favors the prepared mind"). It is the internal work you do to be ready for luck.</p></div>
+<div class="blk key"><h3>Key points</h3><ul>
+<li>Know your core values. They are like the keel that keeps the boat steady. Without them, others can manipulate you into unethical or illegal acts.</li>
+<li>Values can change over time. Mel's was safety and security when money was tight.</li>
+<li>Think about your values in advance. There's a slippery slope: once you make one unethical choice, the next is easier.</li>
+<li>Build a personal board of advisers to ask when something "doesn't smell right."</li>
+<li>Keep the ability to walk away. Heavy debt can trap you in a job where you're asked to do something unethical.</li>
+<li>Know the story you tell about who you are. It shifts depending on who you're with and how you feel.</li>
+<li>Do small experiments every day and take risks outside your comfort zone.</li>
+<li>Know your goals.</li>
+</ul></div>
+<div class="blk ex"><h3>Example / Analogy</h3><p>Seelig's first job was at a medtech company. Her boss sent her to a competitor's conference as "Dr. Seelig from Stanford." She never questioned it. The competitors grew suspicious, confronted her in an elevator and escorted her out. She says she hadn't thought about her values.</p></div>
+<div class="blk why"><h3>Why it matters</h3><p>Clear values protect you from bad decisions and point you toward what you actually want.</p></div>
+</section>
+<!-- ===== SECTION D ===== -->
+<section class="card" id="sd" style="--ac:var(--a5)">
+<h2>Section D: Know Your Risk Profile (The Riskometer)</h2>
+<div class="blk core"><h3>Core idea</h3><p>Risk is more nuanced than "I am or I'm not a risk taker." Seelig's spider chart has six types of risk, each rated 0 to 10.</p></div>
+<div class="blk key"><h3>Key points</h3><ul>
+<li>Physical: such as cycling fast or extreme sports.</li>
+<li>Emotional: telling someone how you feel.</li>
+<li>Social: giving a toast, a talk, or speaking in a meeting.</li>
+<li>Financial: money risks.</li>
+<li>Intellectual: trying something new, solving a hard problem.</li>
+<li>You can stretch. A social risk that is a 2 today can be a 4, then a 6, with repetition.</li>
+<li>Prepared people feel less risk. Venture capitalists try to squeeze risk out, like a skydiver packing a parachute.</li>
+</ul></div>
+<div class="blk ex"><h3>Example / Analogy</h3><p>Mel rated herself a 10 on speeches but a 2 on a red carpet, because she'd never done it. Seelig's $5 project: student teams got $5 and two hours to make money. Some ran a stand pumping bike tires (about $200), some sold restaurant reservations, and one team sold its three-minute class presentation slot to a company for $650.</p></div>
+<div class="blk why"><h3>Why it matters</h3><p>The chart shows where your comfort zone ends. Stepping past it creates luck.</p></div>
+</section>
+<!-- ===== SECTION E ===== -->
+<section class="card" id="se" style="--ac:var(--a6)">
+<h2>Section E: Recruit Your Crew</h2>
+<div class="blk core"><h3>Core idea</h3><p>"Luck seldom sails solo." Luck usually comes from engaging with other people. Ask for what you want, help others, and show appreciation.</p></div>
+<div class="blk key"><h3>Key points</h3><ul>
+<li>Make asks small and easy to help with.</li>
+<li>Send thank-you notes. Many people don't.</li>
+<li>Generosity is a key trait of lucky people. Few people help others, so it stands out.</li>
+<li>Helping may feel small to you but be very meaningful to the other person.</li>
+<li>A warm introduction is one of the biggest gifts you can give.</li>
+<li>Authentic compliments to strangers change the energy and open doors.</li>
+</ul></div>
+<div class="blk ex"><h3>Example / Analogy</h3><p>Oliver asked Seelig for five minutes about becoming a "luck coach." He sent a thank-you note and a list of ways he could help her, and she hired him as a research assistant. Nir Ayal sold solar panels and recommended a heat pump installer. The installer found out and began recommending him, and his business boomed. Mel, new in town with no friends, complimented the coffee shop worker, learned the name, and went back daily until she built a community.</p></div>
+<div class="blk why"><h3>Why it matters</h3><p>Your network is where most lucky breaks come from, and generosity compounds.</p></div>
+</section>
+<!-- ===== SECTION F ===== -->
+<section class="card" id="sf" style="--ac:var(--a7)">
+<h2>Section F: Hoist the Sail (Take Action)</h2>
+<div class="blk core"><h3>Core idea</h3><p>"The harder I work, the luckier I get" is missing something: you need to know what kind of hard work. Seelig points to stirring the pot, stretching beyond your comfort zone, and being curious.</p></div>
+<div class="blk key"><h3>Key points</h3><ul>
+<li>Luck favors those who ask questions (chapter 14 of her book). Curiosity leads to learning and opportunities you never imagined.</li>
+<li>"Before something's your passion, it's something you know nothing about." Try many things and keep what works.</li>
+<li>There are about 20 daily levers, such as asking, helping, showing appreciation, taking risks, resilience and resolving conflicts.</li>
+<li>Luck is a long game, like investing: small deposits that compound.</li>
+<li>Have the mindset that there's a prize in every room.</li>
+<li>If you feel unlucky, do one thing this week to "stir the soup": apply for the job, or introduce yourself to someone in line.</li>
+</ul></div>
+<div class="blk ex"><h3>Example / Analogy</h3><p>Seelig compares luck to investing money. Each action is a small deposit that grows over time.</p></div>
+<div class="blk why"><h3>Why it matters</h3><p>Choices today shape the choices you'll have later. Sitting on the couch won't meet the love of your life.</p></div>
+</section>
+<!-- ===== GLOSSARY ===== -->
+<section class="card" id="glossary" style="--ac:var(--a5)">
+<h2>Key Terms Glossary</h2>
+<div class="blk gloss"><dl>
+<dt>Luck (Seelig's definition)</dt><dd>Success or failure apparently caused by chance.</dd>
+<dt>Fortune</dt><dd>The things that happen to you.</dd>
+<dt>Prepared mind</dt><dd>Your internal readiness for opportunities (the sailboat).</dd>
+<dt>Core values</dt><dd>The keel that keeps you steady and ethical.</dd>
+<dt>Riskometer (spider chart)</dt><dd>A six-point chart for rating your comfort with different risks.</dd>
+<dt>Personal board of advisers</dt><dd>People you go to when something doesn't feel right.</dd>
+<dt>Stirring the pot (or soup)</dt><dd>Adding something new to your life to open doors.</dd>
+</dl></div>
+</section>
+<!-- ===== STEPS ===== -->
+<section class="card" id="process" style="--ac:var(--a7)">
+<h2>Step-by-Step Process</h2>
+<p>Seelig's three-part method:</p>
+<ol class="steps">
+<li><strong>Build your sailboat:</strong> learn your values, your story, your risk profile and your goals.</li>
+<li><strong>Recruit your crew:</strong> ask for what you want, help others, show appreciation.</li>
+<li><strong>Hoist the sail:</strong> take risks, stay curious, ask questions, and keep making small deposits over time.</li>
+</ol>
+</section>
+<!-- ===== MISTAKES ===== -->
+<section class="card" id="mistakes" style="--ac:var(--a6)">
+<h2>Common Mistakes</h2>
+<div class="blk warn"><h3>Warnings</h3><ul>
+<li>Confusing fortune with luck and thinking everything just happens to you.</li>
+<li>Being the weather vane: noticing opportunities but doing nothing.</li>
+<li>Not thinking about your values before you're pressured.</li>
+<li>Talking yourself out of reaching out because you don't want to be a burden.</li>
+<li>Skipping thank-you notes.</li>
+<li>Walking past opportunities, like gold coins on the ground.</li>
+<li>Taking on so much debt that you can't walk away.</li>
+</ul></div>
+</section>
+<!-- ===== MEMORY AIDS ===== -->
+<section class="card" id="aids" style="--ac:var(--a3)">
+<h2>Memory Aids</h2>
+<div class="blk mem"><h3>Five takeaways</h3><ol>
+<li>Fortune happens to you. Luck is what you control.</li>
+<li>Opportunities are like wind: you need a sail.</li>
+<li>Build the boat, recruit the crew, hoist the sail.</li>
+<li>Generosity and small asks bring luck back to you.</li>
+<li>Luck is a long game of small deposits.</li>
+</ol></div>
+<div class="blk mem"><h3>Mnemonic</h3><p>"Build, Recruit, Hoist."</p></div>
+<div class="blk mem"><h3>Mental picture</h3><p>A sailboat with a strong keel (values), a crew (people), and its sail up in the wind (action).</p></div>
+</section>
+<!-- ===== ACTIVE RECALL ===== -->
+<section class="card" id="recall" style="--ac:var(--a6)">
+<h2>Active Recall Questions</h2>
+<details class="q"><summary>1. What is the difference between fortune and luck?</summary><p>Fortune is what happens to you. Luck is what you control.</p></details>
+<details class="q"><summary>2. Why does the word "apparently" matter in the definition?</summary><p>It looks like chance, but your actions often set it up.</p></details>
+<details class="q"><summary>3. What are the five ways to meet the wind?</summary><p>House, weather vane, hot air balloon, windmill, sailboat.</p></details>
+<details class="q"><summary>4. What are the three steps to become a sailboat?</summary><p>Build the sailboat, recruit your crew, hoist the sail.</p></details>
+<details class="q"><summary>5. Why are core values important?</summary><p>They act like a keel, keeping you steady and protecting you from unethical requests.</p></details>
+<details class="q"><summary>6. What are the six types of risk on the riskometer?</summary><p>Physical, emotional, social, financial and intellectual are covered in the talk; the transcript names only five. The sixth isn't stated clearly.</p></details>
+<details class="q"><summary>7. Why does helping others make you luckier?</summary><p>Few people do it, and the goodwill comes back.</p></details>
+<details class="q"><summary>8. What made Oliver's request work?</summary><p>It was small, easy to help with, and followed by a thank-you note and a list of ways to help.</p></details>
+<details class="q"><summary>9. Why compare luck to investing?</summary><p>Small deposits compound over time.</p></details>
+<details class="q"><summary>10. What should an unlucky person do first this week?</summary><p>Stir the soup: add something new, such as applying for a job or introducing yourself to someone.</p></details>
+</section>
+<!-- ===== ACTION ITEMS ===== -->
+<section class="card" id="actions" style="--ac:var(--a7)">
+<h2>Action Items</h2>
+<div class="blk act"><h3>Try these</h3><ul>
+<li>Rate yourself 0 to 10 on each type of risk and pick one to stretch.</li>
+<li>Write down your core values.</li>
+<li>Name a few people for your personal board of advisers.</li>
+<li>Send a thank-you note to someone who helped you.</li>
+<li>Make a warm introduction between two people.</li>
+<li>Give an authentic compliment to a stranger.</li>
+<li>Ask for something small, like five minutes of someone's time.</li>
+<li>Do one new thing this week to stir the soup.</li>
+</ul></div>
+</section>
+<!-- ===== RECAP ===== -->
+<section class="recap" id="recap">
+<h2>30-Second Recap</h2>
+<p>Seelig says luck is what you control, while fortune is what happens to you. Opportunities are like wind, and you need a sail. Build your sailboat by knowing your values, story, risks and goals. Recruit your crew by asking, helping and thanking. Hoist the sail by taking risks and staying curious. Luck is a long game of small deposits, so start by stirring the soup this week.</p>
+</section>
+</main>
+</div>
+<footer>Study guide based on a video transcript.</footer>
+<button id="top" type="button" aria-label="Back to top">↑ Top</button>
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+(function(){
+var root=document.documentElement,theme="light"; // theme kept in memory only
+document.getElementById("theme").onclick=function(){theme=theme==="light"?"dark":"light";root.setAttribute("data-theme",theme)};
+// Expand / collapse all recall questions
+var open=false,qs=document.querySelectorAll("details.q"),all=document.getElementById("all");
+all.onclick=function(){open=!open;qs.forEach(function(d){d.open=open});all.textContent=open?"Collapse all questions":"Expand all questions"};
+// Mobile table of contents
+var toc=document.getElementById("toc"),tb=document.getElementById("tocbtn");
+tb.onclick=function(){var o=toc.classList.toggle("open");tb.setAttribute("aria-expanded",o)};
+toc.querySelectorAll("a").forEach(function(a){a.onclick=function(){toc.classList.remove("open")}});
+// Progress bar and back-to-top
+var bar=document.getElementById("bar"),top=document.getElementById("top");
+function sc(){var h=document.documentElement,m=h.scrollHeight-h.clientHeight;bar.style.width=(m>0?h.scrollTop/m*100:0)+"%";top.style.display=h.scrollTop>400?"block":"none"}
+window.addEventListener("scroll",sc);sc();
+top.onclick=function(){window.scrollTo({top:0,behavior:"smooth"})};
+})();
+</script>
+</body>
+</html>
