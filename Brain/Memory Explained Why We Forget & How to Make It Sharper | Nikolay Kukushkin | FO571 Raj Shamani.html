@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Why We Remember and Forget: Study Guide</title>
+<!-- NOTE: no summary was pasted, so this guide is built only from the attached transcript -->
+<style>
+/* ===== COLOR SYSTEM ===== */
+:root{--bg:#f4f6f9;--card:#fff;--text:#1d2433;--muted:#4a5568;--blue:#1e5fbf;--core:#e3f0ff;--key:#e4f6e6;--ex:#fff3cd;--why:#eee6fa;--gloss:#dff5f3;--warn:#fde4e4;--mem:#ffe9d6;--recall:#fde6f0;--act:#e5e8fb;--recapbg:#14213d;--border:#d5dbe5;
+--a1:#1e5fbf;--a2:#1b7f3b;--a3:#b45309;--a4:#7c3aed;--a5:#0f766e;--a6:#be123c;--a7:#4338ca}
+[data-theme=dark]{--bg:#10141c;--card:#1a2130;--text:#e8ecf3;--muted:#b4bfd0;--blue:#8ab8ff;--core:#16304f;--key:#163a22;--ex:#47390f;--why:#32244f;--gloss:#124040;--warn:#4a1c1c;--mem:#4a2c14;--recall:#4a1d33;--act:#252a57;--recapbg:#05080f;--border:#2c3649;
+--a1:#6ea8ff;--a2:#5fd382;--a3:#f0a64d;--a4:#b99bff;--a5:#4fd6c8;--a6:#ff8aa5;--a7:#9ea6ff}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font:clamp(1rem,.95rem + .25vw,1.12rem)/1.65 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+a{color:var(--blue)}
+/* ===== PROGRESS BAR ===== */
+#bar{position:fixed;top:0;left:0;height:5px;width:0;background:var(--blue);z-index:50}
+/* ===== HEADER ===== */
+header{padding:2rem 1rem 1.2rem;max-width:72rem;margin:0 auto}
+header h1{font-size:clamp(1.6rem,4vw,2.4rem);line-height:1.2;margin:0 0 .5rem;color:var(--blue)}
+header p{margin:0;color:var(--muted);font-size:1.1rem}
+.tools{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1rem}
+button{font:inherit;cursor:pointer;border:1px solid var(--blue);background:var(--card);color:var(--blue);padding:.7rem 1rem;border-radius:.6rem;min-height:2.75rem;transition:.2s}
+button:hover{background:var(--blue);color:var(--card);transform:translateY(-1px)}
+/* ===== LAYOUT ===== */
+.wrap{max-width:72rem;margin:0 auto;padding:0 1rem 3rem;display:grid;gap:1rem}
+nav{background:var(--card);border:1px solid var(--border);border-radius:.8rem;padding:.8rem}
+nav h2{font-size:1rem;margin:0 0 .4rem;color:var(--blue)}
+nav ol{margin:.5rem 0 0;padding-left:1.3rem;display:none}
+nav.open ol{display:block}
+nav a{display:block;padding:.35rem 0;text-decoration:none}nav a:hover{text-decoration:underline}
+#tocbtn{width:100%}
+main{min-width:0}
+@media(min-width:768px){
+.wrap{grid-template-columns:16rem minmax(0,1fr);align-items:start}
+nav{position:sticky;top:1rem;max-height:calc(100vh - 2rem);overflow:auto}
+nav ol{display:block}#tocbtn{display:none}main{max-width:900px}}
+/* ===== CARDS ===== */
+section.card{background:var(--card);border:1px solid var(--border);border-left:8px solid var(--ac,var(--a1));border-radius:.8rem;padding:1.2rem;margin-bottom:1.2rem;scroll-margin-top:1rem;transition:box-shadow .2s}
+section.card:hover{box-shadow:0 4px 16px rgba(0,0,0,.12)}
+section.card>h2{margin:0 0 .8rem;color:var(--ac,var(--blue));font-size:clamp(1.3rem,3vw,1.6rem)}
+.blk{border-radius:.6rem;padding:.8rem 1rem;margin:.7rem 0}
+.blk h3{margin:0 0 .3rem;font-size:.85rem;text-transform:uppercase;letter-spacing:.06em}
+.blk p,.blk ul{margin:.3rem 0}.blk ul{padding-left:1.2rem}
+.core{background:var(--core)}.key{background:var(--key)}.ex{background:var(--ex)}.why{background:var(--why)}
+.gloss{background:var(--gloss)}.warn{background:var(--warn)}.mem{background:var(--mem)}.act{background:var(--act)}
+/* ===== GLOSSARY ===== */
+dl{display:grid;grid-template-columns:minmax(7rem,1fr) 2fr;gap:.5rem 1rem;margin:0}
+dt{font-weight:700}dd{margin:0}
+/* ===== STEPS ===== */
+ol.steps{list-style:none;padding:0;margin:.5rem 0;counter-reset:s}
+ol.steps li{counter-increment:s;position:relative;padding:0 0 1.1rem 3rem}
+ol.steps li::before{content:counter(s);position:absolute;left:0;top:0;width:2rem;height:2rem;border-radius:50%;background:var(--blue);color:var(--card);display:grid;place-items:center;font-weight:700}
+ol.steps li::after{content:"";position:absolute;left:.95rem;top:2.1rem;bottom:.1rem;width:2px;background:var(--blue);opacity:.4}
+ol.steps li:last-child::after{display:none}
+/* ===== RECALL ===== */
+details.q{background:var(--recall);border-radius:.6rem;margin:.5rem 0;padding:.2rem 1rem}
+details.q summary{cursor:pointer;padding:.7rem 0;font-weight:600;min-height:2.75rem}
+details.q p{margin:.2rem 0 .8rem}
+/* ===== RECAP ===== */
+.recap{background:var(--recapbg);color:#fff;border-radius:.8rem;padding:1.4rem;border:2px solid var(--blue)}
+.recap h2{margin-top:0;color:#fff}.recap li{margin:.3rem 0}
+footer{text-align:center;color:var(--muted);padding:1rem}
+#top{position:fixed;right:1rem;bottom:1rem;display:none;z-index:40;background:var(--blue);color:var(--card)}
+@media(max-width:600px){dl{grid-template-columns:1fr}}
+/* ===== PRINT ===== */
+@media print{#bar,#top,.tools,nav{display:none}.wrap{display:block}section.card{break-inside:avoid;box-shadow:none}details.q:not([open]) p{display:block}}
+</style>
+</head>
+<body>
+<div id="bar"></div>
+<!-- ===== HEADER ===== -->
+<header id="start">
+<h1>Why We Remember, Forget and Crave: A Memory Scientist's Guide</h1>
+<p>Memory is not a camera: it is a change that outlasts its cause, shaped by relevance, surprise, and evolution.</p>
+<div class="tools">
+<button id="theme" type="button">Toggle dark mode</button>
+<button id="all" type="button">Expand all questions</button>
+</div>
+</header>
+<div class="wrap">
+<!-- ===== TABLE OF CONTENTS ===== -->
+<nav id="toc" aria-label="Table of contents">
+<button id="tocbtn" type="button" aria-expanded="false">☰ Contents</button>
+<h2>Contents</h2>
+<ol>
+<li><a href="#s1">Memory is not a camera</a></li>
+<li><a href="#s2">Repetition without repetition</a></li>
+<li><a href="#s3">Forgetting and bad memories</a></li>
+<li><a href="#s4">Consistency vs. surprise</a></li>
+<li><a href="#s5">Evolution's fingerprints</a></li>
+<li><a href="#s6">Changing your brain</a></li>
+<li><a href="#glossary">Glossary</a></li>
+<li><a href="#process">Step-by-step process</a></li>
+<li><a href="#mistakes">Common mistakes</a></li>
+<li><a href="#aids">Memory aids</a></li>
+<li><a href="#recall">Active recall</a></li>
+<li><a href="#actions">Action items</a></li>
+<li><a href="#recap">30-Second Recap</a></li>
+</ol>
+</nav>
+<main>
+<!-- ===== SECTION 1 ===== -->
+<section class="card" id="s1" style="--ac:var(--a1)">
+<h2>1. Memory is not a camera</h2>
+<div class="blk core"><h3>Core idea</h3><p>Memory is not a hard drive that stores photos. Your brain remembers what is relevant to you, and each memory is how your brain responds to an experience, filtered through your perception.</p></div>
+<div class="blk key"><h3>Key points</h3><ul>
+<li>Primacy and recency effect: we remember beginnings and endings, but almost nobody remembers the middle.</li>
+<li>Something relevant triggers a chemical (dopamine, glutamate or another) that strengthens the connection between neurons, such as image and number.</li>
+<li>Memories from 15 years ago were especially relevant to you; the same event might be forgotten by someone else the next day.</li>
+<li>Some things are hardwired as important, such as eating.</li>
+<li>Taste shows how it works: babies crave simple flavors (sweet, umami), then we layer on associations from mom, grandma and friends.</li>
+</ul></div>
+<div class="blk ex"><h3>Example / Analogy</h3><p>In the picture-and-number test, the guest remembered the door because he had just talked about doors. For most people it is the puppy, which works better than a kitten.</p></div>
+<div class="blk why"><h3>Why it matters</h3><p>No memory is a standalone object. Each is about a person, not about the outside world.</p></div>
+</section>
+<!-- ===== SECTION 2 ===== -->
+<section class="card" id="s2" style="--ac:var(--a2)">
+<h2>2. Repetition without repetition</h2>
+<div class="blk core"><h3>Core idea</h3><p>Every repeat is different because the first event has already changed your brain and body. The second repeat must land on that change and layer on top of it.</p></div>
+<div class="blk key"><h3>Key points</h3><ul>
+<li>The phrase comes from the Russian physiologist Vygotsky: repetition without repetition.</li>
+<li>Repetition is still the surest way to learn; it tells the brain something is important.</li>
+<li>In learning a skill you first block out unproductive movements, then optimize the ones that work.</li>
+<li>Two molecules in a neuron cancel each other out. Escalating repeats let the activating one win and a memory forms; waning repeats let the deactivating one win and no memory forms.</li>
+<li>Memory is prioritizing and pattern recognition, not piling information in.</li>
+<li>The same mechanisms work in every cell: kidney cells register kidney things, brain cells register brain things.</li>
+</ul></div>
+<div class="blk ex"><h3>Example / Analogy</h3><p>A handshake with the same person today, a week later and a month later is a different experience each time. Your brain is like a garden: you can trim, direct and adjust it, but not stop it changing.</p></div>
+<div class="blk why"><h3>Why it matters</h3><p>You cannot avoid changing. The question is how you route the change where you want it to go.</p></div>
+</section>
+<!-- ===== SECTION 3 ===== -->
+<section class="card" id="s3" style="--ac:var(--a3)">
+<h2>3. Forgetting and bad memories</h2>
+<div class="blk core"><h3>Core idea</h3><p>Forgetting is as important as remembering. Most things fade, and most things we hold on to, we recreate. Step out of the recreation and allow forgetting.</p></div>
+<div class="blk key"><h3>Key points</h3><ul>
+<li>Flashbulb memories (9/11): confidence stayed the same, but about a third of the details were gone within a month. They decayed at the same rate as everyday memories.</li>
+<li>Every recall rewrites the memory and adds imagination, so much of our autobiography is confabulation.</li>
+<li>Writing, photography and the internet let us check memories; without writing, shared memories were replaced within a generation.</li>
+<li>Tasks you consider complete are forgotten faster, as with student names after a semester.</li>
+<li>Don't talk about a bad memory if it is resolved; focus attention elsewhere or travel.</li>
+<li>Distinguish rumination from productive discussion. Ask: is there something at the end of this conversation?</li>
+<li>Slow motion multitasking: keep several separate domains of life (research, teaching, writing, travel) to refocus into.</li>
+<li>Mental hygiene: we consume mental junk food, and everything leaves a trace.</li>
+<li>Addiction is a form of memory; the dopamine system recalibrates over days to weeks after stepping away.</li>
+</ul></div>
+<div class="blk ex"><h3>Example / Analogy</h3><p>Mr. S (Soviet science) could recite pages of Italian he did not understand, but his life was unlivable. He could not grasp metaphors or recognize faces because abstraction requires forgetting. Memory is also like a social media feed: things you stop interacting with sink to the bottom.</p></div>
+<div class="blk why"><h3>Why it matters</h3><p>Forgetting lets us see patterns and generalize, and keeps us sane.</p></div>
+</section>
+<!-- ===== SECTION 4 ===== -->
+<section class="card" id="s4" style="--ac:var(--a4)">
+<h2>4. Consistency vs. surprise</h2>
+<div class="blk core"><h3>Core idea</h3><p>The brain does not want to be right; it wants to be self-consistent and explain reality away. But the dopamine system wants surprise and pushes us to seek more. This tension animates our lives.</p></div>
+<div class="blk key"><h3>Key points</h3><ul>
+<li>Perception has two streams: bottom-up data and top-down expectations. They are reconciled by changing your mind, changing the percept, or changing the world.</li>
+<li>The cortex wants consistency. Dopamine, an ancient reward system, wants more surprises.</li>
+<li>Without dopamine, mice sit motionless even next to food. Encephalitis lethargica patients, helped briefly by Oliver Sacks's L-dopa, described being stuck in a loop.</li>
+<li>No dopamine is much worse than a lot. Dopamine is not the pleasure molecule; it drives wanting and motivation.</li>
+<li>Skinner's pigeons keep pecking when the reward schedule is random, as in slot machines and social media.</li>
+<li>Evolution favors the unsatisfied, who survive better. Focus on the process, not the goal.</li>
+<li>Music lives between familiarity and surprise through tension and resolution; earworms may come from an especially juicy resolution (the guest's own impression, not established science).</li>
+</ul></div>
+<div class="blk ex"><h3>Example / Analogy</h3><p>Locking your door: if the key turns normally you barely register it, but a millimeter of difference jolts you into consciousness. The hollow mask illusion shows expectation changing perception. The waterfall creature clinging to moss gets fresh surprises delivered constantly.</p></div>
+<div class="blk why"><h3>Why it matters</h3><p>Accept that there is no end to goal-directedness, and balance novelty with familiarity and stability.</p></div>
+</section>
+<!-- ===== SECTION 5 ===== -->
+<section class="card" id="s5" style="--ac:var(--a5)">
+<h2>5. Evolution's fingerprints</h2>
+<div class="blk core"><h3>Core idea</h3><p>Much of what we are predates humans. Sleep, smell, motivation, sociality and even memory are ancient, built into the fabric of life.</p></div>
+<div class="blk key"><h3>Key points</h3><ul>
+<li>Sleep: all animals with nervous systems sleep. Homeostatic scaling weakens all synapses so differences are preserved while the average is rebalanced. Dreams integrate memories.</li>
+<li>REM: only the eye muscles move so you can dream safely.</li>
+<li>Smell: ancient, close to emotional and memory centers, and it compresses a lot of information (the carpet and Warcraft 2 memory).</li>
+<li>Childhood amnesia until about age 4: the brain installs its patterns first. Only 20,000 genes cannot wire 100 billion neurons, and the retina uses a traveling test wave before birth.</li>
+<li>Dreams are suppressed from memory like a sandbox.</li>
+<li>Social instincts: mammals hid from dinosaurs at night; primates moved to daytime trees and banded together for defense. Oxytocin is a tribalism hormone, and fear of ostracism is existential.</li>
+<li>Personality flaws such as anxiety come from a misalignment between slow biology and fast society. The guest's intuition is roughly 50/50 predetermined versus experience.</li>
+</ul></div>
+<div class="blk ex"><h3>Example / Analogy</h3><p>Oxytocin causes egg laying in beetles and childbirth in humans, and also affects kidneys. Water carving paths down a mountain is like experience carving synapses.</p></div>
+<div class="blk why"><h3>Why it matters</h3><p>Knowing which parts of human nature we cannot change helps us live peacefully with them.</p></div>
+</section>
+<!-- ===== SECTION 6 ===== -->
+<section class="card" id="s6" style="--ac:var(--a6)">
+<h2>6. Changing your brain</h2>
+<div class="blk core"><h3>Core idea</h3><p>Memory is a change that outlasts its cause, and there is no line between a kidney cell's memory and a brain's memory. To change your future, change what your brain registers, especially through surprise.</p></div>
+<div class="blk key"><h3>Key points</h3><ul>
+<li>Information matters most when it contradicts your internal model.</li>
+<li>Trust: a convicted criminal arguing for stricter prosecution is more trusted than a prosecutor saying the same, because he argues against his interest.</li>
+<li>Surprise needs a payoff; surprise without payoff is a slot machine.</li>
+<li>Talks: surprise at the start and end (primacy and recency), comfort in the middle.</li>
+<li>Barefoot walking offers novel sensation and may be neuroprotective against dementia.</li>
+<li>Couples remember differently because memories pass through different perception, and memories cannot be transferred between brains.</li>
+<li>Procrastination is a misalignment between your rational goals and your reward system. Bundle what you want with what you should do.</li>
+<li>Cells register patterns on the scale of minutes, but obsessing over them is advice nobody should follow; some surrender is needed.</li>
+</ul></div>
+<div class="blk ex"><h3>Example / Analogy</h3><p>Only listen to your favorite podcast at the gym. Newton's gravity is one force for planets and falling objects, just as memory is one process in all cells.</p></div>
+<div class="blk why"><h3>Why it matters</h3><p>Brains are plastic: what feels permanent may change in a couple of weeks if given space.</p></div>
+</section>
+<!-- ===== GLOSSARY ===== -->
+<section class="card" id="glossary" style="--ac:var(--a5)">
+<h2>Glossary</h2>
+<div class="blk gloss"><dl>
+<dt>Primacy and recency effect</dt><dd>We remember the beginning and end of a sequence, not the middle.</dd>
+<dt>Repetition without repetition</dt><dd>Each repeat differs because earlier ones already changed you.</dd>
+<dt>Flashbulb memory</dt><dd>A vivid memory held with total confidence, though its details fade.</dd>
+<dt>Memory palace</dt><dd>A visual scaffold of imagined space where you place things to remember.</dd>
+<dt>Homeostatic scaling</dt><dd>Sleep rebalancing synapse strength while preserving differences.</dd>
+<dt>Explain away</dt><dd>Leaving nothing unexplained so the brain is settled.</dd>
+<dt>Rumination</dt><dd>Repeated engagement with something you cannot change.</dd>
+<dt>Slow motion multitasking</dt><dd>Having separate life domains to refocus into.</dd>
+<dt>Childhood amnesia</dt><dd>Lack of memories before about age 4.</dd>
+<dt>Memory (definition)</dt><dd>A change that outlasts its cause.</dd>
+</dl></div>
+</section>
+<!-- ===== STEPS ===== -->
+<section class="card" id="process" style="--ac:var(--a7)">
+<h2>Step-by-step process: letting a bad memory fade</h2>
+<ol class="steps">
+<li>Ask: is this rumination, or a discussion with a solution at the end?</li>
+<li>If it has a solution, talk it through and act to overcome it.</li>
+<li>If it is resolved, stop talking about it, since talking recreates it.</li>
+<li>Don't whack-a-mole the thought; engage with something else.</li>
+<li>Refocus on another life domain or travel for a few weeks.</li>
+<li>Let the memory sink like an unused post in a feed.</li>
+</ol>
+</section>
+<!-- ===== MISTAKES ===== -->
+<section class="card" id="mistakes" style="--ac:var(--a6)">
+<h2>Common mistakes</h2>
+<div class="blk warn"><h3>Warnings</h3><ul>
+<li>Thinking memory is a camera or hard drive.</li>
+<li>Trusting vivid memories because they feel certain.</li>
+<li>Actively suppressing a thought: it rebounds, as in the white bear study.</li>
+<li>Believing a goal will be the end of wanting.</li>
+<li>Surprise without payoff, which is only a slot machine.</li>
+<li>Obsessing over every pattern your body memorizes.</li>
+</ul></div>
+</section>
+<!-- ===== MEMORY AIDS ===== -->
+<section class="card" id="aids" style="--ac:var(--a3)">
+<h2>Memory aids</h2>
+<div class="blk mem"><h3>Mnemonic and tips</h3><ul>
+<li><b>S-P-E-E-D</b> (a mnemonic for this guide only): Surprise, Plasticity, Evolution, Escalation, Dopamine.</li>
+<li>Link new names to something you already know, like a hometown (a tiny memory palace).</li>
+<li>Think of your brain as a garden.</li>
+</ul></div>
+</section>
+<!-- ===== ACTIVE RECALL ===== -->
+<section class="card" id="recall" style="--ac:var(--a6)">
+<h2>Active recall questions</h2>
+<details class="q"><summary>Why do we remember the start and end of a sequence but not the middle?</summary><p>Primacy and recency effect: beginnings come first and endings are most recent.</p></details>
+<details class="q"><summary>What pattern of repeats forms a memory in the two-molecule model?</summary><p>Escalating repeats let the activating molecule win. Waning repeats let the deactivating one win.</p></details>
+<details class="q"><summary>What did the 9/11 flashbulb study show?</summary><p>Confidence stayed constant while about a third of details vanished within a month, at the same rate as everyday memories.</p></details>
+<details class="q"><summary>How do you tell rumination from productive discussion?</summary><p>Ask whether there is something at the end of the conversation.</p></details>
+<details class="q"><summary>What does dopamine actually do?</summary><p>It is not the pleasure molecule; it drives wanting and motivation, and no dopamine leaves you motionless.</p></details>
+<details class="q"><summary>Why does sleep exist, per the consensus?</summary><p>Memory: homeostatic scaling weakens synapses so differences are preserved and the average rebalanced.</p></details>
+<details class="q"><summary>Why does a surprising speaker gain trust?</summary><p>Arguing against expectation stands out, and if it pays off it establishes credibility.</p></details>
+<details class="q"><summary>How do you define memory?</summary><p>A change that outlasts its cause.</p></details>
+</section>
+<!-- ===== ACTION ITEMS ===== -->
+<section class="card" id="actions" style="--ac:var(--a7)">
+<h2>Action items</h2>
+<div class="blk act"><h3>Try these</h3><ul>
+<li>Build several life domains you can refocus into.</li>
+<li>Bundle a wanted pleasure with a goal habit, such as a podcast only at the gym.</li>
+<li>Open and close a talk with something unexpected, and pay it off.</li>
+<li>Try barefoot walking for novel sensation.</li>
+<li>Step away from social media for a couple of weeks to let dopamine recalibrate.</li>
+</ul></div>
+</section>
+<!-- ===== RECAP ===== -->
+<section class="recap" id="recap">
+<h2>30-Second Recap</h2>
+<ul>
+<li>Memory is a change that outlasts its cause, not a camera.</li>
+<li>We remember what is relevant, escalating, and surprising.</li>
+<li>Recalling rewrites memories; let bad ones fade by refocusing, not ruminating.</li>
+<li>The cortex wants consistency, dopamine wants surprise; accept the tension.</li>
+<li>Evolution shaped sleep, smell, sociality and wanting.</li>
+<li>Brains are plastic; surprise with payoff changes them and builds trust.</li>
+</ul>
+</section>
+</main>
+</div>
+<footer>Study guide based on a podcast conversation with a memory scientist.</footer>
+<button id="top" type="button" aria-label="Back to top">↑ Top</button>
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+(function(){
+var root=document.documentElement,theme="light"; // theme kept in memory only
+document.getElementById("theme").onclick=function(){theme=theme==="light"?"dark":"light";root.setAttribute("data-theme",theme)};
+// Expand / collapse all recall questions
+var open=false,qs=document.querySelectorAll("details.q"),all=document.getElementById("all");
+all.onclick=function(){open=!open;qs.forEach(function(d){d.open=open});all.textContent=open?"Collapse all questions":"Expand all questions"};
+// Mobile table of contents
+var toc=document.getElementById("toc"),tb=document.getElementById("tocbtn");
+tb.onclick=function(){var o=toc.classList.toggle("open");tb.setAttribute("aria-expanded",o)};
+toc.querySelectorAll("a").forEach(function(a){a.onclick=function(){toc.classList.remove("open")}});
+// Progress bar and back-to-top
+var bar=document.getElementById("bar"),top=document.getElementById("top");
+function sc(){var h=document.documentElement,m=h.scrollHeight-h.clientHeight;bar.style.width=(m>0?h.scrollTop/m*100:0)+"%";top.style.display=h.scrollTop>400?"block":"none"}
+window.addEventListener("scroll",sc);sc();
+top.onclick=function(){window.scrollTo({top:0,behavior:"smooth"})};
+})();
+</script>
+</body>
+</html>
