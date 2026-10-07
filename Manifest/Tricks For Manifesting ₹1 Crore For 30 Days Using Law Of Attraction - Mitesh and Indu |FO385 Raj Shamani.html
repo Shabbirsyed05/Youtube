@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Money Frequency and the Law of Attraction: Study Guide</title>
+<style>
+/* ===== COLOR SYSTEM ===== */
+:root{--bg:#f4f6f9;--card:#fff;--text:#1d2433;--muted:#4a5568;--blue:#1e5fbf;--core:#e3f0ff;--key:#e4f6e6;--ex:#fff3cd;--why:#eee6fa;--gloss:#dff5f3;--warn:#fde4e4;--mem:#ffe9d6;--recall:#fde6f0;--act:#e5e8fb;--recapbg:#14213d;--border:#d5dbe5;
+--a1:#1e5fbf;--a2:#1b7f3b;--a3:#b45309;--a4:#7c3aed;--a5:#0f766e;--a6:#be123c;--a7:#4338ca}
+[data-theme=dark]{--bg:#10141c;--card:#1a2130;--text:#e8ecf3;--muted:#b4bfd0;--blue:#8ab8ff;--core:#16304f;--key:#163a22;--ex:#47390f;--why:#32244f;--gloss:#124040;--warn:#4a1c1c;--mem:#4a2c14;--recall:#4a1d33;--act:#252a57;--recapbg:#05080f;--border:#2c3649;
+--a1:#6ea8ff;--a2:#5fd382;--a3:#f0a64d;--a4:#b99bff;--a5:#4fd6c8;--a6:#ff8aa5;--a7:#9ea6ff}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font:clamp(1rem,.95rem + .25vw,1.12rem)/1.65 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+a{color:var(--blue)}
+/* ===== PROGRESS BAR ===== */
+#bar{position:fixed;top:0;left:0;height:5px;width:0;background:var(--blue);z-index:50}
+/* ===== HEADER ===== */
+header{padding:2rem 1rem 1.2rem;max-width:72rem;margin:0 auto}
+header h1{font-size:clamp(1.6rem,4vw,2.4rem);line-height:1.2;margin:0 0 .5rem;color:var(--blue)}
+header p{margin:0;color:var(--muted);font-size:1.1rem}
+.tools{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1rem}
+button{font:inherit;cursor:pointer;border:1px solid var(--blue);background:var(--card);color:var(--blue);padding:.7rem 1rem;border-radius:.6rem;min-height:2.75rem;transition:.2s}
+button:hover{background:var(--blue);color:var(--card);transform:translateY(-1px)}
+/* ===== LAYOUT ===== */
+.wrap{max-width:72rem;margin:0 auto;padding:0 1rem 3rem;display:grid;gap:1rem}
+nav{background:var(--card);border:1px solid var(--border);border-radius:.8rem;padding:.8rem}
+nav h2{font-size:1rem;margin:0 0 .4rem;color:var(--blue)}
+nav ol{margin:.5rem 0 0;padding-left:1.3rem;display:none}
+nav.open ol{display:block}
+nav a{display:block;padding:.35rem 0;text-decoration:none}nav a:hover{text-decoration:underline}
+#tocbtn{width:100%}
+main{min-width:0}
+@media(min-width:768px){
+.wrap{grid-template-columns:16rem minmax(0,1fr);align-items:start}
+nav{position:sticky;top:1rem;max-height:calc(100vh - 2rem);overflow:auto}
+nav ol{display:block}#tocbtn{display:none}main{max-width:900px}}
+/* ===== CARDS ===== */
+section.card{background:var(--card);border:1px solid var(--border);border-left:8px solid var(--ac,var(--a1));border-radius:.8rem;padding:1.2rem;margin-bottom:1.2rem;scroll-margin-top:1rem;transition:box-shadow .2s}
+section.card:hover{box-shadow:0 4px 16px rgba(0,0,0,.12)}
+section.card>h2{margin:0 0 .8rem;color:var(--ac,var(--blue));font-size:clamp(1.3rem,3vw,1.6rem)}
+.blk{border-radius:.6rem;padding:.8rem 1rem;margin:.7rem 0}
+.blk h3{margin:0 0 .3rem;font-size:.85rem;text-transform:uppercase;letter-spacing:.06em}
+.blk h4{margin:.6rem 0 .2rem;font-size:1rem}
+.blk p,.blk ul,.blk ol{margin:.3rem 0}.blk ul,.blk ol{padding-left:1.2rem}
+.core{background:var(--core)}.key{background:var(--key)}.ex{background:var(--ex)}.why{background:var(--why)}
+.gloss{background:var(--gloss)}.warn{background:var(--warn)}.mem{background:var(--mem)}.act{background:var(--act)}
+/* ===== GLOSSARY ===== */
+dl{display:grid;grid-template-columns:minmax(7rem,1fr) 2fr;gap:.5rem 1rem;margin:0}
+dt{font-weight:700}dd{margin:0}
+/* ===== STEPS ===== */
+.steps-title{margin:1rem 0 .3rem;font-size:1.05rem;color:var(--ac,var(--blue))}
+ol.steps{list-style:none;padding:0;margin:.5rem 0;counter-reset:s}
+ol.steps li{counter-increment:s;position:relative;padding:0 0 1.1rem 3rem}
+ol.steps li::before{content:counter(s);position:absolute;left:0;top:0;width:2rem;height:2rem;border-radius:50%;background:var(--blue);color:var(--card);display:grid;place-items:center;font-weight:700}
+ol.steps li::after{content:"";position:absolute;left:.95rem;top:2.1rem;bottom:.1rem;width:2px;background:var(--blue);opacity:.4}
+ol.steps li:last-child::after{display:none}
+/* ===== RECALL ===== */
+details.q{background:var(--recall);border-radius:.6rem;margin:.5rem 0;padding:.2rem 1rem}
+details.q summary{cursor:pointer;padding:.7rem 0;font-weight:600;min-height:2.75rem}
+details.q p{margin:.2rem 0 .8rem}
+/* ===== RECAP ===== */
+.recap{background:var(--recapbg);color:#fff;border-radius:.8rem;padding:1.4rem;border:2px solid var(--blue)}
+.recap h2{margin-top:0;color:#fff}.recap p{margin:0 0 .8rem}.recap p:last-child{margin-bottom:0}
+footer{text-align:center;color:var(--muted);padding:1rem}
+#top{position:fixed;right:1rem;bottom:1rem;display:none;z-index:40;background:var(--blue);color:var(--card)}
+@media(max-width:600px){dl{grid-template-columns:1fr}}
+/* ===== PRINT ===== */
+@media print{#bar,#top,.tools,nav{display:none}.wrap{display:block}section.card{break-inside:avoid;box-shadow:none}}
+</style>
+</head>
+<body>
+<div id="bar"></div>
+<!-- ===== HEADER ===== -->
+<header>
+<h1>Money Frequency and the Law of Attraction: Why Your Relationship With Money Decides What You Earn</h1>
+<p>Two Law of Attraction coaches say your income is limited by hidden beliefs and feelings about money, and that you can release them with a test and a tapping technique.</p>
+<div class="tools">
+<button id="theme" type="button">Toggle dark mode</button>
+<button id="all" type="button">Expand all questions</button>
+</div>
+</header>
+<div class="wrap">
+<!-- ===== TABLE OF CONTENTS ===== -->
+<nav id="toc" aria-label="Table of contents">
+<button id="tocbtn" type="button" aria-expanded="false">☰ Contents</button>
+<h2>Contents</h2>
+<ol>
+<li><a href="#big">Big Picture</a></li>
+<li><a href="#sa">A: The "Science" of the Law of Attraction</a></li>
+<li><a href="#sb">B: Basic vs. Advanced</a></li>
+<li><a href="#sc">C: The Daily Routine</a></li>
+<li><a href="#sd">D: Your Relationship With Money</a></li>
+<li><a href="#se">E: Money Wounds and Blocks</a></li>
+<li><a href="#sf">F: How Belief Is Built</a></li>
+<li><a href="#sg">G: EFT Tapping</a></li>
+<li><a href="#sh">H: Karma and Fun Consistency</a></li>
+<li><a href="#si">I: Closing Lessons</a></li>
+<li><a href="#glossary">Key Terms Glossary</a></li>
+<li><a href="#process">Step-by-Step Process</a></li>
+<li><a href="#mistakes">Common Mistakes</a></li>
+<li><a href="#aids">Memory Aids</a></li>
+<li><a href="#recall">Active Recall Questions</a></li>
+<li><a href="#actions">Action Items</a></li>
+<li><a href="#recap">30-Second Recap</a></li>
+</ol>
+</nav>
+<main>
+<!-- ===== BIG PICTURE ===== -->
+<section class="card" id="big" style="--ac:var(--a1)">
+<h2>Big Picture</h2>
+<div class="blk core"><p>Podcast host Raj talks with coaches Mitesh and Indu Khatri about the Law of Attraction and money. They claim your feelings, thoughts, beliefs and actions set a "frequency" that attracts results. The episode is for anyone who feels stuck financially. You'll hear their morning routine, a money-frequency test, and a tapping technique. These are the guests' claims and beliefs. The video does not give independent proof.</p></div>
+</section>
+<!-- ===== SECTION A ===== -->
+<section class="card" id="sa" style="--ac:var(--a2)">
+<h2>Section A: The "Science" of the Law of Attraction</h2>
+<div class="blk core"><h3>Core idea</h3><p>Mitesh says everything in the universe is energy. Each energy has a frequency, and the same frequencies attract each other. He says your feelings, thoughts, beliefs and actions all have a frequency, so you attract what you vibrate at.</p></div>
+<div class="blk key"><h3>Key points</h3><ul>
+<li>He links this to physics and to the Bhagavad Gita ("as you sow, so you reap").</li>
+<li>He says a radio tuned to 93.5 can't pick up another station. Likewise, matching frequencies attract.</li>
+<li>He splits frequency into "positive" and "negative."</li>
+<li>He uses four "buttons": feelings, thoughts, beliefs and actions (FTBA).</li>
+<li>He says good friend groups form because frequencies match.</li>
+<li>Note: these are the guests' claims. The video gives no independent evidence.</li>
+</ul></div>
+<div class="blk ex"><h3>Example / Analogy</h3><p>Two people get $1 million, the same resources and staff. The person with low inner frequency (jealous, insecure) fails. The person with a money mindset and no resources succeeds.</p></div>
+<div class="blk why"><h3>Why it matters</h3><p>The guests say you must change your inner state first. Resources alone won't do it.</p></div>
+</section>
+<!-- ===== SECTION B ===== -->
+<section class="card" id="sb" style="--ac:var(--a3)">
+<h2>Section B: Basic vs. Advanced Law of Attraction</h2>
+<div class="blk core"><h3>Core idea</h3><p>Mitesh says techniques like affirmations, gratitude and routines are "basic." They fail for people whose inner frequency (old wounds) is not aligned. That is "advanced."</p></div>
+<div class="blk key"><h3>Key points</h3><ul>
+<li>He says no "30-second technique" will change your life.</li>
+<li>The same routine gives instant results to one person and nothing to another.</li>
+<li>He says the Law of Attraction brings opportunity to your hand. Holding it depends on your own frequency.</li>
+<li>He says "Law of Attraction only works if you believe" is the biggest lie.</li>
+</ul></div>
+<div class="blk ex"><h3>Example / Analogy</h3><p>Mitesh describes a boy whose mother cried that his father ruined her life, and said never to be like him. The boy grows up with a hidden "my father is a failure, money is hard" belief. He sabotages interviews. A second boy took a course at 16 and forgave his father. His affirmations then worked.</p></div>
+<div class="blk why"><h3>Why it matters</h3><p>The guests say old family wounds repeat in your money life, with your partner, and with your boss.</p></div>
+</section>
+<!-- ===== SECTION C ===== -->
+<section class="card" id="sc" style="--ac:var(--a4)">
+<h2>Section C: The Daily Routine to Manifest</h2>
+<div class="blk core"><h3>Core idea</h3><p>Mitesh gives a simple one-day routine, with the warning that it works best when old wounds are healed.</p></div>
+<div class="blk key"><h3>Key points</h3><ul>
+<li>Morning: say thank you for 10 random things. Don't write a list.</li>
+<li>Drink "magic water" from a bottle with your life goals written on it.</li>
+<li>Look at your vision board.</li>
+<li>During the day, say "cancel, cancel" when a negative word slips out.</li>
+<li>For a negative event, say the four Hoʻoponopono lines: "I'm sorry, please forgive me, thank you, I love you."</li>
+<li>Night: read affirmations before sleep, in your own language and words (Indu's "daily magic practice").</li>
+</ul></div>
+<div class="blk ex"><h3>Example / Analogy</h3><p>Indu says that complaining all day cancels the morning routine. Replace "Raj" with "money" in a complaint and ask if you'd go near that person.</p></div>
+<div class="blk why"><h3>Why it matters</h3><p>What you feel and say all day counts as much as the morning ritual, in their view.</p></div>
+</section>
+<!-- ===== SECTION D ===== -->
+<section class="card" id="sd" style="--ac:var(--a5)">
+<h2>Section D: Your Relationship With Money</h2>
+<div class="blk core"><h3>Core idea</h3><p>The coaches say people stay poor because their relationship with money is bad. Money is energy, and how you treat it affects what comes.</p></div>
+<div class="blk key"><h3>Key points</h3><ul>
+<li>Sign 1: your current financial results. Do the same money problems keep repeating?</li>
+<li>Sign 2: your emotions about money. Bankrupt and feeling bankrupt are different.</li>
+<li>Sign 3: your beliefs about money.</li>
+<li>Financial frequency means the amount of money you feel comfortable with.</li>
+<li>If your income jumps beyond your comfort zone, you may self-sabotage and fall back.</li>
+<li>They say 90% of people struggling with money have problems that start with their parents.</li>
+</ul></div>
+<div class="blk ex"><h3>Example / Analogy</h3><p>A woman earning about 37 lakh a year cried and felt poor because her last salary was 45 lakh. Also, Mitesh's analogy: being rude to a dinner guest makes them stop coming. Treating money with disrespect does the same.</p></div>
+<div class="blk why"><h3>Why it matters</h3><p>The guests say feeling poor, not just being poor, shapes your results.</p></div>
+</section>
+<!-- ===== SECTION E ===== -->
+<section class="card" id="se" style="--ac:var(--a6)">
+<h2>Section E: Money Wounds and Blocks</h2>
+<div class="blk core"><h3>Core idea</h3><p>The guests say childhood experiences create hidden "money wounds." Four fingers (FTBA) block money from coming in.</p></div>
+<div class="blk key"><h3>Key points</h3><ul>
+<li>A man always had debts. He realized his father also borrowed from people, was cheated, and felt bad. He copied it.</li>
+<li>Raj did a money-frequency test live. Raj's answers: uncomfortable asking for money, feeling "compromised" when he can't buy something expensive, and saying no to free money and commissions.</li>
+<li>Raj's pattern: "I must work hard for money," so he refuses gifts and easy money.</li>
+<li>Mitesh says "free" and "easy" money feels wrong to people who believe money needs hard work.</li>
+<li>He says one person's effort can't match a very large goal, so "partner with the universe."</li>
+<li>Limiting beliefs: "making money is difficult," "free money is bad."</li>
+<li>Limiting actions: "I'm lazy," "I take no risks."</li>
+</ul></div>
+<div class="blk ex"><h3>Example / Analogy</h3><p>Mitesh says bad breath is hard to notice yourself. Likewise, we can't see our own patterns, but others see them quickly. A printer analogy: Raj believed "I'm a printer, input equals output."</p></div>
+<div class="blk why"><h3>Why it matters</h3><p>Awareness of the block is step one. Raj said the test itself unlocked something.</p></div>
+</section>
+<!-- ===== SECTION F ===== -->
+<section class="card" id="sf" style="--ac:var(--a7)">
+<h2>Section F: How Belief Is Built</h2>
+<div class="blk core"><h3>Core idea</h3><p>Mitesh says you don't need to believe first. Repetition creates belief.</p></div>
+<div class="blk key"><h3>Key points</h3><ul>
+<li>Belief grows from results and repeated action.</li>
+<li>Repeating a statement can build belief on its own.</li>
+<li>He gives a negative example: how terrorists are made through repeated messages.</li>
+<li>Raj's own belief came from his parents, who told him to pick one thing and be number one in the world.</li>
+<li>The guests say proof from past wins also builds belief.</li>
+</ul></div>
+<div class="blk ex"><h3>Example / Analogy</h3><p>Put "You are a genius" scrolling under a podcast for a year. The child watching it will start to believe it.</p></div>
+<div class="blk why"><h3>Why it matters</h3><p>You can start before you feel confident.</p></div>
+</section>
+<!-- ===== SECTION G ===== -->
+<section class="card" id="sg" style="--ac:var(--a1)">
+<h2>Section G: Releasing Blocks With EFT Tapping</h2>
+<div class="blk core"><h3>Core idea</h3><p>The guests teach Emotional Freedom Technique (EFT, tapping). They say negative emotions get stuck at body "meridian points," and tapping releases them.</p></div>
+<div class="blk key"><h3>Key points</h3><ul>
+<li>Step one: awareness through the test. Step two: release through tapping.</li>
+<li>Tap on points: side of the hand, eyebrows, sides of eyes, under eyes, under nose, chin, collarbone, under arms, and fingertips.</li>
+<li>Choose one emotion (for Raj, "I feel compromised when I can't buy something expensive").</li>
+<li>Recall the moment, find where it sits in the body, rate its intensity from 1 to 10.</li>
+<li>While tapping, say statements like "even though I can't take this money, I love and accept myself."</li>
+<li>Later, say positive statements: "I am willing to receive money from every direction."</li>
+<li>Raj's resistance dropped from about 9 to a lower, mixed level after one round. The guests say five rounds can bring it to zero.</li>
+<li>Mitesh says awareness and the technique work together, and tapping prevents getting stuck in realization.</li>
+<li>Note: the guests call this "well established science," but the video offers no evidence for that.</li>
+</ul></div>
+<div class="blk ex"><h3>Example / Analogy</h3><p>A man named Madhu left Infosys, failed 12 interviews, did these exercises, and got a job in seven days, according to Mitesh. The guests give other success stories, such as visas approved after two rejections.</p></div>
+<div class="blk why"><h3>Why it matters</h3><p>The guests say you should act on awareness rather than sit with it.</p></div>
+</section>
+<!-- ===== SECTION H ===== -->
+<section class="card" id="sh" style="--ac:var(--a2)">
+<h2>Section H: Karma, Hoʻoponopono and Fun Consistency</h2>
+<div class="blk core"><h3>Core idea</h3><p>Mitesh says karma and manifestation are the same: actions have frequencies that return to you. He says you can heal old karma, and that consistency works better with fun.</p></div>
+<div class="blk key"><h3>Key points</h3><ul>
+<li>He says energy is shared, so if you hurt someone, their bad feelings reach you.</li>
+<li>Mitesh compares old karma to a drop of alcohol in healthy food that ferments later.</li>
+<li>Karma healing: remember the mistake and say the four Hoʻoponopono lines.</li>
+<li>He says puja can also work, because the person feels guilty and asks forgiveness.</li>
+<li>He says to go through hard times (like bankruptcy) gracefully, as in the film Anand.</li>
+<li>Nobody is 100% consistent, so aim for fun, not strict discipline.</li>
+<li>Indu says people in their 20s often chase material goals when they really want emotional ones, like peace or feeling "good enough."</li>
+</ul></div>
+<div class="blk ex"><h3>Example / Analogy</h3><p>Mitesh says some of his students healed from cancer by going through it "gracefully." This is a claim in the video, with no evidence given.</p></div>
+<div class="blk why"><h3>Why it matters</h3><p>The guests say healing the past and enjoying the process makes change last.</p></div>
+</section>
+<!-- ===== SECTION I ===== -->
+<section class="card" id="si" style="--ac:var(--a3)">
+<h2>Section I: Closing Lessons</h2>
+<div class="blk core"><h3>Core idea</h3><p>The guests close with two key points for making money.</p></div>
+<div class="blk key"><h3>Key points</h3><ul>
+<li>"Not making money is not acceptable." Mitesh says there are many ways to earn.</li>
+<li>Find someone who believes in you. His mother and Indu believe in him more than he does.</li>
+<li>He says the purpose of love is to find someone who believes in you.</li>
+<li>The next episode will be about attracting the right partner.</li>
+</ul></div>
+<div class="blk ex"><h3>Example / Analogy</h3><p>Mitesh says his mother kept saying he would become bigger than Dhirubhai Ambani, even when he earned very little.</p></div>
+<div class="blk why"><h3>Why it matters</h3><p>Other people's belief can lift your own.</p></div>
+</section>
+<!-- ===== GLOSSARY ===== -->
+<section class="card" id="glossary" style="--ac:var(--a5)">
+<h2>Key Terms Glossary</h2>
+<div class="blk gloss"><dl>
+<dt>Law of Attraction</dt><dd>The idea that like attracts like, so your inner state brings matching outcomes.</dd>
+<dt>Frequency</dt><dd>The guests' word for the energy of your feelings, thoughts, beliefs and actions.</dd>
+<dt>FTBA</dt><dd>Feelings, thoughts, beliefs, actions.</dd>
+<dt>Money frequency</dt><dd>How comfortable you are with a certain amount of money.</dd>
+<dt>Money wound</dt><dd>A hidden belief from childhood that blocks money.</dd>
+<dt>Self-sabotage</dt><dd>Doing things that ruin your own chances.</dd>
+<dt>Affirmations</dt><dd>Positive statements repeated daily.</dd>
+<dt>Magic water</dt><dd>Water from a bottle with your goals written on it.</dd>
+<dt>EFT (tapping)</dt><dd>Tapping body points while naming an emotion to release it.</dd>
+<dt>Hoʻoponopono</dt><dd>Four lines: "I'm sorry, please forgive me, thank you, I love you."</dd>
+<dt>Karma</dt><dd>The guests define it as actions carrying a frequency that returns to you.</dd>
+</dl></div>
+</section>
+<!-- ===== STEPS ===== -->
+<section class="card" id="process" style="--ac:var(--a7)">
+<h2>Step-by-Step Process</h2>
+<h3 class="steps-title">A. The daily routine</h3>
+<ol class="steps">
+<li>Say thank you for 10 random things on waking.</li>
+<li>Drink your "magic water."</li>
+<li>Look at your vision board.</li>
+<li>Say "cancel, cancel" for any negative word.</li>
+<li>Use the four Hoʻoponopono lines for negative events.</li>
+<li>Read affirmations before sleep.</li>
+</ol>
+<h3 class="steps-title">B. Releasing a money block</h3>
+<ol class="steps">
+<li>Take the money-frequency test (answer in 3 seconds).</li>
+<li>Spot the emotion or belief that causes a block.</li>
+<li>Recall the moment and find where it sits in the body.</li>
+<li>Rate it from 1 to 10.</li>
+<li>Tap the points while saying release statements.</li>
+<li>Say positive "I am willing to receive" statements.</li>
+<li>Repeat for several rounds.</li>
+</ol>
+</section>
+<!-- ===== MISTAKES ===== -->
+<section class="card" id="mistakes" style="--ac:var(--a6)">
+<h2>Common Mistakes</h2>
+<div class="blk warn"><h3>Warnings</h3><ul>
+<li>Using a quick technique and expecting instant change.</li>
+<li>Writing a gratitude list instead of saying random thanks.</li>
+<li>Complaining all day after a good morning routine.</li>
+<li>Feeling poor even when you have money.</li>
+<li>Refusing free or easy money.</li>
+<li>Believing money must always come from hard work.</li>
+<li>Chasing a material goal when you want an emotional one.</li>
+<li>Thinking you must be perfectly disciplined.</li>
+</ul></div>
+</section>
+<!-- ===== MEMORY AIDS ===== -->
+<section class="card" id="aids" style="--ac:var(--a3)">
+<h2>Memory Aids</h2>
+<div class="blk mem"><h3>Five takeaways</h3><ol>
+<li>Your feelings, thoughts, beliefs and actions set your "frequency."</li>
+<li>Childhood money wounds repeat in your adult life.</li>
+<li>Notice your money feelings and your comfort zone.</li>
+<li>Repetition builds belief.</li>
+<li>Release blocks by tapping, and keep it fun.</li>
+</ol></div>
+<div class="blk mem"><h3>Mnemonic</h3><p>"FTBA: Feel, Think, Believe, Act."</p></div>
+<div class="blk mem"><h3>Mental picture (my analogy)</h3><p>A radio. Money plays on every station, but you hear only the one you tune to.</p></div>
+</section>
+<!-- ===== ACTIVE RECALL ===== -->
+<section class="card" id="recall" style="--ac:var(--a6)">
+<h2>Active Recall Questions</h2>
+<details class="q"><summary>1. What does FTBA stand for?</summary><p>Feelings, thoughts, beliefs, actions.</p></details>
+<details class="q"><summary>2. Why do the guests say people stay poor?</summary><p>Their relationship with money is bad.</p></details>
+<details class="q"><summary>3. What is "money frequency"?</summary><p>The amount of money you feel comfortable with.</p></details>
+<details class="q"><summary>4. What's the difference between being bankrupt and feeling bankrupt?</summary><p>Feeling is an inner state. Elon Musk is their example.</p></details>
+<details class="q"><summary>5. How do money wounds form?</summary><p>Childhood experiences with parents shape money beliefs.</p></details>
+<details class="q"><summary>6. Why did Raj refuse free money?</summary><p>He believed money must be earned through hard work.</p></details>
+<details class="q"><summary>7. How does belief form, per Mitesh?</summary><p>Through repetition and results.</p></details>
+<details class="q"><summary>8. What is EFT?</summary><p>Tapping body points while naming an emotion to release it.</p></details>
+<details class="q"><summary>9. What are the four Hoʻoponopono lines?</summary><p>I'm sorry, please forgive me, thank you, I love you.</p></details>
+<details class="q"><summary>10. Why choose fun over discipline?</summary><p>Nobody is perfectly consistent, and fun feels easier.</p></details>
+</section>
+<!-- ===== ACTION ITEMS ===== -->
+<section class="card" id="actions" style="--ac:var(--a7)">
+<h2>Action Items</h2>
+<div class="blk act"><h3>Try these</h3><ul>
+<li>Take the money-frequency test and note your emotions.</li>
+<li>Name the money beliefs you picked up from your parents.</li>
+<li>Try the daily routine for a week.</li>
+<li>Practice tapping on one money emotion.</li>
+<li>Say "cancel" when you catch a negative word.</li>
+<li>Ask yourself if you refuse easy or free money.</li>
+<li>Treat these ideas as the guests' beliefs and test them yourself.</li>
+</ul></div>
+</section>
+<!-- ===== RECAP ===== -->
+<section class="recap" id="recap">
+<h2>30-Second Recap</h2>
+<p>The guests say your feelings, thoughts, beliefs and actions set a frequency that attracts results. They say money problems often come from childhood wounds, especially from parents. Take the money test, find the block, and release it with tapping. Repeat positive statements, since repetition builds belief. Keep a simple daily routine, avoid complaining, and aim for fun over strict discipline. The video gives no outside evidence for these claims, so treat them as ideas to try, not proven science.</p>
+<p><em>Note: this video also mentions suicide in a personal story. If that is close to home for you, I can help you find support.</em></p>
+</section>
+</main>
+</div>
+<footer>Study guide based on a video transcript.</footer>
+<button id="top" type="button" aria-label="Back to top">↑ Top</button>
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+(function(){
+var root=document.documentElement,theme="light"; // theme kept in memory only
+document.getElementById("theme").onclick=function(){theme=theme==="light"?"dark":"light";root.setAttribute("data-theme",theme)};
+// Expand / collapse all recall questions
+var open=false,qs=document.querySelectorAll("details.q"),all=document.getElementById("all");
+all.onclick=function(){open=!open;qs.forEach(function(d){d.open=open});all.textContent=open?"Collapse all questions":"Expand all questions"};
+// Mobile table of contents
+var toc=document.getElementById("toc"),tb=document.getElementById("tocbtn");
+tb.onclick=function(){var o=toc.classList.toggle("open");tb.setAttribute("aria-expanded",o)};
+toc.querySelectorAll("a").forEach(function(a){a.onclick=function(){toc.classList.remove("open")}});
+// Progress bar and back-to-top
+var bar=document.getElementById("bar"),top=document.getElementById("top");
+function sc(){var h=document.documentElement,m=h.scrollHeight-h.clientHeight;bar.style.width=(m>0?h.scrollTop/m*100:0)+"%";top.style.display=h.scrollTop>400?"block":"none"}
+window.addEventListener("scroll",sc);sc();
+top.onclick=function(){window.scrollTo({top:0,behavior:"smooth"})};
+})();
+</script>
+</body>
+</html>
