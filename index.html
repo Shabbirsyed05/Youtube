@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Brain Library</title>
+  <title>Knowledge &amp; Habits Library</title>
   <style>
     :root {
       --bg: #0f172a;
@@ -27,9 +27,9 @@
       color: var(--text-main);
       display: flex;
       justify-content: center;
-      align-items: center;
+      align-items: flex-start;
       min-height: 100vh;
-      padding: 24px;
+      padding: 40px 24px;
     }
 
     .container {
@@ -38,11 +38,11 @@
     }
 
     header {
-      margin-bottom: 28px;
+      margin-bottom: 32px;
     }
 
     h1 {
-      font-size: 1.75rem;
+      font-size: 1.85rem;
       font-weight: 700;
       letter-spacing: -0.02em;
       margin-bottom: 6px;
@@ -53,10 +53,25 @@
       font-size: 0.95rem;
     }
 
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text-sub);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin: 28px 0 12px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-title:first-of-type {
+      margin-top: 0;
+    }
+
     .card-list {
       display: flex;
       flex-direction: column;
-      gap: 14px;
+      gap: 12px;
     }
 
     .card {
@@ -64,7 +79,7 @@
       background: var(--card-bg);
       border: 1px solid var(--border);
       border-radius: 10px;
-      padding: 18px 20px;
+      padding: 16px 20px;
       text-decoration: none;
       color: inherit;
       transition: all 0.2s ease-in-out;
@@ -77,7 +92,7 @@
     }
 
     .card-title {
-      font-size: 1.05rem;
+      font-size: 1rem;
       font-weight: 600;
       color: var(--accent);
       line-height: 1.4;
@@ -94,10 +109,12 @@
 
   <div class="container">
     <header>
-      <h1>Brain Library</h1>
-      <p class="subtitle">Select an article to view the notes</p>
+      <h1>Personal Knowledge Library</h1>
+      <p class="subtitle">Curated guides and frameworks on neuroscience, habits, and self-discipline</p>
     </header>
 
+    <!-- Brain Section -->
+    <div class="section-title">Brain &amp; Neuroscience</div>
     <div class="card-list">
       <a class="card" href="Brain/Andrew%20Huberman%20Become%20Mentally%20Dangerous%20With%20These%20Daily%20Habits.html" target="_blank">
         <div class="card-title">Andrew Huberman Become Mentally Dangerous With These Daily Habits</div>
@@ -105,35 +122,44 @@
       </a>
 
       <a class="card" href="Brain/Change%20Your%20Brain%20Neuroscientist%20Dr.%20Andrew%20Huberman.html" target="_blank">
-        <div class="card-title">Change Your Brain: Neuroscientist Dr. Andrew Huberman</div>
-        <div class="card-meta">Neuroplasticity, brain rewiring, and cognitive states</div>
+        <div class="card-title">Change Your Brain | Neuroscientist Dr. Andrew Huberman</div>
+        <div class="card-meta">Neuroplasticity, cognitive states, and mental rewiring</div>
+      </a>
+
+      <a class="card" href="Brain/Dr%20Joe%20Dispenza%20Rewire%20Your%20Brain,%20Heal%20Your%20Mind,%20Fear%20and%20Anxiety.html" target="_blank">
+        <div class="card-title">Dr Joe Dispenza Rewire Your Brain, Heal Your Mind, Fear and Anxiety</div>
+        <div class="card-meta">Emotional regulation, overcoming fear, and healing</div>
       </a>
 
       <a class="card" href="Brain/sahar-yousef-focus-memory.html" target="_blank">
         <div class="card-title">Neuroscientists Guide To 10X Your Focus and Memory | Dr Sahar Yousef</div>
         <div class="card-meta">Cognitive productivity and memory enhancement</div>
       </a>
+    </div>
 
-      <a class="card" href="Brain/Dr%20Joe%20Dispenza%20Rewire%20Your%20Brain,%20Heal%20Your%20Mind,%20Fear%20and%20Anxiety.html" target="_blank">
-        <div class="card-title">Dr Joe Dispenza Rewire Your Brain, Heal Your Mind, Fear and Anxiety</div>
-        <div class="card-meta">Neuroplasticity, emotional healing, and overcoming anxiety</div>
-      </a>
-
-      <a class="card" href="Self-Discipline/How%20to%20Build%20Immense%20Inner%20Strength.html" target="_blank">
-        <div class="card-title">How to Build Immense Inner Strength</div>
-        <div class="card-meta">Mental resilience, willpower, and self-discipline</div>
+    <!-- Habits Section -->
+    <div class="section-title">Habits &amp; Sleep</div>
+    <div class="card-list">
+      <a class="card" href="Habits/Andrew%20Huberman%20The%20Real%20Reason%20You%20Can%27t%20Get%20Deep%20Sleep%20and%20Wake%20Up%20Exhausted.html" target="_blank">
+        <div class="card-title">Andrew Huberman: The Real Reason You Can't Get Deep Sleep and Wake Up Exhausted</div>
+        <div class="card-meta">Circadian rhythm optimization, sleep architecture, and morning wakefulness</div>
       </a>
 
       <a class="card" href="Habits/How%20to%20Build%20Habits%20That%20Stick.html" target="_blank">
         <div class="card-title">How to Build Habits That Stick</div>
-        <div class="card-meta">Behavioral design, habit loops, and consistency</div>
-      </a>
-
-      <a class="card" href="Habits/Andrew%20Huberman%20The%20Real%20Reason%20You%20Can%27t%20Get%20Deep%20Sleep%20and%20Wake%20Up%20Exhausted.html" target="_blank">
-        <div class="card-title">Andrew Huberman: The Real Reason You Can't Get Deep Sleep and Wake Up Exhausted</div>
-        <div class="card-meta">Circadian biology, sleep architecture, and morning recovery</div>
+        <div class="card-meta">Behavior design, loop triggers, and long-term consistency</div>
       </a>
     </div>
+
+    <!-- Self-Discipline Section -->
+    <div class="section-title">Self-Discipline &amp; Mindset</div>
+    <div class="card-list">
+      <a class="card" href="Self-Discipline/How%20to%20Build%20Immense%20Inner%20Strength.html" target="_blank">
+        <div class="card-title">How to Build Immense Inner Strength</div>
+        <div class="card-meta">Willpower cultivation, emotional resilience, and stoic discipline</div>
+      </a>
+    </div>
+
   </div>
 
 </body>
