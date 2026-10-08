@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Meditation as a Life Tool: Compassion, Forgiveness and Vision (The Six Phase Method)</title>
+<style>
+/* ===== COLOR SYSTEM (CSS variables) ===== */
+:root{
+  --bg:#f4f5f7; --card:#ffffff; --text:#1a202c; --muted:#4a5568; --border:#d9dee5;
+  --blue:#1d4ed8; --core:#dbeafe; --key:#dcfce7; --ex:#fef3c7; --why:#ede9fe;
+  --gloss:#ccfbf1; --warn:#fee2e2; --mem:#ffedd5; --recall:#fce7f3; --action:#e0e7ff;
+  --recap:#1e293b; --recap-t:#ffffff; --shadow:0 2px 8px rgba(0,0,0,.08);
+}
+[data-theme="dark"]{
+  --bg:#0f172a; --card:#1e293b; --text:#f1f5f9; --muted:#cbd5e1; --border:#334155;
+  --blue:#93c5fd; --core:#1e3a5f; --key:#14532d; --ex:#5b4208; --why:#3b2a6b;
+  --gloss:#0f4c4a; --warn:#6b1d1d; --mem:#6b3410; --recall:#6b1d46; --action:#2e2f78;
+  --recap:#020617; --recap-t:#ffffff; --shadow:0 2px 8px rgba(0,0,0,.5);
+}
+/* ===== BASE ===== */
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:1rem}
+body{margin:0;background:var(--bg);color:var(--text);font:clamp(1rem,.95rem + .3vw,1.125rem)/1.65 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+h1,h2,h3,h4{line-height:1.25;margin:0 0 .6rem}
+h1{font-size:clamp(1.6rem,1.2rem + 2vw,2.4rem)}
+h2{font-size:clamp(1.3rem,1.1rem + 1vw,1.7rem);color:var(--blue)}
+h3{font-size:1.2rem;color:var(--blue)}
+h4{font-size:.85rem;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.4rem}
+p{margin:0 0 .6rem} ul,ol{margin:0;padding-left:1.3rem} li{margin-bottom:.35rem}
+a{color:var(--blue)}
+button{font:inherit;cursor:pointer;min-height:2.75rem;padding:.4rem 1rem;border-radius:.6rem;border:1px solid var(--border);background:var(--card);color:var(--text);transition:transform .15s,box-shadow .15s}
+button:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+/* ===== PROGRESS BAR ===== */
+#progress{position:fixed;top:0;left:0;height:5px;width:0;background:var(--blue);z-index:100}
+/* ===== HEADER ===== */
+header.top{background:var(--recap);color:#fff;padding:clamp(1.5rem,4vw,3rem) 1rem}
+header.top .in{max-width:1200px;margin:auto}
+header.top p{font-size:1.1rem;max-width:60rem;margin:0}
+.tools{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:1rem}
+.tools button{background:#fff;color:#1a202c}
+/* ===== LAYOUT ===== */
+.layout{max-width:1200px;margin:auto;padding:1rem;display:grid;grid-template-columns:1fr;gap:1rem}
+nav#toc{background:var(--card);border:1px solid var(--border);border-radius:.8rem;padding:.75rem}
+#tocBtn{width:100%;font-weight:700}
+#tocList{display:none;list-style:none;padding:0;margin:.5rem 0 0}
+#tocList.open{display:block}
+#tocList a{display:block;padding:.6rem .5rem;border-radius:.5rem;text-decoration:none;color:var(--text)}
+#tocList a:hover,#tocList a.active{background:var(--core);color:var(--text)}
+main{min-width:0}
+/* ===== CARDS ===== */
+section.card{background:var(--card);border:1px solid var(--border);border-left:8px solid var(--accent,var(--blue));border-radius:.8rem;padding:clamp(1rem,3vw,1.75rem);margin-bottom:1.25rem;box-shadow:var(--shadow);transition:box-shadow .2s}
+section.card:hover{box-shadow:0 6px 18px rgba(0,0,0,.15)}
+section.card>h2{border-bottom:2px solid var(--accent,var(--blue));padding-bottom:.4rem}
+.blk{border-radius:.6rem;padding:.8rem 1rem;margin:.8rem 0;color:var(--text)}
+.core{background:var(--core)} .key{background:var(--key)} .ex{background:var(--ex)} .why{background:var(--why)}
+.gloss{background:var(--gloss)} .warn{background:var(--warn)} .mem{background:var(--mem)} .action{background:var(--action)}
+/* ===== GLOSSARY ===== */
+dl.g{display:grid;grid-template-columns:1fr;gap:.2rem 1rem;margin:0}
+dt{font-weight:700;margin-top:.5rem} dd{margin:0}
+/* ===== STEPS ===== */
+ol.steps{list-style:none;padding:0;margin:.8rem 0;counter-reset:s}
+ol.steps li{position:relative;counter-increment:s;padding:.2rem 0 1.2rem 3.2rem;margin:0}
+ol.steps li::before{content:counter(s);position:absolute;left:0;top:0;width:2.2rem;height:2.2rem;border-radius:50%;background:var(--blue);color:var(--card);display:grid;place-items:center;font-weight:700}
+ol.steps li::after{content:"";position:absolute;left:1.05rem;top:2.3rem;bottom:.1rem;width:2px;background:var(--blue);opacity:.5}
+ol.steps li:last-child::after{display:none}
+/* ===== RECALL ===== */
+details.q{background:var(--recall);border-radius:.6rem;margin:.5rem 0;color:var(--text)}
+details.q summary{cursor:pointer;padding:.8rem 1rem;font-weight:600;min-height:2.75rem}
+details.q summary:hover{text-decoration:underline}
+details.q p{padding:0 1rem .8rem;margin:0}
+/* ===== RECAP ===== */
+.recap{background:var(--recap);color:var(--recap-t);border-radius:.8rem;padding:1.5rem;border:3px solid var(--blue)}
+.recap h2{color:#fff;border:0}
+.note{font-style:italic;color:var(--muted)}
+footer{max-width:1200px;margin:auto;padding:1rem 1rem 4rem}
+/* ===== BACK TO TOP ===== */
+#top{position:fixed;right:1rem;bottom:1rem;display:none;z-index:50;box-shadow:var(--shadow)}
+/* ===== TABLET & LAPTOP ===== */
+@media (min-width:768px){
+  .layout{grid-template-columns:240px minmax(0,900px);justify-content:center}
+  nav#toc{position:sticky;top:1rem;align-self:start;max-height:calc(100vh - 2rem);overflow:auto}
+  #tocBtn{display:none}
+  #tocList{display:block;margin:0}
+  dl.g{grid-template-columns:minmax(10rem,1fr) 2fr}
+  dt{margin-top:0;padding:.4rem 0;border-bottom:1px solid rgba(0,0,0,.12)}
+  dd{padding:.4rem 0;border-bottom:1px solid rgba(0,0,0,.12)}
+}
+/* ===== PRINT ===== */
+@media print{
+  nav#toc,.tools,#top,#progress{display:none!important}
+  .layout{display:block} body{background:#fff;color:#000}
+  section.card{box-shadow:none;break-inside:avoid}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style>
+</head>
+<body>
+<!-- ===== PROGRESS BAR ===== -->
+<div id="progress" aria-hidden="true"></div>
+
+<!-- ===== 1. HEADER: TITLE AND ONE-LINE SUMMARY ===== -->
+<header class="top" id="s1">
+  <div class="in">
+    <h1>Meditation as a Life Tool: Compassion, Forgiveness and Vision (The Six Phase Method)</h1>
+    <p>Vishen Lakhiani says meditation works best as an active tool for solving problems and as a daily practice that puts you in a peak state, built on compassion, gratitude, forgiveness and a clear vision of the life you want.</p>
+    <div class="tools">
+      <button id="theme" type="button" aria-pressed="false">🌙 Dark mode</button>
+      <button id="toggleAll" type="button">Expand all questions</button>
+    </div>
+  </div>
+</header>
+
+<div class="layout">
+  <!-- ===== TABLE OF CONTENTS ===== -->
+  <nav id="toc" aria-label="Table of contents">
+    <button id="tocBtn" type="button" aria-expanded="false" aria-controls="tocList">☰ Table of contents</button>
+    <ul id="tocList">
+      <li><a href="#s2">2. Big Picture</a></li>
+      <li><a href="#s3">3. Main Sections</a></li>
+      <li><a href="#A">&nbsp;&nbsp;A: Meditation as a Tool</a></li>
+      <li><a href="#B">&nbsp;&nbsp;B: Compassion First</a></li>
+      <li><a href="#C">&nbsp;&nbsp;C: Blissipline, Not Happiness</a></li>
+      <li><a href="#D">&nbsp;&nbsp;D: Guilt, Forgiveness and Self-Love</a></li>
+      <li><a href="#E">&nbsp;&nbsp;E: Vision and Mature Wanting</a></li>
+      <li><a href="#F">&nbsp;&nbsp;F: Life Book Story</a></li>
+      <li><a href="#G">&nbsp;&nbsp;G: What Makes a Good Meditation</a></li>
+      <li><a href="#s4">4. Key Terms Glossary</a></li>
+      <li><a href="#s5">5. Step-by-Step Process</a></li>
+      <li><a href="#s6">6. Common Mistakes</a></li>
+      <li><a href="#s7">7. Memory Aids</a></li>
+      <li><a href="#s8">8. Active Recall Questions</a></li>
+      <li><a href="#s9">9. Action Items</a></li>
+      <li><a href="#s10">10. 30-Second Recap</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <!-- ===== 2. BIG PICTURE ===== -->
+    <section class="card" id="s2" style="--accent:#2563eb">
+      <h2>2. Big Picture</h2>
+      <p>Vishen Lakhiani, founder of Mindvalley, talks about how he came to meditation and how he uses it. He explains his six-phase daily meditation and why he starts with compassion. It's for anyone who finds meditation vague, feels stuck in guilt or sadness, or wants help choosing goals and a career. These are his views and claims. He cites studies, but the video does not show them.</p>
+    </section>
+
+    <!-- ===== 3. MAIN SECTIONS ===== -->
+    <h2 id="s3" style="margin:1.5rem 0 .8rem">3. Main Sections</h2>
+
+    <!-- Section A -->
+    <section class="card" id="A" style="--accent:#2563eb">
+      <h2>Section A: Meditation as a Tool</h2>
+      <div class="blk core"><h4>Core idea</h4><p>Vishen says meditation is not only sitting still. He treats it as a tool, and quotes Emily Fletcher: the point is "not to get good at meditation, it is to get good at life."</p></div>
+      <div class="blk key"><h4>Key points</h4><ul>
+        <li>He grew up Hindu in Malaysia and found the dogmatic style boring. He gave it up at 19.</li>
+        <li>He became interested in many spiritual paths and in Jose Silva's step-by-step methods.</li>
+        <li>"Active meditation" (Silva's term) is used to solve problems. "Passive meditation" means focusing on the breath or going within.</li>
+        <li>He used the Silva method in Silicon Valley, held two jobs, and was a vice president of a dot-com at 26.</li>
+        <li>He then quit to become a meditation teacher.</li>
+        <li>He says the Silva method has been proven by Dr. Okal Simon as effective imagery therapy for speeding healing. The video gives no details.</li></ul></div>
+      <div class="blk ex"><h4>Example/Analogy</h4><p>Two household tools. The electric drill is a power tool you use for a specific problem (the Silva method). The coffee maker is what you use every day (the six phase).</p></div>
+      <div class="blk why"><h4>Why it matters</h4><p>He says you need both: a power tool for hard problems and a daily practice for a peak state.</p></div>
+    </section>
+
+    <!-- Section B -->
+    <section class="card" id="B" style="--accent:#059669">
+      <h2>Section B: Compassion First</h2>
+      <div class="blk core"><h4>Core idea</h4><p>Vishen says compassion is something you do for yourself. It changes how you function, and the benefit to others is a side effect.</p></div>
+      <div class="blk key"><h4>Key points</h4><ul>
+        <li>He cites the HeartMath Institute: picturing someone you love changes your "heart resonance," which he says is a health marker.</li>
+        <li>The six phase starts there, then widens love to family, neighborhood, city, country and the world.</li>
+        <li>He says compassion is like a muscle you can train.</li>
+        <li>He cites a Gallup study of about 2.1 million employees: those who felt someone at work cared about them were more engaged and productive, with higher revenue growth.</li>
+        <li>He says kindness was once seen as weakness, but today it is "the ultimate flex."</li>
+        <li>He says the technique (circle of compassion) is different from compassion itself, which is a quality of being.</li></ul></div>
+      <div class="blk ex"><h4>Example/Analogy</h4><p>After the pandemic, a restaurant had long waits, cold coffee and a late meal. Vishen tipped 50%, because he imagined the waitress's 12-hour shift and 3 months without work.</p></div>
+      <div class="blk why"><h4>Why it matters</h4><p>He says it makes life more peaceful, and you bring happiness to others.</p></div>
+    </section>
+
+    <!-- Section C -->
+    <section class="card" id="C" style="--accent:#d97706">
+      <h2>Section C: Blissipline, Not Happiness</h2>
+      <div class="blk core"><h4>Core idea</h4><p>Vishen says happiness is not the goal. He uses "blissipline": the discipline of nurturing positive emotions, even when you feel sad.</p></div>
+      <div class="blk key"><h4>Key points</h4><ul>
+        <li>He says he is prone to depression, which he says is in his DNA, and has also felt melancholy.</li>
+        <li>Sadness can be a "superpower." He quotes WandaVision: "What is grief but love persisting."</li>
+        <li>He cites the Positivity Quotient (PQ): the ratio of good thoughts to all thoughts. He says higher PQ goes with better work, and team PQ is the top factor in how well a team works.</li>
+        <li>He quotes John D. Rockefeller's poem about a "long happy holiday."</li>
+        <li>On the day before this talk he was sad about missing his son's 15th birthday, so he left a loving voicemail.</li></ul></div>
+      <div class="blk ex"><h4>Example/Analogy</h4><p>Sadness turned into love: his voicemail to his son.</p></div>
+      <div class="blk why"><h4>Why it matters</h4><p>You can feel sad and still be in a positive, steady state.</p></div>
+    </section>
+
+    <!-- Section D -->
+    <section class="card" id="D" style="--accent:#7c3aed">
+      <h2>Section D: Guilt, Forgiveness and Self-Love</h2>
+      <div class="blk core"><h4>Core idea</h4><p>Vishen says guilt and shame are among the lowest emotions. Phase three, forgiveness, heals them.</p></div>
+      <div class="blk key"><h4>Key points</h4><ul>
+        <li>He says guilt and shame sit at the bottom of the Hawkins scale.</li>
+        <li>The six phase has an eight-step forgiveness protocol: forgive your own mistakes and forgive others.</li>
+        <li>He says Zen monks show high left-right brain coherence and high alpha amplitude, and forgiveness is the "number one hack" to get there.</li>
+        <li>He claims forgiveness helps back pain, heart health, sleep, depression, vertical jump and endurance, and speeds manifesting.</li>
+        <li>Each phase takes about 2 minutes.</li>
+        <li>Narcissism is self-love without love for others. Starting with compassion avoids that.</li>
+        <li>Gratitude includes what you love about yourself, since the world rarely teaches self-love.</li></ul></div>
+      <div class="blk ex"><h4>Example/Analogy</h4><p>Vishen says that on his book tour he felt guilt about being away from his children. He realized it matters how you feel and make them feel when you are with them.</p></div>
+      <div class="blk why"><h4>Why it matters</h4><p>He says he doesn't beat himself up, because we are all human.</p></div>
+    </section>
+
+    <!-- Section E -->
+    <section class="card" id="E" style="--accent:#db2777">
+      <h2>Section E: Vision for the Future and Mature Wanting</h2>
+      <div class="blk core"><h4>Core idea</h4><p>Phase four is vision. Vishen says spiritual people also need a vision for the future. Focus on the what and the why, and leave the how, when and who open.</p></div>
+      <div class="blk key"><h4>Key points</h4><ul>
+        <li>He cites Ken Wilber's essay "Egolessness": great spiritual figures were also movers who had visions.</li>
+        <li>Marie Diamond's three parts of manifesting: your intention, your destiny, and the energy around you.</li>
+        <li>Immature wanting is a narrow, copied wish (for example, a tall, blonde partner). Mature wanting stays open.</li>
+        <li>Esther Hicks: how, when and who add resistance. The what and why add forward momentum.</li>
+        <li>Life Book has 12 life areas, including emotional life and character, and builds a 100-page vision.</li>
+        <li>Vishen's advice: get clear on the lifestyle and values first, and the ideal job will follow.</li></ul></div>
+      <div class="blk ex"><h4>Example/Analogy</h4><p>Destiny is the highway, intention is your lane, and group energy is the traffic.</p></div>
+      <div class="blk why"><h4>Why it matters</h4><p>He says your career is a vehicle for the life you want to lead.</p></div>
+    </section>
+
+    <!-- Section F -->
+    <section class="card" id="F" style="--accent:#0d9488">
+      <h2>Section F: Life Book Story and Finding Your Destiny</h2>
+      <div class="blk core"><h4>Core idea</h4><p>Vishen says writing a bold life vision led to results that he did not plan.</p></div>
+      <div class="blk key"><h4>Key points</h4><ul>
+        <li>In 2010 he was running a startup that had raised $2 million. He felt dissatisfied and called it "immature wanting."</li>
+        <li>He quit and had an idea for a surf and personal-growth festival in Costa Rica with 250 people. It became A-Fest.</li>
+        <li>Within two years he says the things in his Life Book came true: speaking on stage, five-star resorts, inspiring friends.</li>
+        <li>A film about A-Fest ("Live Your Quest") won an Emmy, and he was the producer.</li>
+        <li>He says to look for work you would do even if unpaid. Many people copy popular careers.</li>
+        <li>He says that about 50% of lawyers suffer clinical depression, and that the US has 5% of the world's population and 70% of its lawyers. The video does not give sources.</li>
+        <li>A teacher told him he couldn't earn money from meditation and should be an engineer. He was miserable as an engineer.</li></ul></div>
+      <div class="blk ex"><h4>Example/Analogy</h4><p>He didn't write "invent a festival." He described the life he wanted, and the idea came.</p></div>
+      <div class="blk why"><h4>Why it matters</h4><p>He says following joy often leads to your dream career.</p></div>
+    </section>
+
+    <!-- Section G -->
+    <section class="card" id="G" style="--accent:#ea580c">
+      <h2>Section G: What Makes a Good Meditation</h2>
+      <div class="blk core"><h4>Core idea</h4><p>Vishen says to judge a meditation by whether its six qualities showed up in your day. He says we have forgotten how to experience and only know how to evaluate.</p></div>
+      <div class="blk key"><h4>Key points</h4><ul>
+        <li>The six phases: compassion, gratitude, forgiveness, vision, commanding your perfect day, and blessing.</li>
+        <li>Phase five: commanding your perfect day.</li>
+        <li>Phase six: a blessing, like a prayer.</li>
+        <li>The six phase is based on his claim that it puts you in a peak state.</li></ul></div>
+      <div class="blk ex"><h4>Example/Analogy</h4><p>Six bedtime questions: Who did I help? What made me come alive? What did I learn? What new vision did I see? What was my favorite part of today? Did I feel the universe had my back?</p></div>
+      <div class="blk why"><h4>Why it matters</h4><p>It replaces "did I do it right?" with "did I live it?"</p></div>
+    </section>
+
+    <!-- ===== 4. GLOSSARY ===== -->
+    <section class="card" id="s4" style="--accent:#0d9488">
+      <h2>4. Key Terms Glossary</h2>
+      <div class="blk gloss"><dl class="g">
+        <dt>Active meditation</dt><dd>meditation used with steps to solve a problem.</dd>
+        <dt>Passive meditation</dt><dd>focusing on breath or going within.</dd>
+        <dt>Six phase</dt><dd>his daily meditation of six short parts.</dd>
+        <dt>Silva method</dt><dd>Jose Silva's step-by-step method for healing and goals.</dd>
+        <dt>Heart resonance</dt><dd>a heart rhythm measure he links to health.</dd>
+        <dt>Blissipline</dt><dd>discipline of nurturing positive emotions.</dd>
+        <dt>PQ (Positivity Quotient)</dt><dd>ratio of good thoughts to all thoughts.</dd>
+        <dt>Hawkins scale</dt><dd>a scale of emotional states, with guilt and shame at the bottom.</dd>
+        <dt>Mature wanting</dt><dd>wanting without narrow, copied details.</dd>
+        <dt>Immature wanting</dt><dd>wanting what society told you to want.</dd>
+        <dt>Life Book</dt><dd>a goal system with 12 life areas.</dd>
+      </dl></div>
+    </section>
+
+    <!-- ===== 5. STEP-BY-STEP PROCESS ===== -->
+    <section class="card" id="s5" style="--accent:#2563eb">
+      <h2>5. Step-by-Step Process</h2>
+      <p>The six phase, as described:</p>
+      <ol class="steps">
+        <li><strong>Compassion:</strong> picture someone you love, then widen love outward.</li>
+        <li><strong>Gratitude:</strong> include what you love about yourself.</li>
+        <li><strong>Forgiveness:</strong> use the eight-step forgiveness protocol.</li>
+        <li><strong>Vision for the future:</strong> focus on the what and why.</li>
+        <li><strong>Commanding your perfect day.</strong></li>
+        <li><strong>Blessing:</strong> a prayer-like connection to a higher power.</li>
+      </ol>
+    </section>
+
+    <!-- ===== 6. COMMON MISTAKES ===== -->
+    <section class="card" id="s6" style="--accent:#dc2626">
+      <h2>6. Common Mistakes</h2>
+      <div class="blk warn"><ul>
+        <li>Treating meditation only as sitting still.</li>
+        <li>Judging a meditation as good or bad.</li>
+        <li>Letting sadness turn into guilt.</li>
+        <li>Practicing self-love without love for others.</li>
+        <li>Being too specific about how, when and who.</li>
+        <li>Copying popular careers.</li></ul></div>
+    </section>
+
+    <!-- ===== 7. MEMORY AIDS ===== -->
+    <section class="card" id="s7" style="--accent:#ea580c">
+      <h2>7. Memory Aids</h2>
+      <div class="blk mem">
+        <h3>Five takeaways</h3>
+        <ol>
+          <li>Meditation is a tool: a drill for problems, a coffee maker for daily.</li>
+          <li>Compassion is for you first.</li>
+          <li>Forgive to clear guilt and shame.</li>
+          <li>Focus on the what and why, not the how.</li>
+          <li>Design your lifestyle, and the job follows.</li>
+        </ol>
+      </div>
+      <div class="blk mem"><h3>Mnemonic</h3><p>"Compassion, Gratitude, Forgiveness, Vision, Day, Blessing."</p></div>
+      <div class="blk mem"><h3>Mental picture (my analogy)</h3><p>A highway with lanes, where your destiny is the road and your intention is the lane.</p></div>
+    </section>
+
+    <!-- ===== 8. ACTIVE RECALL QUESTIONS ===== -->
+    <section class="card" id="s8" style="--accent:#db2777">
+      <h2>8. Active Recall Questions</h2>
+      <details class="q"><summary>What are active and passive meditation?</summary><p>Active solves problems with steps. Passive means focusing on breath or going within.</p></details>
+      <details class="q"><summary>What are the drill and coffee maker?</summary><p>Power tool for problems, and daily practice.</p></details>
+      <details class="q"><summary>Why start with compassion?</summary><p>It changes how you function, and it avoids narcissism.</p></details>
+      <details class="q"><summary>What is blissipline?</summary><p>Discipline of nurturing positive emotions.</p></details>
+      <details class="q"><summary>What is PQ?</summary><p>Ratio of good thoughts to all thoughts.</p></details>
+      <details class="q"><summary>Why is forgiveness phase three?</summary><p>He says it clears guilt and shame.</p></details>
+      <details class="q"><summary>What is mature wanting?</summary><p>Wanting without narrow, copied details.</p></details>
+      <details class="q"><summary>What should you focus on?</summary><p>The what and why, not the how, when and who.</p></details>
+      <details class="q"><summary>What happened after Vishen's Life Book?</summary><p>He started A-Fest, and the film won an Emmy.</p></details>
+      <details class="q"><summary>How do you judge a meditation?</summary><p>Whether the six qualities showed up in your day.</p></details>
+    </section>
+
+    <!-- ===== 9. ACTION ITEMS ===== -->
+    <section class="card" id="s9" style="--accent:#4f46e5">
+      <h2>9. Action Items</h2>
+      <div class="blk action"><ul>
+        <li>Picture someone you love for a minute, and feel it in your chest.</li>
+        <li>Write down three things you love about yourself.</li>
+        <li>Think of someone to forgive, including yourself.</li>
+        <li>Write the life you want, not just the job.</li>
+        <li>Ask the six bedtime questions tonight.</li>
+        <li>Pick work you'd do even if unpaid.</li>
+        <li>Treat the cited studies as claims to check.</li></ul></div>
+    </section>
+
+    <!-- ===== 10. 30-SECOND RECAP ===== -->
+    <section class="recap" id="s10">
+      <h2>10. 30-Second Recap</h2>
+      <p>Vishen says meditation is a tool: a power tool for hard problems and a daily practice for a peak state. His six-phase practice starts with compassion, then gratitude, forgiveness, vision, commanding your day and a blessing. He says forgiveness clears guilt, blissipline lets you feel sad and still steady, and mature wanting leaves room for surprises. Describe the life you want, not just the job, and judge your day by whether those six qualities showed up. The studies he cites are not shown, so treat them as claims.</p>
+    </section>
+  </main>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p class="note">This video mentions depression and grief. If any of that is close to home for you, I can help you find support.</p>
+</footer>
+
+<!-- ===== BACK TO TOP ===== -->
+<button id="top" type="button" aria-label="Back to top">↑ Top</button>
+
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+(function(){
+  var $=function(s){return document.querySelector(s)};
+  var root=document.documentElement;
+
+  /* Dark mode (kept in memory only, starts from system preference) */
+  var dark=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches;
+  var themeBtn=$('#theme');
+  function applyTheme(){
+    root.setAttribute('data-theme',dark?'dark':'light');
+    themeBtn.textContent=dark?'☀️ Light mode':'🌙 Dark mode';
+    themeBtn.setAttribute('aria-pressed',dark);
+  }
+  themeBtn.addEventListener('click',function(){dark=!dark;applyTheme()});
+  applyTheme();
+
+  /* Mobile table of contents toggle */
+  var tocBtn=$('#tocBtn'),tocList=$('#tocList');
+  tocBtn.addEventListener('click',function(){
+    var o=tocList.classList.toggle('open');
+    tocBtn.setAttribute('aria-expanded',o);
+  });
+  tocList.addEventListener('click',function(e){
+    if(e.target.tagName==='A'&&window.innerWidth<768){
+      tocList.classList.remove('open');tocBtn.setAttribute('aria-expanded','false');
+    }
+  });
+
+  /* Expand all / Collapse all recall questions */
+  var qs=document.querySelectorAll('details.q'),allBtn=$('#toggleAll'),open=false;
+  allBtn.addEventListener('click',function(){
+    open=!open;
+    qs.forEach(function(d){d.open=open});
+    allBtn.textContent=open?'Collapse all questions':'Expand all questions';
+  });
+
+  /* Progress bar, back-to-top, active TOC link */
+  var bar=$('#progress'),top=$('#top');
+  var links=[].slice.call(tocList.querySelectorAll('a'));
+  function onScroll(){
+    var h=root.scrollHeight-root.clientHeight;
+    bar.style.width=(h>0?root.scrollTop/h*100:0)+'%';
+    top.style.display=root.scrollTop>400?'block':'none';
+    var cur=null;
+    links.forEach(function(a){
+      var t=document.getElementById(a.getAttribute('href').slice(1));
+      if(t&&t.getBoundingClientRect().top<window.innerHeight*0.35)cur=a;
+    });
+    links.forEach(function(a){a.classList.toggle('active',a===cur)});
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});
+  onScroll();
+  top.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})});
+})();
+</script>
+</body>
+</html>
