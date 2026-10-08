@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Knowledge &amp; Habits Library</title>
+  <title>Knowledge Hub & Study Notes</title>
   <style>
     :root {
       --bg: #0f172a;
       --card-bg: #1e293b;
-      --card-hover: #334155;
       --text-main: #f8fafc;
-      --text-sub: #94a3b8;
+      --text-muted: #94a3b8;
       --accent: #38bdf8;
+      --accent-hover: #0284c7;
       --border: #334155;
     }
 
@@ -25,83 +25,73 @@
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       background-color: var(--bg);
       color: var(--text-main);
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      min-height: 100vh;
-      padding: 40px 24px;
+      padding: 2.5rem 1rem;
+      line-height: 1.5;
     }
 
     .container {
-      width: 100%;
-      max-width: 680px;
+      max-width: 900px;
+      margin: 0 auto;
     }
 
     header {
-      margin-bottom: 32px;
-    }
-
-    h1 {
-      font-size: 1.85rem;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      margin-bottom: 6px;
-    }
-
-    p.subtitle {
-      color: var(--text-sub);
-      font-size: 0.95rem;
-    }
-
-    .section-title {
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: var(--text-sub);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      margin: 28px 0 12px;
-      padding-bottom: 6px;
+      margin-bottom: 2.5rem;
       border-bottom: 1px solid var(--border);
+      padding-bottom: 1.5rem;
     }
 
-    .section-title:first-of-type {
-      margin-top: 0;
+    header h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #fff;
     }
 
-    .card-list {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
+    header p {
+      color: var(--text-muted);
+      margin-top: 0.5rem;
     }
 
-    .card {
-      display: block;
+    .category-card {
       background: var(--card-bg);
       border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 16px 20px;
-      text-decoration: none;
-      color: inherit;
-      transition: all 0.2s ease-in-out;
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
     }
 
-    .card:hover {
-      background: var(--card-hover);
-      border-color: var(--accent);
-      transform: translateY(-2px);
-    }
-
-    .card-title {
-      font-size: 1rem;
+    .category-title {
+      font-size: 1.25rem;
       font-weight: 600;
       color: var(--accent);
-      line-height: 1.4;
-      margin-bottom: 4px;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
     }
 
-    .card-meta {
-      font-size: 0.85rem;
-      color: var(--text-sub);
+    ul.doc-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    ul.doc-list li a {
+      color: var(--text-main);
+      text-decoration: none;
+      display: block;
+      padding: 0.6rem 0.8rem;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid transparent;
+      transition: all 0.2s ease;
+    }
+
+    ul.doc-list li a:hover {
+      background: rgba(56, 189, 248, 0.1);
+      border-color: var(--accent-hover);
+      color: #fff;
+      transform: translateX(4px);
     }
   </style>
 </head>
@@ -109,96 +99,59 @@
 
   <div class="container">
     <header>
-      <h1>Personal Knowledge Library</h1>
-      <p class="subtitle">Curated guides and frameworks on neuroscience, habits, mindset, and manifestation</p>
+      <h1>Document Library</h1>
+      <p>Index of curated guides, mindset notes, and technical references.</p>
     </header>
 
-    <!-- Brain Section -->
-    <div class="section-title">Brain &amp; Neuroscience</div>
-    <div class="card-list">
-      <a class="card" href="Brain/Andrew%20Huberman%20Become%20Mentally%20Dangerous%20With%20These%20Daily%20Habits.html" target="_blank">
-        <div class="card-title">Andrew Huberman Become Mentally Dangerous With These Daily Habits</div>
-        <div class="card-meta">Daily routines, focus, and neurobiology</div>
-      </a>
+    <!-- Brain -->
+    <section class="category-card">
+      <h2 class="category-title">Brain & Neuroscience</h2>
+      <ul class="doc-list">
+        <li><a href="Brain/Andrew%20Huberman%20Become%20Mentally%20Dangerous%20With%20These%20Daily%20Habits.html">Andrew Huberman: Become Mentally Dangerous With These Daily Habits</a></li>
+        <li><a href="Brain/Change%20Your%20Brain%20Neuroscientist%20Dr.%20Andrew%20Huberman.html">Change Your Brain — Dr. Andrew Huberman</a></li>
+        <li><a href="Brain/Dr%20Joe%20Dispenza%20Rewire%20Your%20Brain,%20Heal%20Your%20Mind,%20Fear%20and%20Anxiety.html">Dr. Joe Dispenza: Rewire Your Brain, Heal Your Mind, Fear and Anxiety</a></li>
+        <li><a href="Brain/Rewire%20Your%20Brain%20In%207%20Days%20To%20Attract%20Anything%20-%20Dr.%20Joe%20Dispenza.html">Dr. Joe Dispenza: Rewire Your Brain In 7 Days To Attract Anything</a></li>
+        <li><a href="Brain/sahar-yousef-focus-memory.html">Sahar Yousef: Focus & Memory</a></li>
+        <li><a href="Brain/How%20to%20Build%20Extreme%20Willpower%20-%20David%20Goggins%20and%20Dr.%20Andrew%20Huberman.html">How to Build Extreme Willpower — David Goggins & Dr. Andrew Huberman</a></li>
+        <li><a href="Brain/%20How%20To%20Defeat%20Laziness%20and%20Build%20Relentless%20Focus%20(4K)%20-%20David%20Goggins.html">How To Defeat Laziness and Build Relentless Focus — David Goggins</a></li>
+        <li><a href="Brain/How%20Michael%20Phelps%20Built%20a%20Champion%20Mindset%20Obsession%20and%20Discipline%20%7C%20Raj%20Shamani.html">Michael Phelps: Champion Mindset, Obsession & Discipline | Raj Shamani</a></li>
+      </ul>
+    </section>
 
-      <a class="card" href="Brain/Change%20Your%20Brain%20Neuroscientist%20Dr.%20Andrew%20Huberman.html" target="_blank">
-        <div class="card-title">Change Your Brain | Neuroscientist Dr. Andrew Huberman</div>
-        <div class="card-meta">Neuroplasticity, cognitive states, and mental rewiring</div>
-      </a>
+    <!-- Habits -->
+    <section class="category-card">
+      <h2 class="category-title">Habits & Sleep</h2>
+      <ul class="doc-list">
+        <li><a href="Habits/Andrew%20Huberman%20The%20Real%20Reason%20You%20Can't%20Get%20Deep%20Sleep%20and%20Wake%20Up%20Exhausted.html">Andrew Huberman: The Real Reason You Can't Get Deep Sleep and Wake Up Exhausted</a></li>
+        <li><a href="Habits/How%20to%20Build%20Habits%20That%20Stick.html">How to Build Habits That Stick</a></li>
+      </ul>
+    </section>
 
-      <a class="card" href="Brain/Dr%20Joe%20Dispenza%20Rewire%20Your%20Brain,%20Heal%20Your%20Mind,%20Fear%20and%20Anxiety.html" target="_blank">
-        <div class="card-title">Dr Joe Dispenza Rewire Your Brain, Heal Your Mind, Fear and Anxiety</div>
-        <div class="card-meta">Emotional regulation, overcoming fear, and healing</div>
-      </a>
+    <!-- Self-Discipline -->
+    <section class="category-card">
+      <h2 class="category-title">Self-Discipline</h2>
+      <ul class="doc-list">
+        <li><a href="Self-Discipline/How%20to%20Build%20Immense%20Inner%20Strength.html">How to Build Immense Inner Strength</a></li>
+      </ul>
+    </section>
 
-      <a class="card" href="Brain/Rewire%20Your%20Brain%20In%207%20Days%20To%20Attract%20Anything%20-%20Dr.%20Joe%20Dispenza.html" target="_blank">
-        <div class="card-title">Rewire Your Brain In 7 Days To Attract Anything - Dr. Joe Dispenza</div>
-        <div class="card-meta">Subconscious conditioning, quantum mind model, and intentionality</div>
-      </a>
+    <!-- Manifestation -->
+    <section class="category-card">
+      <h2 class="category-title">Manifestation & Mindset</h2>
+      <ul class="doc-list">
+        <li><a href="Manifest/Stanford%20Luck%20Researcher%20How%20to%20Manifest%20the%20Life%20You%20Want.html">Stanford Luck Researcher: How to Manifest the Life You Want</a></li>
+        <li><a href="Manifest/Tricks%20For%20Manifesting%20%E2%82%B91%20Crore%20For%2030%20Days%20Using%20Law%20Of%20Attraction%20-%20Mitesh%20and%20Indu%20%7CFO385%20Raj%20Shamani.html">Manifesting ₹1 Crore in 30 Days — Mitesh & Indu | Raj Shamani</a></li>
+        <li><a href="Manifest/Meditation%20&%20Manifestation%20Expert%20-%20The%206%20Steps%20Rewrite%20your%20future.html">Meditation & Manifestation Expert: The 6 Steps to Rewrite Your Future</a></li>
+      </ul>
+    </section>
 
-      <a class="card" href="Brain/sahar-yousef-focus-memory.html" target="_blank">
-        <div class="card-title">Neuroscientists Guide To 10X Your Focus and Memory | Dr Sahar Yousef</div>
-        <div class="card-meta">Cognitive productivity and memory enhancement</div>
-      </a>
-
-      <a class="card" href="Brain/How%20to%20Build%20Extreme%20Willpower%20-%20David%20Goggins%20and%20Dr.%20Andrew%20Huberman.html" target="_blank">
-        <div class="card-title">How to Build Extreme Willpower | David Goggins &amp; Dr. Andrew Huberman</div>
-        <div class="card-meta">Anterior midcingulate cortex, friction, and mental grit</div>
-      </a>
-
-      <a class="card" href="Brain/How%20To%20Defeat%20Laziness%20and%20Build%20Relentless%20Focus%20(4K)%20-%20David%20Goggins.html" target="_blank">
-        <div class="card-title">How To Defeat Laziness and Build Relentless Focus (4K) - David Goggins</div>
-        <div class="card-meta">Mental friction, overcoming resistance, and aggressive drive</div>
-      </a>
-
-      <a class="card" href="Brain/How%20Michael%20Phelps%20Built%20a%20Champion%20Mindset%20Obsession%20and%20Discipline%20%7C%20Raj%20Shamani.html" target="_blank">
-        <div class="card-title">How Michael Phelps Built a Champion Mindset Obsession and Discipline | Raj Shamani</div>
-        <div class="card-meta">Elite athletic psychology, routine adherence, and mental conditioning</div>
-      </a>
-    </div>
-
-    <!-- Habits Section -->
-    <div class="section-title">Habits &amp; Sleep</div>
-    <div class="card-list">
-      <a class="card" href="Habits/Andrew%20Huberman%20The%20Real%20Reason%20You%20Can%27t%20Get%20Deep%20Sleep%20and%20Wake%20Up%20Exhausted.html" target="_blank">
-        <div class="card-title">Andrew Huberman: The Real Reason You Can't Get Deep Sleep and Wake Up Exhausted</div>
-        <div class="card-meta">Circadian rhythm optimization, sleep architecture, and morning wakefulness</div>
-      </a>
-
-      <a class="card" href="Habits/How%20to%20Build%20Habits%20That%20Stick.html" target="_blank">
-        <div class="card-title">How to Build Habits That Stick</div>
-        <div class="card-meta">Behavior design, loop triggers, and long-term consistency</div>
-      </a>
-    </div>
-
-    <!-- Self-Discipline Section -->
-    <div class="section-title">Self-Discipline &amp; Mindset</div>
-    <div class="card-list">
-      <a class="card" href="Self-Discipline/How%20to%20Build%20Immense%20Inner%20Strength.html" target="_blank">
-        <div class="card-title">How to Build Immense Inner Strength</div>
-        <div class="card-meta">Willpower cultivation, emotional resilience, and stoic discipline</div>
-      </a>
-    </div>
-
-    <!-- Manifest Section -->
-    <div class="section-title">Manifestation &amp; Psychology</div>
-    <div class="card-list">
-      <a class="card" href="Manifest/Stanford%20Luck%20Researcher%20How%20to%20Manifest%20the%20Life%20You%20Want.html" target="_blank">
-        <div class="card-title">Stanford Luck Researcher: How to Manifest the Life You Want</div>
-        <div class="card-meta">Serendipity architecture, behavioral psychology, and opportunity generation</div>
-      </a>
-
-      <a class="card" href="Manifest/Tricks%20For%20Manifesting%20%E2%82%B91%20Crore%20For%2030%20Days%20Using%20Law%20Of%20Attraction%20-%20Mitesh%20and%20Indu%20%7CFO385%20Raj%20Shamani.html" target="_blank">
-        <div class="card-title">Tricks For Manifesting ₹1 Crore For 30 Days Using Law Of Attraction - Mitesh and Indu | FO385 Raj Shamani</div>
-        <div class="card-meta">Law of attraction methods, abundance mindset, and financial belief systems</div>
-      </a>
-
-      <a class="card" href="Manifest/Meditation%20%26%20Manifestation%20Expert%20-%20The%206%20Steps%20Rewrite%20your%20future.html" target="_blank">
-        <div class="card-title">Meditation &amp; Manifestation Expert - The 6 Steps Rewrite your future</div>
-        <div class="card-meta">Meditation routines, future visualization, and mental rewiring</div>
-      </a>
-    </div>
-
+    <!-- Linux -->
+    <section class="category-card">
+      <h2 class="category-title">Linux & Technical Guides</h2>
+      <ul class="doc-list">
+        <li><a href="linux/Linux%20Pratical%20guide.html">Linux Practical Guide</a></li>
+      </ul>
+    </section>
   </div>
 
 </body>
